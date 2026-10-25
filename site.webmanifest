@@ -1,0 +1,18 @@
+{
+  "name": "Takallum: Arabic speaking drills",
+  "short_name": "Takallum",
+  "description": "Speaking drills for Modern Standard Arabic: pattern drills, transformation chains and role-play conversations.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#EDF1F6",
+  "theme_color": "#1E4FA0",
+  "lang": "en",
+  "categories": ["education"],
+  "icons": [
+    {"src": "/icon-192.png", "sizes": "192x192", "type": "image/png"},
+    {"src": "/icon-512.png", "sizes": "512x512", "type": "image/png"},
+    {"src": "/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable"},
+    {"src": "/favicon.svg", "sizes": "any", "type": "image/svg+xml"}
+  ]
+}

@@ -1,0 +1,54 @@
+# Takallum (تَكَلُّم)
+
+> Takallum is a free web app for practising spoken Modern Standard Arabic (fusha). Learners read an English cue, say the Arabic out loud, reveal a fully vowelled model answer with text-to-speech audio, and mark themselves. Missed sentences come back sooner (spaced repetition). No sign-up; progress is saved in the browser.
+
+URL: https://takallum.ummahapps.ai/
+Publisher: Ummah Apps (https://ummahapps.ai/)
+Price: free
+Level: beginner to intermediate; learners should already read Arabic script
+Interface language: English. Practice language: Modern Standard Arabic.
+
+## Practice modes
+
+- **Swap-in drills**: 18 sentence patterns, 136 sentences. Each pattern has a short plain-English explanation and per-sentence tips.
+- **Transform chains**: 7 chains in which one sentence changes step by step (person, gender, tense, negation, question).
+- **Role-play**: 6 everyday conversations with a model reply for each of your turns. Optional "listen first" mode hides the other speaker's words.
+
+## Patterns covered
+
+Everyday phrases:
+- أُرِيدُ أَنْ … (I want to + verb)
+- أَيْنَ …؟ (Where is the …?)
+- هَلْ عِنْدَكَ …؟ (Do you have …?)
+- أُحِبُّ … (I like …)
+- هَلْ يُمْكِنُكَ أَنْ …؟ (Can you …?)
+- أَحْتَاجُ إِلَى … (I need …)
+
+Grammar builders:
+- لَمْ + present verb (didn't), including weak and hollow verbs
+- كَانَ + description (was / were), and the accusative predicate
+- كَانَ + present verb (was doing / used to)
+- مَا زَالَ and أَصْبَحَ (still / became), sisters of كَانَ
+- إِنَّ, أَنَّ, لِأَنَّ, لَكِنَّ (inna and her sisters) with nouns and attached pronouns
+- present verb + مُنْذُ (have been doing for / since)
+- يَجِبُ عَلَى … أَنْ (must / have to), لَا يَجِبُ and أَلَّا
+- الَّذِي / الَّتِي / الَّذِينَ (relative clauses, with the returning pronoun)
+- the idafa (possessive construction), including chains
+- أَفْعَلُ comparatives and superlatives (bigger than / the biggest)
+- conditionals: إِذَا (real) vs لَوْ (imagined), with فَـ and لَـ
+- numbers 1 to 20 with nouns and reverse gender agreement
+
+## Transform chains
+
+لَمْ (didn't); كَانَ (was); to go (يَذْهَبُ); to write (يَكْتُبُ); to eat (يَأْكُلُ); the weather (الْجَوُّ); to have (عِنْدِي).
+
+## Role-play conversations
+
+Talking about yesterday; meeting someone; at the shop; asking the way; visiting a home; at the doctor's.
+
+## Features
+
+- Normal and slow audio using the device's Arabic text-to-speech voice
+- Vowel marks (harakat) on by default, can be switched off
+- Keyboard shortcuts: Space to reveal, 1 for missed, 2 for got it
+- Works on phones and desktops; light and dark themes
