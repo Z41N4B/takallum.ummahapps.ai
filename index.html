@@ -306,7 +306,7 @@ const DECKS = [
    explain:[
     "[[لَمْ]] makes a past negative (didn’t), but it is followed by the present verb, not the past: [[لَمْ أَذْهَبْ]], never [[لَمْ ذَهَبْتُ]].",
     "The ending of the verb changes. Usually the final damma becomes a sukun: [[أَفْهَمُ]] becomes [[لَمْ أَفْهَمْ]].",
-    "Verbs ending in [[نَ]] (they, you plural, you to a woman) drop it: [[يَذْهَبُونَ]] becomes [[لَمْ يَذْهَبُوا]], [[تَأْكُلِينَ]] becomes [[لَمْ تَأْكُلِي]].",
+    "Verbs ending in [[ونَ]] or [[ينَ]] (they and you plural for men, you to a woman) drop the [[نَ]]: [[يَذْهَبُونَ]] becomes [[لَمْ يَذْهَبُوا]], [[تَأْكُلِينَ]] becomes [[لَمْ تَأْكُلِي]].",
     "Verbs with a long vowel in the middle shorten it: [[يَنَامُ]] → [[لَمْ يَنَمْ]], [[يَقُولُ]] → [[لَمْ يَقُلْ]], [[يَكُونُ]] → [[لَمْ يَكُنْ]]. Verbs ending in a long vowel drop it: [[يَأْتِي]] → [[لَمْ يَأْتِ]], [[يَنْسَى]] → [[لَمْ يَنْسَ]].",
     "If the next word starts with [[الْ]], the sukun becomes a kasra so the words join: [[لَمْ آكُلِ الْغَدَاءَ]].",
     "Compare the three negatives: [[لَا أَذْهَبُ]] (I don’t go), [[لَمْ أَذْهَبْ]] (I didn’t go), [[لَنْ أَذْهَبَ]] (I won’t go)."
@@ -375,7 +375,7 @@ const DECKS = [
     {id:"sis5", en:"We are still waiting.", ar:"{مَا زِلْنَا نَنْتَظِرُ}."},
     {id:"sis6", en:"The weather became hot.", ar:"{أَصْبَحَ} الْجَوُّ {حَارًّا}."},
     {id:"sis7", en:"He became a doctor.", ar:"{أَصْبَحَ} {طَبِيبًا}."},
-    {id:"sis8", en:"My Arabic has become better.", ar:"{أَصْبَحَتْ} لُغَتِي الْعَرَبِيَّةُ {أَفْضَلَ}.", tip:"[[أَفْضَلَ]] takes a plain fatha, with no tanwin. Words on the [[أَفْعَلُ]] pattern never take tanwin."}
+    {id:"sis8", en:"My Arabic has become better.", ar:"{أَصْبَحَتْ} لُغَتِي الْعَرَبِيَّةُ {أَفْضَلَ}.", tip:"[[أَفْضَلَ]] takes a plain fatha, with no tanwin. Comparatives on the [[أَفْعَلُ]] pattern never take tanwin."}
   ]},
   {id:"anna", group:"grammar", en:"because / but / that + noun", frame:"لِأَنَّ {…}",
    note:"The noun straight after takes a fatha: [[لِأَنَّ الْجَوَّ حَارٌّ]].",
@@ -407,7 +407,7 @@ const DECKS = [
     {id:"mun1", en:"I’ve been learning Arabic for a year.", ar:"{أَتَعَلَّمُ} الْعَرَبِيَّةَ مُنْذُ سَنَةٍ."},
     {id:"mun2", en:"I’ve been waiting for an hour.", ar:"{أَنْتَظِرُ} مُنْذُ سَاعَةٍ."},
     {id:"mun3", en:"He has lived here for five years.", ar:"{يَسْكُنُ} هُنَا مُنْذُ خَمْسِ سَنَوَاتٍ.", tip:"[[خَمْسِ]] has no [[ة]] because [[سَنَةٌ]] is feminine, and it ends in a kasra after [[مُنْذُ]]."},
-    {id:"mun4", en:"We’ve known each other for a long time.", ar:"{نَعْرِفُ} بَعْضَنَا مُنْذُ زَمَنٍ طَوِيلٍ."},
+    {id:"mun4", en:"We’ve known each other for a long time.", ar:"{نَعْرِفُ} بَعْضُنَا بَعْضًا مُنْذُ زَمَنٍ طَوِيلٍ."},
     {id:"mun5", en:"She has been working since the morning.", ar:"{تَعْمَلُ} مُنْذُ الصَّبَاحِ."},
     {id:"mun6", en:"How long have you been studying Arabic? (to a man)", ar:"مُنْذُ مَتَى {تَدْرُسُ} الْعَرَبِيَّةَ؟"},
     {id:"mun7", en:"I haven’t seen him for a week.", ar:"{لَمْ أَرَهُ} مُنْذُ أُسْبُوعٍ.", tip:"[[أَرَى]] (I see) drops its final ā after [[لَمْ]], then [[هُ]] (him) joins on: [[لَمْ أَرَهُ]]."}
@@ -418,7 +418,7 @@ const DECKS = [
     "[[يَجِبُ]] means “it is necessary”, and it never changes. The person goes on [[عَلَى]] (on): [[عَلَيَّ]] (me), [[عَلَيْكَ]] (you), [[عَلَيْهِ]] (him), [[عَلَيْهَا]] (her), [[عَلَيْنَا]] (us). Note the shadda in [[عَلَيَّ]]: ʿalayya.",
     "The action comes after [[أَنْ]], so it ends in a fatha, just like after [[أُرِيدُ أَنْ]]: [[يَجِبُ عَلَيَّ أَنْ أَذْهَبَ]].",
     "For the past, put [[كَانَ]] in front: [[كَانَ يَجِبُ عَلَيَّ أَنْ أَنْتَظِرَ]] (I had to wait).",
-    "[[لَا يَجِبُ]] means you don’t have to. To say you mustn’t, use [[أَلَّا]] (that not): [[يَجِبُ عَلَيْكَ أَلَّا تَتَأَخَّرَ]] (you mustn’t be late)."
+    "To say you don’t have to, use [[لَيْسَ عَلَيْكَ أَنْ]]: [[لَيْسَ عَلَيْكَ أَنْ تَأْتِيَ]]. Avoid [[لَا يَجِبُ]] here, as many people hear it as “mustn’t”. To say you mustn’t, use [[أَلَّا]] (that not): [[يَجِبُ عَلَيْكَ أَلَّا تَتَأَخَّرَ]] (you mustn’t be late)."
    ],
    items:[
     {id:"must1", en:"I have to go now.", ar:"يَجِبُ {عَلَيَّ} أَنْ {أَذْهَبَ} الْآنَ."},
@@ -426,7 +426,7 @@ const DECKS = [
     {id:"must3", en:"He has to work tomorrow.", ar:"يَجِبُ {عَلَيْهِ} أَنْ {يَعْمَلَ} غَدًا.", tip:"[[عَلَيْهِ]] has a kasra on the [[ه]] because it follows a [[ي]]."},
     {id:"must4", en:"We must study for the exam.", ar:"يَجِبُ {عَلَيْنَا} أَنْ {نَدْرُسَ} لِلِامْتِحَانِ."},
     {id:"must5", en:"She has to wake up early.", ar:"يَجِبُ {عَلَيْهَا} أَنْ {تَسْتَيْقِظَ} مُبَكِّرًا."},
-    {id:"must6", en:"You don’t have to come. (to a man)", ar:"{لَا يَجِبُ} عَلَيْكَ أَنْ {تَأْتِيَ}.", tip:"The fatha after [[أَنْ]] shows on the final [[ي]]: [[تَأْتِيَ]]."},
+    {id:"must6", en:"You don’t have to come. (to a man)", ar:"{لَيْسَ عَلَيْكَ} أَنْ {تَأْتِيَ}.", tip:"[[لَيْسَ عَلَيْكَ]] = it is not on you. The fatha after [[أَنْ]] shows on the final [[ي]]: [[تَأْتِيَ]]."},
     {id:"must7", en:"You mustn’t be late. (to a man)", ar:"يَجِبُ عَلَيْكَ {أَلَّا تَتَأَخَّرَ}.", tip:"[[أَلَّا]] is [[أَنْ]] + [[لَا]] joined together."},
     {id:"must8", en:"I had to wait.", ar:"{كَانَ} يَجِبُ عَلَيَّ أَنْ {أَنْتَظِرَ}."}
   ]},
@@ -434,7 +434,7 @@ const DECKS = [
    note:"Add a pronoun pointing back: [[الْكِتَابُ الَّذِي قَرَأْتُهُ]].",
    explain:[
     "[[الَّذِي]] (masculine), [[الَّتِي]] (feminine) and [[الَّذِينَ]] (people, plural) mean who, which or that. They match the noun before them.",
-    "If that noun is the object in the second part, Arabic adds a pronoun pointing back to it: [[الْكِتَابُ الَّذِي قَرَأْتُهُ]], literally “the book that I read it”. It feels odd in English, but Arabic needs it.",
+    "If that noun is the object in the second part, Arabic usually adds a pronoun pointing back to it: [[الْكِتَابُ الَّذِي قَرَأْتُهُ]], literally “the book that I read it”. It feels odd in English, but it is the normal way to say it.",
     "If the noun is the one doing the action, there is no extra pronoun: [[الرَّجُلُ الَّذِي جَاءَ]] (the man who came).",
     "After an indefinite noun (no [[الْ]]), leave [[الَّذِي]] out completely: [[صَدِيقٌ يَتَكَلَّمُ بِالْعَرَبِيَّةِ]] (a friend who speaks Arabic)."
    ],
@@ -518,7 +518,7 @@ const DECKS = [
     {id:"num2", en:"Three cars.", ar:"{ثَلَاثُ} سَيَّارَاتٍ.", tip:"[[سَيَّارَةٌ]] is feminine, so the number loses its [[ة]]."},
     {id:"num3", en:"Five days.", ar:"{خَمْسَةُ} أَيَّامٍ."},
     {id:"num4", en:"Seven hours.", ar:"{سَبْعُ} سَاعَاتٍ."},
-    {id:"num5", en:"Ten minutes.", ar:"{عَشْرُ} دَقَائِقَ.", tip:"[[دَقَائِقَ]] ends in a fatha instead of a kasra: plurals on this pattern never take a kasra or tanwin."},
+    {id:"num5", en:"Ten minutes.", ar:"{عَشْرُ} دَقَائِقَ.", tip:"[[دَقَائِقَ]] ends in a fatha instead of a kasra: plurals on this pattern never take tanwin, and only take a kasra when they have [[الْ]] or an owner after them."},
     {id:"num6", en:"I have two brothers.", ar:"عِنْدِي {أَخَوَانِ}.", tip:"For two, use the dual ending on its own: no number needed."},
     {id:"num7", en:"Eleven players.", ar:"{أَحَدَ عَشَرَ} لَاعِبًا.", tip:"11 matches the masculine noun, and from 11 on the noun is singular with a fatha."},
     {id:"num8", en:"Fifteen minutes.", ar:"{خَمْسَ عَشْرَةَ} دَقِيقَةً.", tip:"[[دَقِيقَةٌ]] is feminine: [[خَمْسَ]] takes the opposite (no [[ة]]), [[عَشْرَةَ]] matches it."},
