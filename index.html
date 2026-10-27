@@ -234,6 +234,7 @@ button{font:inherit;color:inherit;cursor:pointer}
 .you{align-self:flex-end;background:var(--lapis);color:var(--lapis-ink);border-bottom-right-radius:4px}
 .you .en,.you .who{color:inherit;opacity:.8}
 .you .say button{background:transparent;border-color:currentColor;color:inherit}
+.you .tip{color:var(--ink);text-align:left}
 .hid{filter:blur(7px);user-select:none}
 .show-words{background:none;border:0;color:var(--lapis);font-weight:600;padding:4px 0;font-size:.88rem}
 .turn{background:var(--surface);border:1px dashed var(--lapis);border-radius:16px;padding:14px 16px}
@@ -334,10 +335,10 @@ const DECKS = [
    items:[
     {id:"kana1", en:"I was tired.", ar:"{كُنْتُ} {مُتْعَبًا}.", tip:"[[كَانَ]] shortens to [[كُنْ]] before endings like [[تُ]]."},
     {id:"kana2", en:"He was happy.", ar:"{كَانَ} {سَعِيدًا}."},
-    {id:"kana3", en:"She was ill.", ar:"{كَانَتْ} {مَرِيضَةً}."},
+    {id:"kana3", en:"She was ill.", ar:"{كَانَتْ} {مَرِيضَةً}.", tip:"Feminine: [[كَانَتْ]], and the describing word adds [[ة]] before the fatha: [[مَرِيضَةً]]."},
     {id:"kana4", en:"We were at home.", ar:"{كُنَّا} فِي الْبَيْتِ.", tip:"A word after a preposition like [[فِي]] keeps its kasra; [[كَانَ]] doesn’t change it."},
     {id:"kana5", en:"They were late.", ar:"{كَانُوا} {مُتَأَخِّرِينَ}.", tip:"Masculine plurals change [[ونَ]] to [[ينَ]]: [[مُتَأَخِّرُونَ]] becomes [[مُتَأَخِّرِينَ]]."},
-    {id:"kana6", en:"Were you busy? (to a man)", ar:"هَلْ {كُنْتَ} {مَشْغُولًا}؟"},
+    {id:"kana6", en:"Were you busy? (to a man)", ar:"هَلْ {كُنْتَ} {مَشْغُولًا}؟", tip:"To ask, put [[هَلْ]] in front. [[كُنْتَ]] with a fatha is to a man; to a woman it is [[كُنْتِ مَشْغُولَةً]]."},
     {id:"kana7", en:"The food was delicious.", ar:"{كَانَ} الطَّعَامُ {لَذِيذًا}.", tip:"The thing being described keeps its damma: [[الطَّعَامُ]]. Only the describing word changes."},
     {id:"kana8", en:"The room was clean.", ar:"{كَانَتِ} الْغُرْفَةُ {نَظِيفَةً}.", tip:"[[كَانَتْ]] takes a kasra to join [[الْ]]: [[كَانَتِ الْغُرْفَةُ]]."}
   ]},
@@ -351,11 +352,11 @@ const DECKS = [
    ],
    items:[
     {id:"kimp1", en:"I was studying when you called.", ar:"{كُنْتُ أَدْرُسُ} عِنْدَمَا اتَّصَلْتَ.", tip:"[[عِنْدَمَا]] (when) is followed by a past verb here: [[اتَّصَلْتَ]]."},
-    {id:"kimp2", en:"He used to play football.", ar:"{كَانَ يَلْعَبُ} كُرَةَ الْقَدَمِ."},
+    {id:"kimp2", en:"He used to play football.", ar:"{كَانَ يَلْعَبُ} كُرَةَ الْقَدَمِ.", tip:"[[كُرَةُ الْقَدَمِ]] is literally “ball of the foot”, an idafa."},
     {id:"kimp3", en:"We used to live in London.", ar:"{كُنَّا نَسْكُنُ} فِي لَنْدَنَ.", tip:"[[لَنْدَنَ]] ends in a fatha after [[فِي]]: like many foreign names, it never takes a kasra or tanwin."},
     {id:"kimp4", en:"She was reading a book.", ar:"{كَانَتْ تَقْرَأُ} كِتَابًا."},
     {id:"kimp5", en:"They used to go to the market every day.", ar:"{كَانُوا يَذْهَبُونَ} إِلَى السُّوقِ كُلَّ يَوْمٍ.", tip:"Both words are plural: [[كَانُوا]] and [[يَذْهَبُونَ]]. The [[نَ]] stays, because there is no [[لَمْ]] or [[أَنْ]]."},
-    {id:"kimp6", en:"What were you doing? (to a man)", ar:"مَاذَا {كُنْتَ تَفْعَلُ}؟"},
+    {id:"kimp6", en:"What were you doing? (to a man)", ar:"مَاذَا {كُنْتَ تَفْعَلُ}؟", tip:"[[مَاذَا]] asks “what” before a verb. Before a noun, use [[مَا]]: [[مَا اسْمُكَ؟]]"},
     {id:"kimp7", en:"I used to drink coffee every morning.", ar:"{كُنْتُ أَشْرَبُ} الْقَهْوَةَ كُلَّ صَبَاحٍ."}
   ]},
   {id:"sisters", group:"grammar", en:"still / became", frame:"مَا زَالَ / أَصْبَحَ {…}",
@@ -368,11 +369,11 @@ const DECKS = [
     "Like [[كَانَ]], they can take a present verb: [[مَا زِلْنَا نَنْتَظِرُ]] (we’re still waiting)."
    ],
    items:[
-    {id:"sis1", en:"The weather is still cold.", ar:"{مَا زَالَ} الْجَوُّ {بَارِدًا}."},
-    {id:"sis2", en:"He is still a student.", ar:"{مَا زَالَ} {طَالِبًا}."},
+    {id:"sis1", en:"The weather is still cold.", ar:"{مَا زَالَ} الْجَوُّ {بَارِدًا}.", tip:"[[الْجَوُّ]] keeps its damma. Only the describing word changes: [[بَارِدًا]]."},
+    {id:"sis2", en:"He is still a student.", ar:"{مَا زَالَ} {طَالِبًا}.", tip:"“He” is inside the verb, so no [[هُوَ]] is needed. A noun after [[مَا زَالَ]] takes the fatha too: [[طَالِبًا]]."},
     {id:"sis3", en:"I’m still tired.", ar:"{مَا زِلْتُ} {مُتْعَبًا}.", tip:"Before endings [[زَالَ]] shortens to [[زِلْ]]: [[مَا زِلْتُ]]."},
-    {id:"sis4", en:"She is still at work.", ar:"{مَا زَالَتْ} فِي الْعَمَلِ."},
-    {id:"sis5", en:"We are still waiting.", ar:"{مَا زِلْنَا نَنْتَظِرُ}."},
+    {id:"sis4", en:"She is still at work.", ar:"{مَا زَالَتْ} فِي الْعَمَلِ.", tip:"[[فِي الْعَمَلِ]] comes after a preposition, so nothing changes to a fatha."},
+    {id:"sis5", en:"We are still waiting.", ar:"{مَا زِلْنَا نَنْتَظِرُ}.", tip:"A present verb after [[مَا زِلْنَا]] keeps its damma: [[نَنْتَظِرُ]]."},
     {id:"sis6", en:"The weather became hot.", ar:"{أَصْبَحَ} الْجَوُّ {حَارًّا}."},
     {id:"sis7", en:"He became a doctor.", ar:"{أَصْبَحَ} {طَبِيبًا}."},
     {id:"sis8", en:"My Arabic has become better.", ar:"{أَصْبَحَتْ} لُغَتِي الْعَرَبِيَّةُ {أَفْضَلَ}.", tip:"[[أَفْضَلَ]] takes a plain fatha, with no tanwin. Comparatives on the [[أَفْعَلُ]] pattern never take tanwin."}
@@ -388,12 +389,12 @@ const DECKS = [
    items:[
     {id:"anna1", en:"Because the weather is hot.", ar:"لِأَنَّ {الْجَوَّ} حَارٌّ.", tip:"[[الْجَوُّ]] becomes [[الْجَوَّ]]. [[حَارٌّ]] doesn’t change."},
     {id:"anna2", en:"Because I’m tired.", ar:"{لِأَنَّنِي} مُتْعَبٌ.", tip:"[[أَنَا]] becomes [[نِي]] and joins on: [[لِأَنَّنِي]]."},
-    {id:"anna3", en:"But he is busy.", ar:"{لَكِنَّهُ} مَشْغُولٌ."},
-    {id:"anna4", en:"But the food is delicious.", ar:"لَكِنَّ {الطَّعَامَ} لَذِيذٌ."},
+    {id:"anna3", en:"But he is busy.", ar:"{لَكِنَّهُ} مَشْغُولٌ.", tip:"[[هُوَ]] becomes [[هُ]] and joins on: [[لَكِنَّهُ]]."},
+    {id:"anna4", en:"But the food is delicious.", ar:"لَكِنَّ {الطَّعَامَ} لَذِيذٌ.", tip:"The same pattern as [[لِأَنَّ]]: [[الطَّعَامُ]] becomes [[الطَّعَامَ]], and [[لَذِيذٌ]] doesn’t change."},
     {id:"anna5", en:"The lesson really is easy.", ar:"إِنَّ {الدَّرْسَ} سَهْلٌ.", tip:"[[إِنَّ]] adds emphasis at the start of a statement. It is very common in writing and speeches."},
     {id:"anna6", en:"I know that Arabic is beautiful.", ar:"أَعْرِفُ أَنَّ {الْعَرَبِيَّةَ} جَمِيلَةٌ.", tip:"After verbs like know, think and hear, “that” is [[أَنَّ]] with a fatha on the hamza."},
-    {id:"anna7", en:"I think that he is right.", ar:"أَظُنُّ {أَنَّهُ} عَلَى حَقٍّ."},
-    {id:"anna8", en:"Because we are students.", ar:"{لِأَنَّنَا} طُلَّابٌ."}
+    {id:"anna7", en:"I think that he is right.", ar:"أَظُنُّ {أَنَّهُ} عَلَى حَقٍّ.", tip:"[[أَنَّ]] + [[هُ]] = [[أَنَّهُ]] (that he). [[عَلَى حَقٍّ]] is literally “on truth”: in the right."},
+    {id:"anna8", en:"Because we are students.", ar:"{لِأَنَّنَا} طُلَّابٌ.", tip:"[[نَحْنُ]] becomes [[نَا]] and joins on: [[لِأَنَّنَا]]."}
   ]},
   {id:"mundhu", group:"grammar", en:"have been doing for…", frame:"يَفْعَلُ مُنْذُ {…}",
    note:"Use the present verb, not the past: [[أَتَعَلَّمُ]].",
@@ -404,12 +405,12 @@ const DECKS = [
     "For something that hasn’t happened, use [[لَمْ]]: [[لَمْ أَرَهُ مُنْذُ أُسْبُوعٍ]] (I haven’t seen him for a week)."
    ],
    items:[
-    {id:"mun1", en:"I’ve been learning Arabic for a year.", ar:"{أَتَعَلَّمُ} الْعَرَبِيَّةَ مُنْذُ سَنَةٍ."},
+    {id:"mun1", en:"I’ve been learning Arabic for a year.", ar:"{أَتَعَلَّمُ} الْعَرَبِيَّةَ مُنْذُ سَنَةٍ.", tip:"[[أَتَعَلَّمُ]] is present, even though English says “have been learning”."},
     {id:"mun2", en:"I’ve been waiting for an hour.", ar:"{أَنْتَظِرُ} مُنْذُ سَاعَةٍ."},
     {id:"mun3", en:"He has lived here for five years.", ar:"{يَسْكُنُ} هُنَا مُنْذُ خَمْسِ سَنَوَاتٍ.", tip:"[[خَمْسِ]] has no [[ة]] because [[سَنَةٌ]] is feminine, and it ends in a kasra after [[مُنْذُ]]."},
-    {id:"mun4", en:"We’ve known each other for a long time.", ar:"{نَعْرِفُ} بَعْضُنَا بَعْضًا مُنْذُ زَمَنٍ طَوِيلٍ."},
-    {id:"mun5", en:"She has been working since the morning.", ar:"{تَعْمَلُ} مُنْذُ الصَّبَاحِ."},
-    {id:"mun6", en:"How long have you been studying Arabic? (to a man)", ar:"مُنْذُ مَتَى {تَدْرُسُ} الْعَرَبِيَّةَ؟"},
+    {id:"mun4", en:"We’ve known each other for a long time.", ar:"{نَعْرِفُ} بَعْضُنَا بَعْضًا مُنْذُ زَمَنٍ طَوِيلٍ.", tip:"[[بَعْضُنَا بَعْضًا]] = “some of us, some” = each other. In speech you will often hear just [[بَعْضَنَا]]."},
+    {id:"mun5", en:"She has been working since the morning.", ar:"{تَعْمَلُ} مُنْذُ الصَّبَاحِ.", tip:"Here [[مُنْذُ]] gives a starting point (since), not a length of time (for)."},
+    {id:"mun6", en:"How long have you been studying Arabic? (to a man)", ar:"مُنْذُ مَتَى {تَدْرُسُ} الْعَرَبِيَّةَ؟", tip:"[[مُنْذُ مَتَى]] (since when) is the usual way to ask “how long”."},
     {id:"mun7", en:"I haven’t seen him for a week.", ar:"{لَمْ أَرَهُ} مُنْذُ أُسْبُوعٍ.", tip:"[[أَرَى]] (I see) drops its final ā after [[لَمْ]], then [[هُ]] (him) joins on: [[لَمْ أَرَهُ]]."}
   ]},
   {id:"must", group:"grammar", en:"I have to / must", frame:"يَجِبُ عَلَيَّ أَنْ {…}",
@@ -421,10 +422,10 @@ const DECKS = [
     "To say you don’t have to, use [[لَيْسَ عَلَيْكَ أَنْ]]: [[لَيْسَ عَلَيْكَ أَنْ تَأْتِيَ]]. Avoid [[لَا يَجِبُ]] here, as many people hear it as “mustn’t”. To say you mustn’t, use [[أَلَّا]] (that not): [[يَجِبُ عَلَيْكَ أَلَّا تَتَأَخَّرَ]] (you mustn’t be late)."
    ],
    items:[
-    {id:"must1", en:"I have to go now.", ar:"يَجِبُ {عَلَيَّ} أَنْ {أَذْهَبَ} الْآنَ."},
-    {id:"must2", en:"You have to rest. (to a man)", ar:"يَجِبُ {عَلَيْكَ} أَنْ {تَسْتَرِيحَ}."},
+    {id:"must1", en:"I have to go now.", ar:"يَجِبُ {عَلَيَّ} أَنْ {أَذْهَبَ} الْآنَ.", tip:"[[عَلَى]] + me = [[عَلَيَّ]], with a shadda."},
+    {id:"must2", en:"You have to rest. (to a man)", ar:"يَجِبُ {عَلَيْكَ} أَنْ {تَسْتَرِيحَ}.", tip:"To a woman: [[يَجِبُ عَلَيْكِ أَنْ تَسْتَرِيحِي]]. The [[نَ]] of [[تَسْتَرِيحِينَ]] drops after [[أَنْ]]."},
     {id:"must3", en:"He has to work tomorrow.", ar:"يَجِبُ {عَلَيْهِ} أَنْ {يَعْمَلَ} غَدًا.", tip:"[[عَلَيْهِ]] has a kasra on the [[ه]] because it follows a [[ي]]."},
-    {id:"must4", en:"We must study for the exam.", ar:"يَجِبُ {عَلَيْنَا} أَنْ {نَدْرُسَ} لِلِامْتِحَانِ."},
+    {id:"must4", en:"We must study for the exam.", ar:"يَجِبُ {عَلَيْنَا} أَنْ {نَدْرُسَ} لِلِامْتِحَانِ.", tip:"[[لِلِامْتِحَانِ]] = [[لِ]] + [[الِامْتِحَانِ]]. The alif of [[الْ]] drops after [[لِ]]."},
     {id:"must5", en:"She has to wake up early.", ar:"يَجِبُ {عَلَيْهَا} أَنْ {تَسْتَيْقِظَ} مُبَكِّرًا."},
     {id:"must6", en:"You don’t have to come. (to a man)", ar:"{لَيْسَ عَلَيْكَ} أَنْ {تَأْتِيَ}.", tip:"[[لَيْسَ عَلَيْكَ]] = it is not on you. The fatha after [[أَنْ]] shows on the final [[ي]]: [[تَأْتِيَ]]."},
     {id:"must7", en:"You mustn’t be late. (to a man)", ar:"يَجِبُ عَلَيْكَ {أَلَّا تَتَأَخَّرَ}.", tip:"[[أَلَّا]] is [[أَنْ]] + [[لَا]] joined together."},
@@ -442,11 +443,11 @@ const DECKS = [
     {id:"rel1", en:"This is the book that I read.", ar:"هَذَا هُوَ الْكِتَابُ {الَّذِي قَرَأْتُهُ}.", tip:"[[هُ]] at the end of [[قَرَأْتُهُ]] points back to the book."},
     {id:"rel2", en:"The man who came is my brother.", ar:"الرَّجُلُ {الَّذِي جَاءَ} أَخِي.", tip:"No pointing-back pronoun: the man is the one who did the coming."},
     {id:"rel3", en:"The car that I bought is red.", ar:"السَّيَّارَةُ {الَّتِي اشْتَرَيْتُهَا} حَمْرَاءُ.", tip:"Feminine: [[الَّتِي]], and the pronoun is [[هَا]]."},
-    {id:"rel4", en:"The teacher who teaches us is Egyptian.", ar:"الْمُعَلِّمُ {الَّذِي يُدَرِّسُنَا} مِصْرِيٌّ."},
+    {id:"rel4", en:"The teacher who teaches us is Egyptian.", ar:"الْمُعَلِّمُ {الَّذِي يُدَرِّسُنَا} مِصْرِيٌّ.", tip:"The [[نَا]] in [[يُدَرِّسُنَا]] means “us”. It isn’t a pointing-back pronoun: the teacher is the one doing the teaching."},
     {id:"rel5", en:"I have a friend who speaks Arabic.", ar:"عِنْدِي صَدِيقٌ {يَتَكَلَّمُ بِالْعَرَبِيَّةِ}.", tip:"[[صَدِيقٌ]] has no [[الْ]], so there is no [[الَّذِي]]."},
     {id:"rel6", en:"I read a book that I liked.", ar:"قَرَأْتُ كِتَابًا {أَعْجَبَنِي}.", tip:"Indefinite again, so no [[الَّذِي]]. [[أَعْجَبَنِي]] means “it pleased me”."},
-    {id:"rel7", en:"The students who passed are happy.", ar:"الطُّلَّابُ {الَّذِينَ نَجَحُوا} سُعَدَاءُ."},
-    {id:"rel8", en:"Where is the bag that I left here?", ar:"أَيْنَ الْحَقِيبَةُ {الَّتِي تَرَكْتُهَا} هُنَا؟"}
+    {id:"rel7", en:"The students who passed are happy.", ar:"الطُّلَّابُ {الَّذِينَ نَجَحُوا} سُعَدَاءُ.", tip:"Plural people take [[الَّذِينَ]]. [[سُعَدَاءُ]], the plural of [[سَعِيدٌ]], never takes tanwin."},
+    {id:"rel8", en:"Where is the bag that I left here?", ar:"أَيْنَ الْحَقِيبَةُ {الَّتِي تَرَكْتُهَا} هُنَا؟", tip:"[[الْحَقِيبَةُ]] is feminine, so [[الَّتِي]] and the pronoun [[هَا]]."}
   ]},
   {id:"idafa", group:"grammar", en:"the … of … (possession)", frame:"بَابُ {…}",
    note:"The first word has no [[الْ]]. The second ends in a kasra.",
@@ -458,13 +459,13 @@ const DECKS = [
     "A [[ة]] on a first word is pronounced as t: [[سَيَّارَةُ صَدِيقِي]] = sayyāratu ṣadīqī."
    ],
    items:[
-    {id:"ida1", en:"The door of the house.", ar:"بَابُ {الْبَيْتِ}."},
+    {id:"ida1", en:"The door of the house.", ar:"بَابُ {الْبَيْتِ}.", tip:"[[بَابُ]] has no [[الْ]], but still means “the door”."},
     {id:"ida2", en:"My friend’s car.", ar:"سَيَّارَةُ {صَدِيقِي}.", tip:"Say the [[ة]] as t: sayyāratu."},
-    {id:"ida3", en:"The city centre.", ar:"وَسَطُ {الْمَدِينَةِ}."},
+    {id:"ida3", en:"The city centre.", ar:"وَسَطُ {الْمَدِينَةِ}.", tip:"[[وَسَطُ]] = middle. “Middle of the city” is the usual way to say city centre."},
     {id:"ida4", en:"The door of my friend’s house.", ar:"بَابُ {بَيْتِ صَدِيقِي}.", tip:"A chain of three: only the last word, [[صَدِيقِي]], carries the pronoun."},
-    {id:"ida5", en:"The teacher’s book is on the table.", ar:"كِتَابُ {الْمُعَلِّمِ} عَلَى الطَّاوِلَةِ."},
+    {id:"ida5", en:"The teacher’s book is on the table.", ar:"كِتَابُ {الْمُعَلِّمِ} عَلَى الطَّاوِلَةِ.", tip:"Only the first word’s ending changes with its role in the sentence. [[الْمُعَلِّمِ]] always stays in the kasra."},
     {id:"ida6", en:"I went to the doctor’s clinic.", ar:"ذَهَبْتُ إِلَى عِيَادَةِ {الطَّبِيبِ}.", tip:"[[عِيَادَةِ]] takes a kasra from [[إِلَى]], but still has no [[الْ]] or tanwin."},
-    {id:"ida7", en:"The name of the street.", ar:"اِسْمُ {الشَّارِعِ}."},
+    {id:"ida7", en:"The name of the street.", ar:"اِسْمُ {الشَّارِعِ}.", tip:"The alif of [[اِسْمُ]] is only said at the start. After a vowel it is silent: [[مَا اسْمُكَ؟]]"},
     {id:"ida8", en:"The car key.", ar:"مِفْتَاحُ {السَّيَّارَةِ}.", tip:"English puts the owner first (car key). Arabic puts it second: key of the car."}
   ]},
   {id:"afal", group:"grammar", en:"bigger than / the biggest", frame:"أَكْبَرُ مِنْ {…}",
@@ -476,13 +477,13 @@ const DECKS = [
     "For “the biggest”, put it before a singular noun with no [[الْ]]: [[أَكْبَرُ مَدِينَةٍ]] (the biggest city). On its own, give it [[الْ]]: [[الْأَسْرَعُ]] (the fastest)."
    ],
    items:[
-    {id:"afal1", en:"Cairo is bigger than Amman.", ar:"الْقَاهِرَةُ {أَكْبَرُ مِنْ} عَمَّانَ."},
+    {id:"afal1", en:"Cairo is bigger than Amman.", ar:"الْقَاهِرَةُ {أَكْبَرُ مِنْ} عَمَّانَ.", tip:"[[عَمَّانَ]] ends in a fatha after [[مِنْ]]: like [[عُثْمَانُ]], this name never takes a kasra or tanwin."},
     {id:"afal2", en:"My brother is older than me.", ar:"أَخِي {أَكْبَرُ مِنِّي}.", tip:"[[مِنْ]] + me = [[مِنِّي]]. [[أَكْبَرُ]] also means older."},
     {id:"afal3", en:"My sister is taller than me.", ar:"أُخْتِي {أَطْوَلُ مِنِّي}.", tip:"Still [[أَطْوَلُ]], even for a woman."},
     {id:"afal4", en:"Arabic is harder than English.", ar:"الْعَرَبِيَّةُ {أَصْعَبُ مِنَ} الْإِنْجِلِيزِيَّةِ.", tip:"[[مِنْ]] becomes [[مِنَ]] before [[الْ]]."},
-    {id:"afal5", en:"Tea is better than coffee.", ar:"الشَّايُ {أَفْضَلُ مِنَ} الْقَهْوَةِ."},
+    {id:"afal5", en:"Tea is better than coffee.", ar:"الشَّايُ {أَفْضَلُ مِنَ} الْقَهْوَةِ.", tip:"[[أَفْضَلُ]] = better. [[أَحْسَنُ]] means better too."},
     {id:"afal6", en:"This is the biggest city.", ar:"هَذِهِ {أَكْبَرُ مَدِينَةٍ}.", tip:"Superlative + a singular noun with no [[الْ]], ending in a kasra."},
-    {id:"afal7", en:"He is the best student in the class.", ar:"هُوَ {أَفْضَلُ طَالِبٍ} فِي الصَّفِّ."},
+    {id:"afal7", en:"He is the best student in the class.", ar:"هُوَ {أَفْضَلُ طَالِبٍ} فِي الصَّفِّ.", tip:"Superlative + a singular noun with no [[الْ]], ending in a kasra: [[طَالِبٍ]]."},
     {id:"afal8", en:"The train is the fastest.", ar:"الْقِطَارُ هُوَ {الْأَسْرَعُ}.", tip:"On its own, the superlative takes [[الْ]]. [[هُوَ]] in the middle makes it clear this is a full sentence."}
   ]},
   {id:"if", group:"grammar", en:"if… (إِذَا / لَوْ)", frame:"إِذَا / لَوْ {…}",
@@ -516,23 +517,23 @@ const DECKS = [
    items:[
     {id:"num1", en:"Three books.", ar:"{ثَلَاثَةُ} كُتُبٍ.", tip:"[[كِتَابٌ]] is masculine, so the number takes [[ة]]."},
     {id:"num2", en:"Three cars.", ar:"{ثَلَاثُ} سَيَّارَاتٍ.", tip:"[[سَيَّارَةٌ]] is feminine, so the number loses its [[ة]]."},
-    {id:"num3", en:"Five days.", ar:"{خَمْسَةُ} أَيَّامٍ."},
-    {id:"num4", en:"Seven hours.", ar:"{سَبْعُ} سَاعَاتٍ."},
+    {id:"num3", en:"Five days.", ar:"{خَمْسَةُ} أَيَّامٍ.", tip:"[[يَوْمٌ]] is masculine, so [[خَمْسَةُ]] takes [[ة]]."},
+    {id:"num4", en:"Seven hours.", ar:"{سَبْعُ} سَاعَاتٍ.", tip:"[[سَاعَةٌ]] is feminine, so [[سَبْعُ]] has no [[ة]]."},
     {id:"num5", en:"Ten minutes.", ar:"{عَشْرُ} دَقَائِقَ.", tip:"[[دَقَائِقَ]] ends in a fatha instead of a kasra: plurals on this pattern never take tanwin, and only take a kasra when they have [[الْ]] or an owner after them."},
     {id:"num6", en:"I have two brothers.", ar:"عِنْدِي {أَخَوَانِ}.", tip:"For two, use the dual ending on its own: no number needed."},
     {id:"num7", en:"Eleven players.", ar:"{أَحَدَ عَشَرَ} لَاعِبًا.", tip:"11 matches the masculine noun, and from 11 on the noun is singular with a fatha."},
     {id:"num8", en:"Fifteen minutes.", ar:"{خَمْسَ عَشْرَةَ} دَقِيقَةً.", tip:"[[دَقِيقَةٌ]] is feminine: [[خَمْسَ]] takes the opposite (no [[ة]]), [[عَشْرَةَ]] matches it."},
-    {id:"num9", en:"Twenty students.", ar:"{عِشْرُونَ} طَالِبًا."}
+    {id:"num9", en:"Twenty students.", ar:"{عِشْرُونَ} طَالِبًا.", tip:"[[عِشْرُونَ]] doesn’t change for gender: [[عِشْرُونَ طَالِبَةً]] (twenty female students)."}
   ]},
   {id:"want", en:"I want to + verb", frame:"أُرِيدُ أَنْ {…}",
    note:"After [[أَنْ]] the verb ends in a fatha: [[أَشْرَبَ]], not [[أَشْرَبُ]].",
    items:[
-    {id:"want1", en:"I want to drink water.", ar:"أُرِيدُ أَنْ {أَشْرَبَ مَاءً}."},
-    {id:"want2", en:"I want to eat bread.", ar:"أُرِيدُ أَنْ {آكُلَ خُبْزًا}."},
+    {id:"want1", en:"I want to drink water.", ar:"أُرِيدُ أَنْ {أَشْرَبَ مَاءً}.", tip:"[[مَاءً]] is what you drink, so it takes a fatha with tanwin."},
+    {id:"want2", en:"I want to eat bread.", ar:"أُرِيدُ أَنْ {آكُلَ خُبْزًا}.", tip:"[[آكُلَ]] is [[أَ]] (I) + [[أْكُلَ]]: the two hamzas merge into [[آ]]."},
     {id:"want3", en:"I want to go to the market.", ar:"أُرِيدُ أَنْ {أَذْهَبَ إِلَى السُّوقِ}."},
     {id:"want4", en:"I want to read a book.", ar:"أُرِيدُ أَنْ {أَقْرَأَ كِتَابًا}."},
-    {id:"want5", en:"I want to sleep.", ar:"أُرِيدُ أَنْ {أَنَامَ}."},
-    {id:"want6", en:"I want to speak Arabic.", ar:"أُرِيدُ أَنْ {أَتَكَلَّمَ بِالْعَرَبِيَّةِ}."},
+    {id:"want5", en:"I want to sleep.", ar:"أُرِيدُ أَنْ {أَنَامَ}.", tip:"The long ā stays after [[أَنْ]]. It only drops after [[لَمْ]]: [[لَمْ أَنَمْ]]."},
+    {id:"want6", en:"I want to speak Arabic.", ar:"أُرِيدُ أَنْ {أَتَكَلَّمَ بِالْعَرَبِيَّةِ}.", tip:"You can also leave out [[بِ]]: [[أَتَكَلَّمَ الْعَرَبِيَّةَ]]."},
     {id:"want7", en:"I want to learn quickly.", ar:"أُرِيدُ أَنْ {أَتَعَلَّمَ بِسُرْعَةٍ}."},
     {id:"want8", en:"I want to rest a little.", ar:"أُرِيدُ أَنْ {أَسْتَرِيحَ قَلِيلًا}."}
   ]},
@@ -540,10 +541,10 @@ const DECKS = [
    note:"Use the place with [[الْ]]: [[أَيْنَ الْفُنْدُقُ؟]]",
    items:[
     {id:"where1", en:"Where is the mosque?", ar:"أَيْنَ {الْمَسْجِدُ}؟"},
-    {id:"where2", en:"Where is the station?", ar:"أَيْنَ {الْمَحَطَّةُ}؟"},
+    {id:"where2", en:"Where is the station?", ar:"أَيْنَ {الْمَحَطَّةُ}؟", tip:"[[مَحَطَّةُ الْقِطَارِ]] = the train station; [[مَحَطَّةُ الْحَافِلَاتِ]] = the bus station."},
     {id:"where3", en:"Where is the hotel?", ar:"أَيْنَ {الْفُنْدُقُ}؟"},
-    {id:"where4", en:"Where is the bathroom?", ar:"أَيْنَ {الْحَمَّامُ}؟"},
-    {id:"where5", en:"Where is the hospital?", ar:"أَيْنَ {الْمُسْتَشْفَى}؟"},
+    {id:"where4", en:"Where is the bathroom?", ar:"أَيْنَ {الْحَمَّامُ}؟", tip:"[[الْحَمَّامُ]] means the bathroom or toilet. [[دَوْرَةُ الْمِيَاهِ]] is a more polite word for the toilet."},
+    {id:"where5", en:"Where is the hospital?", ar:"أَيْنَ {الْمُسْتَشْفَى}؟", tip:"[[الْمُسْتَشْفَى]] ends in [[ى]], so its ending never changes."},
     {id:"where6", en:"Where is the market?", ar:"أَيْنَ {السُّوقُ}؟"},
     {id:"where7", en:"Where is the library?", ar:"أَيْنَ {الْمَكْتَبَةُ}؟"},
     {id:"where8", en:"Where is the airport?", ar:"أَيْنَ {الْمَطَارُ}؟"}
@@ -551,10 +552,10 @@ const DECKS = [
   {id:"have", en:"Do you have + thing?", frame:"هَلْ عِنْدَكَ {…}؟",
    note:"This is to a man. To a woman, say [[عِنْدَكِ]].",
    items:[
-    {id:"have1", en:"Do you have water?", ar:"هَلْ عِنْدَكَ {مَاءٌ}؟"},
+    {id:"have1", en:"Do you have water?", ar:"هَلْ عِنْدَكَ {مَاءٌ}؟", tip:"Literally “is there water with you?”, so [[مَاءٌ]] keeps its damma."},
     {id:"have2", en:"Do you have a pen?", ar:"هَلْ عِنْدَكَ {قَلَمٌ}؟"},
     {id:"have3", en:"Do you have time?", ar:"هَلْ عِنْدَكَ {وَقْتٌ}؟"},
-    {id:"have4", en:"Do you have a free room?", ar:"هَلْ عِنْدَكَ {غُرْفَةٌ شَاغِرَةٌ}؟"},
+    {id:"have4", en:"Do you have a free room?", ar:"هَلْ عِنْدَكَ {غُرْفَةٌ شَاغِرَةٌ}؟", tip:"[[شَاغِرَةٌ]] (vacant) matches the feminine [[غُرْفَةٌ]]."},
     {id:"have5", en:"Do you have a question?", ar:"هَلْ عِنْدَكَ {سُؤَالٌ}؟"},
     {id:"have6", en:"Do you have a map?", ar:"هَلْ عِنْدَكَ {خَرِيطَةٌ}؟"},
     {id:"have7", en:"Do you have a car?", ar:"هَلْ عِنْدَكَ {سَيَّارَةٌ}؟"}
@@ -562,21 +563,21 @@ const DECKS = [
   {id:"like", en:"I like + thing", frame:"أُحِبُّ {…}",
    note:"The thing you like ends in a fatha: [[أُحِبُّ الْقَهْوَةَ]].",
    items:[
-    {id:"like1", en:"I like coffee.", ar:"أُحِبُّ {الْقَهْوَةَ}."},
+    {id:"like1", en:"I like coffee.", ar:"أُحِبُّ {الْقَهْوَةَ}.", tip:"Arabic uses [[الْ]] for things in general, where English uses no “the”."},
     {id:"like2", en:"I like tea.", ar:"أُحِبُّ {الشَّايَ}."},
     {id:"like3", en:"I like reading.", ar:"أُحِبُّ {الْقِرَاءَةَ}."},
     {id:"like4", en:"I like football.", ar:"أُحِبُّ {كُرَةَ الْقَدَمِ}."},
     {id:"like5", en:"I like travelling.", ar:"أُحِبُّ {السَّفَرَ}."},
-    {id:"like6", en:"I like this city.", ar:"أُحِبُّ {هَذِهِ الْمَدِينَةَ}."},
+    {id:"like6", en:"I like this city.", ar:"أُحِبُّ {هَذِهِ الْمَدِينَةَ}.", tip:"[[هَذِهِ]] goes with the feminine [[الْمَدِينَةَ]]. The fatha goes on the noun; [[هَذِهِ]] never changes."},
     {id:"like7", en:"I like the Arabic language.", ar:"أُحِبُّ {اللُّغَةَ الْعَرَبِيَّةَ}."}
   ]},
   {id:"can", en:"Can you + verb?", frame:"هَلْ يُمْكِنُكَ أَنْ {…}؟",
    note:"This is to a man. To a woman: [[هَلْ يُمْكِنُكِ أَنْ تُسَاعِدِينِي؟]]",
    items:[
-    {id:"can1", en:"Can you help me?", ar:"هَلْ يُمْكِنُكَ أَنْ {تُسَاعِدَنِي}؟"},
+    {id:"can1", en:"Can you help me?", ar:"هَلْ يُمْكِنُكَ أَنْ {تُسَاعِدَنِي}؟", tip:"[[يُمْكِنُكَ]] = it is possible for you. The [[نِي]] on [[تُسَاعِدَنِي]] means “me”."},
     {id:"can2", en:"Can you repeat that?", ar:"هَلْ يُمْكِنُكَ أَنْ {تُكَرِّرَ ذَلِكَ}؟"},
     {id:"can3", en:"Can you speak slowly?", ar:"هَلْ يُمْكِنُكَ أَنْ {تَتَكَلَّمَ بِبُطْءٍ}؟"},
-    {id:"can4", en:"Can you write it for me?", ar:"هَلْ يُمْكِنُكَ أَنْ {تَكْتُبَهُ لِي}؟"},
+    {id:"can4", en:"Can you write it for me?", ar:"هَلْ يُمْكِنُكَ أَنْ {تَكْتُبَهُ لِي}؟", tip:"[[هُ]] = it, for something masculine like a word or a name."},
     {id:"can5", en:"Can you wait a little?", ar:"هَلْ يُمْكِنُكَ أَنْ {تَنْتَظِرَ قَلِيلًا}؟"},
     {id:"can6", en:"Can you explain again?", ar:"هَلْ يُمْكِنُكَ أَنْ {تَشْرَحَ مَرَّةً أُخْرَى}؟"}
   ]},
@@ -585,9 +586,9 @@ const DECKS = [
    items:[
     {id:"need1", en:"I need help.", ar:"أَحْتَاجُ إِلَى {مُسَاعَدَةٍ}."},
     {id:"need2", en:"I need a doctor.", ar:"أَحْتَاجُ إِلَى {طَبِيبٍ}."},
-    {id:"need3", en:"I need a taxi.", ar:"أَحْتَاجُ إِلَى {سَيَّارَةِ أُجْرَةٍ}."},
+    {id:"need3", en:"I need a taxi.", ar:"أَحْتَاجُ إِلَى {سَيَّارَةِ أُجْرَةٍ}.", tip:"Literally “a car of hire”. [[تَاكْسِي]] is understood too."},
     {id:"need4", en:"I need some rest.", ar:"أَحْتَاجُ إِلَى {رَاحَةٍ}."},
-    {id:"need5", en:"I need more time.", ar:"أَحْتَاجُ إِلَى {مَزِيدٍ مِنَ الْوَقْتِ}."},
+    {id:"need5", en:"I need more time.", ar:"أَحْتَاجُ إِلَى {مَزِيدٍ مِنَ الْوَقْتِ}.", tip:"[[مَزِيدٌ مِنْ]] = more of."},
     {id:"need6", en:"I need a dictionary.", ar:"أَحْتَاجُ إِلَى {قَامُوسٍ}."}
   ]}
 ];
@@ -633,8 +634,8 @@ const CHAINS = [
     {i:"Make it past", en:"I went to school.", ar:"{ذَهَبْتُ} إِلَى الْمَدْرَسَةِ."},
     {i:"Make the past negative", en:"I didn’t go to school.", ar:"{لَمْ أَذْهَبْ} إِلَى الْمَدْرَسَةِ.",
      tip:"[[لَمْ]] + present verb = didn’t. The ending becomes a sukun."},
-    {i:"Ask a man the question", en:"Did you go to school?", ar:"{هَلْ ذَهَبْتَ} إِلَى الْمَدْرَسَةِ؟"},
-    {i:"Make it future, with we", en:"We will go to school.", ar:"{سَنَذْهَبُ} إِلَى الْمَدْرَسَةِ."}
+    {i:"Ask a man the question", en:"Did you go to school?", ar:"{هَلْ ذَهَبْتَ} إِلَى الْمَدْرَسَةِ؟", tip:"[[هَلْ]] turns a sentence into a yes/no question. Nothing else changes."},
+    {i:"Make it future, with we", en:"We will go to school.", ar:"{سَنَذْهَبُ} إِلَى الْمَدْرَسَةِ.", tip:"[[سَـ]] + present verb = will."}
   ]},
   {id:"write", en:"To write", ar:"يَكْتُبُ", steps:[
     {i:"Starting sentence", en:"I write a letter.", ar:"{أَكْتُبُ} رِسَالَةً."},
@@ -651,7 +652,7 @@ const CHAINS = [
   {id:"eat", en:"To eat", ar:"يَأْكُلُ", steps:[
     {i:"Starting sentence", en:"I eat breakfast.", ar:"{آكُلُ} الْفُطُورَ."},
     {i:"Ask a man the question", en:"Do you eat breakfast?", ar:"{هَلْ تَأْكُلُ} الْفُطُورَ؟"},
-    {i:"Ask a woman instead", en:"Do you eat breakfast? (to a woman)", ar:"{هَلْ تَأْكُلِينَ} الْفُطُورَ؟"},
+    {i:"Ask a woman instead", en:"Do you eat breakfast? (to a woman)", ar:"{هَلْ تَأْكُلِينَ} الْفُطُورَ؟", tip:"To a woman, add [[ينَ]]: [[تَأْكُلِينَ]]."},
     {i:"Answer no", en:"I don’t eat breakfast.", ar:"{لَا آكُلُ} الْفُطُورَ."},
     {i:"Make it past", en:"I ate breakfast.", ar:"{أَكَلْتُ} الْفُطُورَ."},
     {i:"Change I to we", en:"We ate breakfast.", ar:"{أَكَلْنَا} الْفُطُورَ."},
@@ -668,14 +669,14 @@ const CHAINS = [
     {i:"Make it a question", en:"Is the weather hot?", ar:"{هَلِ} الْجَوُّ حَارٌّ؟"},
     {i:"Change hot to cold", en:"The weather is cold.", ar:"الْجَوُّ {بَارِدٌ}."},
     {i:"Make it past", en:"The weather was cold.", ar:"{كَانَ} الْجَوُّ {بَارِدًا}."},
-    {i:"Make it future", en:"The weather will be cold.", ar:"{سَيَكُونُ} الْجَوُّ بَارِدًا."}
+    {i:"Make it future", en:"The weather will be cold.", ar:"{سَيَكُونُ} الْجَوُّ بَارِدًا.", tip:"[[سَيَكُونُ]] works like [[كَانَ]], so [[بَارِدًا]] keeps its fatha."}
   ]},
   {id:"have", en:"To have", ar:"عِنْدِي", steps:[
     {i:"Starting sentence", en:"I have a car.", ar:"{عِنْدِي} سَيَّارَةٌ."},
     {i:"Change I to he", en:"He has a car.", ar:"{عِنْدَهُ} سَيَّارَةٌ."},
     {i:"Change he to she", en:"She has a car.", ar:"{عِنْدَهَا} سَيَّارَةٌ."},
     {i:"Change to we", en:"We have a car.", ar:"{عِنْدَنَا} سَيَّارَةٌ."},
-    {i:"Make it negative", en:"We don’t have a car.", ar:"{لَيْسَ عِنْدَنَا} سَيَّارَةٌ."},
+    {i:"Make it negative", en:"We don’t have a car.", ar:"{لَيْسَ عِنْدَنَا} سَيَّارَةٌ.", tip:"[[سَيَّارَةٌ]] keeps its damma: [[لَيْسَ]] is about the car, and [[عِنْدَنَا]] (with us) doesn’t change."},
     {i:"Make it past, with I", en:"I had a car.", ar:"{كَانَتْ عِنْدِي} سَيَّارَةٌ.",
      tip:"[[كَانَتْ]] matches the feminine [[سَيَّارَةٌ]]. Because [[عِنْدِي]] comes in between, the masculine [[كَانَ]] is also allowed, which is why [[لَيْسَ عِنْدَنَا]] was fine."},
     {i:"Ask a man the question", en:"Do you have a car?", ar:"{هَلْ عِنْدَكَ} سَيَّارَةٌ؟"}
@@ -684,44 +685,44 @@ const CHAINS = [
 
 const SCENES = [
   {id:"yesterday", en:"Talking about yesterday", ar:"يَوْمُ أَمْسِ", who:"Friend", turns:[
-    {they:"كَيْفَ كَانَ يَوْمُكَ أَمْسِ؟", theyEn:"How was your day yesterday?", cue:"Say it was long, and you were very busy.", you:"كَانَ طَوِيلًا. كُنْتُ مَشْغُولًا جِدًّا."},
-    {they:"هَلْ ذَهَبْتَ إِلَى الْعَمَلِ؟", theyEn:"Did you go to work?", cue:"Say yes, but you didn’t eat lunch.", you:"نَعَمْ، لَكِنِّي لَمْ آكُلِ الْغَدَاءَ."},
-    {they:"لِمَاذَا؟", theyEn:"Why?", cue:"Say you didn’t have time.", you:"لَمْ يَكُنْ عِنْدِي وَقْتٌ."},
-    {they:"هَلْ نِمْتَ جَيِّدًا؟", theyEn:"Did you sleep well?", cue:"Say no, you didn’t sleep well.", you:"لَا، لَمْ أَنَمْ جَيِّدًا."},
+    {they:"كَيْفَ كَانَ يَوْمُكَ أَمْسِ؟", theyEn:"How was your day yesterday?", cue:"Say it was long, and you were very busy.", you:"كَانَ طَوِيلًا. كُنْتُ مَشْغُولًا جِدًّا.", tip:"After [[كَانَ]] and [[كُنْتُ]], the describing words end in a fatha: [[طَوِيلًا]], [[مَشْغُولًا]]."},
+    {they:"هَلْ ذَهَبْتَ إِلَى الْعَمَلِ؟", theyEn:"Did you go to work?", cue:"Say yes, but you didn’t eat lunch.", you:"نَعَمْ، لَكِنِّي لَمْ آكُلِ الْغَدَاءَ.", tip:"[[لَكِنِّي]] = [[لَكِنَّ]] + me. In [[لَمْ آكُلِ]], the sukun becomes a kasra before [[الْ]]."},
+    {they:"لِمَاذَا؟", theyEn:"Why?", cue:"Say you didn’t have time.", you:"لَمْ يَكُنْ عِنْدِي وَقْتٌ.", tip:"[[لَمْ يَكُنْ]] = there wasn’t. [[وَقْتٌ]] is what wasn’t there, so it keeps its damma."},
+    {they:"هَلْ نِمْتَ جَيِّدًا؟", theyEn:"Did you sleep well?", cue:"Say no, you didn’t sleep well.", you:"لَا، لَمْ أَنَمْ جَيِّدًا.", tip:"The long ā of [[أَنَامُ]] drops after [[لَمْ]]: [[أَنَمْ]]."},
     {they:"أَيْنَ كُنْتَ فِي الْمَسَاءِ؟", theyEn:"Where were you in the evening?", cue:"Say you were at home.", you:"كُنْتُ فِي الْبَيْتِ."},
     {they:"لَا بَأْسَ، نَمْ مُبَكِّرًا الْيَوْمَ.", theyEn:"Never mind, get to bed early today."}
   ]},
   {id:"intro", en:"Meeting someone", ar:"التَّعَارُفُ", who:"New friend", turns:[
-    {they:"السَّلَامُ عَلَيْكُمْ.", theyEn:"Peace be upon you.", cue:"Return the greeting.", you:"وَعَلَيْكُمُ السَّلَامُ."},
-    {they:"مَا اسْمُكَ؟", theyEn:"What’s your name?", cue:"Say your name. The model reply uses Adam.", you:"اِسْمِي آدَمُ."},
+    {they:"السَّلَامُ عَلَيْكُمْ.", theyEn:"Peace be upon you.", cue:"Return the greeting.", you:"وَعَلَيْكُمُ السَّلَامُ.", tip:"Add [[وَ]] and swap the two words round. The [[مْ]] of [[عَلَيْكُمْ]] takes a damma to join [[السَّلَامُ]]."},
+    {they:"مَا اسْمُكَ؟", theyEn:"What’s your name?", cue:"Say your name. The model reply uses Adam.", you:"اِسْمِي آدَمُ.", tip:"[[آدَمُ]] never takes tanwin."},
     {they:"مِنْ أَيْنَ أَنْتَ؟", theyEn:"Where are you from?", cue:"Say where you’re from. The model reply uses Britain.", you:"أَنَا مِنْ بِرِيطَانِيَا."},
-    {they:"هَلْ تَتَكَلَّمُ بِالْعَرَبِيَّةِ؟", theyEn:"Do you speak Arabic?", cue:"Say a little, you’re learning it now.", you:"قَلِيلًا، أَنَا أَتَعَلَّمُهَا الْآنَ."},
-    {they:"تَشَرَّفْتُ بِمَعْرِفَتِكَ.", theyEn:"Pleased to meet you.", cue:"Say “the pleasure is mine.”", you:"الشَّرَفُ لِي."}
+    {they:"هَلْ تَتَكَلَّمُ بِالْعَرَبِيَّةِ؟", theyEn:"Do you speak Arabic?", cue:"Say a little, you’re learning it now.", you:"قَلِيلًا، أَنَا أَتَعَلَّمُهَا الْآنَ.", tip:"[[هَا]] (it) points back to [[الْعَرَبِيَّةُ]], which is feminine."},
+    {they:"تَشَرَّفْتُ بِمَعْرِفَتِكَ.", theyEn:"Pleased to meet you.", cue:"Say “the pleasure is mine.”", you:"الشَّرَفُ لِي.", tip:"Literally “the honour is mine”."}
   ]},
   {id:"shop", en:"At the shop", ar:"فِي الدُّكَّانِ", who:"Shopkeeper", turns:[
-    {they:"أَهْلًا وَسَهْلًا، كَيْفَ أُسَاعِدُكَ؟", theyEn:"Welcome, how can I help you?", cue:"Ask for bread and water, please.", you:"أُرِيدُ خُبْزًا وَمَاءً، مِنْ فَضْلِكَ."},
-    {they:"كَمْ زُجَاجَةً تُرِيدُ؟", theyEn:"How many bottles do you want?", cue:"Two bottles, please.", you:"زُجَاجَتَيْنِ، مِنْ فَضْلِكَ."},
-    {they:"هَلْ تُرِيدُ شَيْئًا آخَرَ؟", theyEn:"Do you want anything else?", cue:"No thanks. Ask how much it is.", you:"لَا، شُكْرًا. كَمِ الثَّمَنُ؟"},
-    {they:"عَشَرَةُ رِيَالَاتٍ.", theyEn:"Ten riyals.", cue:"Hand over the money and thank them.", you:"تَفَضَّلْ. شُكْرًا جَزِيلًا."},
+    {they:"أَهْلًا وَسَهْلًا، كَيْفَ أُسَاعِدُكَ؟", theyEn:"Welcome, how can I help you?", cue:"Ask for bread and water, please.", you:"أُرِيدُ خُبْزًا وَمَاءً، مِنْ فَضْلِكَ.", tip:"Both things you want take a fatha with tanwin. To a woman, say [[مِنْ فَضْلِكِ]]."},
+    {they:"كَمْ زُجَاجَةً تُرِيدُ؟", theyEn:"How many bottles do you want?", cue:"Two bottles, please.", you:"زُجَاجَتَيْنِ، مِنْ فَضْلِكَ.", tip:"The dual ends in [[ـَيْنِ]] here because it is the object of an unsaid [[أُرِيدُ]]."},
+    {they:"هَلْ تُرِيدُ شَيْئًا آخَرَ؟", theyEn:"Do you want anything else?", cue:"No thanks. Ask how much it is.", you:"لَا، شُكْرًا. كَمِ الثَّمَنُ؟", tip:"The sukun of [[كَمْ]] becomes a kasra before [[الْ]]: [[كَمِ الثَّمَنُ]]."},
+    {they:"عَشَرَةُ رِيَالَاتٍ.", theyEn:"Ten riyals.", cue:"Hand over the money and thank them.", you:"تَفَضَّلْ. شُكْرًا جَزِيلًا.", tip:"[[تَفَضَّلْ]] = here you are (to a man); to a woman, [[تَفَضَّلِي]]."},
     {they:"مَعَ السَّلَامَةِ.", theyEn:"Goodbye."}
   ]},
   {id:"directions", en:"Asking the way", ar:"فِي الشَّارِعِ", who:"Passer-by", turns:[
     {they:"نَعَمْ، كَيْفَ أُسَاعِدُكَ؟", theyEn:"Yes, how can I help you?", cue:"Ask where the station is.", you:"مِنْ فَضْلِكَ، أَيْنَ الْمَحَطَّةُ؟"},
-    {they:"اِذْهَبْ مُسْتَقِيمًا، ثُمَّ اتَّجِهْ يَمِينًا.", theyEn:"Go straight, then turn right.", cue:"Ask if it’s far.", you:"هَلْ هِيَ بَعِيدَةٌ؟"},
+    {they:"اِذْهَبْ مُسْتَقِيمًا، ثُمَّ اتَّجِهْ يَمِينًا.", theyEn:"Go straight, then turn right.", cue:"Ask if it’s far.", you:"هَلْ هِيَ بَعِيدَةٌ؟", tip:"[[الْمَحَطَّةُ]] is feminine, so [[هِيَ]] and [[بَعِيدَةٌ]]."},
     {they:"لَا، هِيَ قَرِيبَةٌ جِدًّا. خَمْسُ دَقَائِقَ مَشْيًا.", theyEn:"No, it’s very close. Five minutes on foot.", cue:"Thank them very much.", you:"شُكْرًا جَزِيلًا."},
     {they:"عَفْوًا.", theyEn:"You’re welcome."}
   ]},
   {id:"guest", en:"Visiting a home", ar:"فِي الْبَيْتِ", who:"Host", turns:[
-    {they:"أَهْلًا بِكَ، تَفَضَّلْ بِالدُّخُولِ.", theyEn:"Welcome, please come in.", cue:"Thank them and say their house is beautiful.", you:"شُكْرًا، بَيْتُكَ جَمِيلٌ."},
-    {they:"أَتُرِيدُ شَايًا أَمْ قَهْوَةً؟", theyEn:"Would you like tea or coffee?", cue:"Coffee, please.", you:"قَهْوَةً، مِنْ فَضْلِكَ."},
-    {they:"كَيْفَ كَانَتْ رِحْلَتُكَ؟", theyEn:"How was your journey?", cue:"Say it was long, but good.", you:"كَانَتْ طَوِيلَةً، لَكِنَّهَا جَيِّدَةٌ."},
-    {they:"مَتَى وَصَلْتَ؟", theyEn:"When did you arrive?", cue:"Say you arrived yesterday evening.", you:"وَصَلْتُ مَسَاءَ أَمْسِ."}
+    {they:"أَهْلًا بِكَ، تَفَضَّلْ بِالدُّخُولِ.", theyEn:"Welcome, please come in.", cue:"Thank them and say their house is beautiful.", you:"شُكْرًا، بَيْتُكَ جَمِيلٌ.", tip:"To a man [[بَيْتُكَ]]; to a woman [[بَيْتُكِ]]."},
+    {they:"أَتُرِيدُ شَايًا أَمْ قَهْوَةً؟", theyEn:"Would you like tea or coffee?", cue:"Coffee, please.", you:"قَهْوَةً، مِنْ فَضْلِكَ.", tip:"[[قَهْوَةً]] has a fatha because it answers [[أَتُرِيدُ]]: it is the thing you want."},
+    {they:"كَيْفَ كَانَتْ رِحْلَتُكَ؟", theyEn:"How was your journey?", cue:"Say it was long, but good.", you:"كَانَتْ طَوِيلَةً، لَكِنَّهَا جَيِّدَةٌ.", tip:"[[رِحْلَةٌ]] is feminine: [[كَانَتْ]], [[طَوِيلَةً]], [[لَكِنَّهَا]]. After [[لَكِنَّهَا]], [[جَيِّدَةٌ]] keeps its damma."},
+    {they:"مَتَى وَصَلْتَ؟", theyEn:"When did you arrive?", cue:"Say you arrived yesterday evening.", you:"وَصَلْتُ مَسَاءَ أَمْسِ.", tip:"[[مَسَاءَ أَمْسِ]] = the evening of yesterday. [[مَسَاءَ]] ends in a fatha because it says when."}
   ]},
   {id:"doctor", en:"At the doctor’s", ar:"عِنْدَ الطَّبِيبِ", who:"Doctor", turns:[
-    {they:"مِمَّ تَشْكُو؟", theyEn:"What’s the matter?", cue:"Say you have a headache.", you:"عِنْدِي صُدَاعٌ."},
-    {they:"مُنْذُ مَتَى؟", theyEn:"Since when?", cue:"Since yesterday.", you:"مُنْذُ أَمْسِ."},
-    {they:"هَلْ عِنْدَكَ حُمَّى؟", theyEn:"Do you have a fever?", cue:"Say no, you don’t have a fever.", you:"لَا، لَيْسَ عِنْدِي حُمَّى."},
-    {they:"خُذْ هَذَا الدَّوَاءَ مَرَّتَيْنِ فِي الْيَوْمِ.", theyEn:"Take this medicine twice a day.", cue:"Thank the doctor.", you:"شُكْرًا يَا دُكْتُورُ."}
+    {they:"مِمَّ تَشْكُو؟", theyEn:"What’s the matter?", cue:"Say you have a headache.", you:"عِنْدِي صُدَاعٌ.", tip:"Literally “with me is a headache”, so [[صُدَاعٌ]] keeps its damma."},
+    {they:"مُنْذُ مَتَى؟", theyEn:"Since when?", cue:"Since yesterday.", you:"مُنْذُ أَمْسِ.", tip:"[[أَمْسِ]] always ends in a kasra."},
+    {they:"هَلْ عِنْدَكَ حُمَّى؟", theyEn:"Do you have a fever?", cue:"Say no, you don’t have a fever.", you:"لَا، لَيْسَ عِنْدِي حُمَّى.", tip:"[[لَيْسَ عِنْدِي]] = I don’t have. [[حُمَّى]] ends in [[ى]], so its ending never changes."},
+    {they:"خُذْ هَذَا الدَّوَاءَ مَرَّتَيْنِ فِي الْيَوْمِ.", theyEn:"Take this medicine twice a day.", cue:"Thank the doctor.", you:"شُكْرًا يَا دُكْتُورُ.", tip:"After [[يَا]], a title like [[دُكْتُورُ]] takes a damma with no tanwin."}
   ]}
 ];
 
@@ -937,7 +938,8 @@ function theyBubble(sc, turn, hidden){
 }
 function youBubble(turn, ok){
   return '<div class="bub you"><p class="who">You' + (ok == null ? "" : ' <span class="res">' + (ok ? "✓ got it" : "✗ missed") + '</span>') + '</p>' +
-    '<p class="ar" lang="ar">' + esc(vow(turn.you)) + '</p><p class="en">' + esc(turn.cue) + '</p>' + sayButtons(turn.you) + '</div>';
+    '<p class="ar" lang="ar">' + esc(vow(turn.you)) + '</p><p class="en">' + esc(turn.cue) + '</p>' + sayButtons(turn.you) +
+    (ok == null && turn.tip ? '<p class="tip">' + noteHTML(turn.tip) + '</p>' : "") + '</div>';
 }
 function renderScene(s){
   const sc = s.scene, turns = sc.turns, cur = turns[s.t];

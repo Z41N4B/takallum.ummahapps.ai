@@ -8,6 +8,7 @@ A free speaking-practice app for Modern Standard Arabic (fusha). Live at https:/
 - Swap-in drills: read the English, say the Arabic out loud, reveal and mark yourself. Missed sentences come back sooner.
 - Transform chains: one sentence changes step by step (person, gender, tense, negation).
 - Role-play: everyday conversations with a model reply for each turn, and an optional listen-first mode.
+- Short grammar tips under most drill answers and role-play replies, shown once you reveal them.
 - Plain-English grammar explanations for lam, kana and its sisters, inna and its sisters, mundhu, yajibu, alladhi, the idafa, comparatives, conditionals and numbers
 - Normal and slow audio (uses the device's Arabic text-to-speech voice)
 - Vowel marks can be switched off
