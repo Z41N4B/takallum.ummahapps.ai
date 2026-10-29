@@ -10,8 +10,10 @@ Interface language: English. Practice language: Modern Standard Arabic.
 
 ## Practice modes
 
-- **Swap-in drills**: 18 sentence patterns, 136 sentences. Each pattern has a short plain-English explanation and per-sentence tips.
-- **Transform chains**: 7 chains in which one sentence changes step by step (person, gender, tense, negation, question).
+- **Swap-in drills**: 19 sentence patterns, 150 sentences. Each pattern has a short plain-English explanation and per-sentence tips.
+- **Transform chains**: 8 chains in which one sentence changes step by step (person, gender, tense, negation, question).
+- **Practise as a man or a woman**: sentences about yourself and the role-play lines spoken to you switch to the feminine.
+- **Review what you've learned**: practise only the sentences you already know.
 - **Role-play**: 6 everyday conversations with a model reply for each of your turns. Optional "listen first" mode hides the other speaker's words.
 
 ## Patterns covered
@@ -25,6 +27,7 @@ Everyday phrases:
 - أَحْتَاجُ إِلَى … (I need …)
 
 Grammar builders:
+- أَنْتَ / أَنْتِ / أَنْتُمْ (you: a man, a woman, a group) in verbs, "your", commands and describing words
 - لَمْ + present verb (didn't), including weak and hollow verbs
 - كَانَ + description (was / were), and the accusative predicate
 - كَانَ + present verb (was doing / used to)
