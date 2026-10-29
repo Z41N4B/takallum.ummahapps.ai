@@ -170,6 +170,18 @@ button{font:inherit;color:inherit;cursor:pointer}
 .tabs button{border:0;background:none;padding:9px 4px;border-radius:9px;font-weight:500;color:var(--muted);font-size:.95rem}
 .tabs button[aria-selected="true"]{background:var(--surface);color:var(--ink);box-shadow:0 1px 2px rgba(10,20,40,.12)}
 .intro{color:var(--muted);margin:0 2px 16px;font-size:.95rem}
+.vg{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:14px 16px;margin:0 0 16px}
+.vg h2{margin:0 0 4px;font-size:1.02rem}
+.vg p{margin:0 0 10px;color:var(--muted);font-size:.92rem}
+.vg-devs{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 12px}
+.vg-devs button{font-size:.88rem;font-weight:600;min-height:38px;padding:6px 14px;border:1px solid var(--line);background:none;color:var(--ink);border-radius:999px}
+.vg-devs button[aria-pressed="true"]{background:var(--lapis);border-color:var(--lapis);color:var(--lapis-ink)}
+.vg ol{margin:0 0 10px;padding-left:22px}
+.vg li{margin:5px 0}
+.vg-actions{display:flex;flex-wrap:wrap;gap:8px}
+.vg-actions button{font-weight:600;font-size:.92rem;min-height:40px;padding:8px 16px;border-radius:12px;border:1px solid var(--line);background:none;color:var(--ink)}
+.vg-actions .go{background:var(--lapis);border-color:var(--lapis);color:var(--lapis-ink)}
+.vg-show{background:none;border:0;color:var(--lapis);font-weight:600;font-size:.92rem;padding:4px 2px;margin:0 0 14px;text-decoration:underline}
 
 /* list rows */
 .list{display:flex;flex-direction:column;gap:10px;margin:0;padding:0;list-style:none}
@@ -728,7 +740,7 @@ const SCENES = [
 
 /* ---------- state + storage ---------- */
 let progress = {cards:{}, chains:{}, scenes:{}};
-let settings = {vowels:true, autoplay:true, listenFirst:false};
+let settings = {vowels:true, autoplay:true, listenFirst:false, voiceHelp:true};
 const S = {tab:"swap", session:null, sheet:false};
 let syncMode = "device";
 
@@ -838,13 +850,44 @@ const INTROS = {
   transform:"One sentence changes step by step. Say each new version out loud before you reveal it.",
   roleplay:"Hear their line, answer out loud, then compare with the suggested reply."
 };
+/* Step-by-step help for adding an Arabic voice, per device. Hidden with settings.voiceHelp. */
+const VG = [
+  {id:"ios", label:"iPhone / iPad", steps:["Open the <b>Settings</b> app.", "Tap <b>Accessibility</b>, then <b>Spoken Content</b>, then <b>Voices</b>.", "Tap <b>Arabic</b> and choose a voice.", "Tap the download button next to it and wait for it to finish.", "Come back to this page and reload it."],
+   tip:"Still no sound? Turn off silent mode and turn the volume up."},
+  {id:"android", label:"Android", steps:["Open <b>Settings</b> and search for <b>text-to-speech</b>. On most phones it is under Accessibility, or System and then Languages.", "Set the preferred engine to <b>Speech Services by Google</b>. If it is not there, install it from the Play Store.", "Tap the gear icon next to it, then <b>Install voice data</b>.", "Choose <b>Arabic</b> and download a voice. Wi-Fi is best.", "Close Chrome completely, open it again, and reload this page."],
+   tip:"Still no sound? Turn the media volume up."},
+  {id:"win", label:"Windows", pre:"Using Microsoft Edge? It already has Arabic voices, so you may not need these steps.", steps:["Open <b>Settings</b>, then <b>Time &amp; language</b>, then <b>Speech</b>.", "Next to <b>Manage voices</b>, select <b>Add voices</b>.", "Search for <b>Arabic</b>, tick a voice such as Arabic (Saudi Arabia), and select <b>Add</b>.", "Wait for it to download and install.", "Close your browser completely, open it again, and reload this page. If the voice still does not appear, restart the computer."]},
+  {id:"mac", label:"Mac", steps:["Open <b>System Settings</b> (System Preferences on older Macs).", "Go to <b>Accessibility</b>, then <b>Spoken Content</b>.", "Open the <b>System voice</b> menu and choose <b>Manage Voices</b>.", "Find <b>Arabic</b>, tick a voice and wait for it to download.", "Quit your browser completely (⌘Q), open it again, and reload this page."]},
+  {id:"cros", label:"Chromebook", steps:["Open <b>Settings</b> and search for <b>text-to-speech</b>.", "Open the text-to-speech voice settings.", "Choose or download an <b>Arabic</b> voice if one is offered.", "Close Chrome completely, open it again, and reload this page."]}
+];
+function vgDevice(){
+  const u = navigator.userAgent || "";
+  if (/iPhone|iPad|iPod/.test(u) || (/Macintosh/.test(u) && navigator.maxTouchPoints > 1)) return "ios";
+  if (/Android/.test(u)) return "android";
+  if (/CrOS/.test(u)) return "cros";
+  if (/Mac/.test(u)) return "mac";
+  return "win";
+}
+let vgDev = vgDevice();
+function voiceGuideHTML(){
+  if (!settings.voiceHelp) return '<button class="vg-show" data-act="vgshow">How to add an Arabic voice</button>';
+  const d = VG.find(x => x.id === vgDev);
+  return '<section class="vg" aria-labelledby="vg-h"><h2 id="vg-h">How to add an Arabic voice</h2>' +
+    '<p>' + (voiceState === "ok" ? "An Arabic voice is ready on this device. If the sentences still don’t sound right, try another voice." : "The sentences are spoken by your device’s own voice. If they don’t sound like Arabic, or there is no sound, add an Arabic voice.") + ' Choose your device:</p>' +
+    '<div class="vg-devs" role="group" aria-label="Your device">' + VG.map(x => '<button data-act="vgdev" data-v="' + x.id + '" aria-pressed="' + (x.id === vgDev) + '">' + x.label + '</button>').join("") + '</div>' +
+    (d.pre ? '<p>' + d.pre + '</p>' : "") +
+    '<ol>' + d.steps.map(s => '<li>' + s + '</li>').join("") + '</ol>' +
+    '<p>Takallum picks the Arabic voice by itself. Tap <b>Test the voice</b> to check.' + (d.tip ? " " + d.tip : "") + '</p>' +
+    '<p>Opened this page from WhatsApp, Instagram or another app? Open it in Safari or Chrome instead, because in-app browsers often can’t speak.</p>' +
+    '<div class="vg-actions"><button class="go" data-act="vgtest">Test the voice</button><button data-act="vghide">Hide these steps</button></div></section>';
+}
 function renderHome(){
   let h = '<header class="top"><h1 class="mark" lang="ar">تَكَلُّم</h1><p>Speaking drills in standard Arabic. Say every sentence out loud.</p>' +
           '<button class="icon-btn" data-act="settings" aria-label="Settings">' + ICON_GEAR + '</button></header>';
   h += '<div class="tabs" role="tablist">' +
        [["swap","Swap-in"],["transform","Transform"],["roleplay","Role-play"]].map(([k,l]) =>
          '<button role="tab" aria-selected="' + (S.tab === k) + '" data-act="tab" data-v="' + k + '">' + l + '</button>').join("") + '</div>';
-  h += '<p class="intro">' + INTROS[S.tab] + '</p><ul class="list">';
+  h += '<p class="intro">' + INTROS[S.tab] + '</p>' + voiceGuideHTML() + '<ul class="list">';
   if (S.tab === "swap"){
     const all = allItems(), weak = all.filter(it => box(it.id) < 2).length;
     h += '<li><button class="row review" data-act="weak"><span class="t">Mixed review</span><span class="s">' +
@@ -989,6 +1032,7 @@ function settingsHTML(){
     opt("vowels", "Vowel marks", "Show the harakat on Arabic text. Turn off once you can read without them.") +
     opt("autoplay", "Play on reveal", "Speak the Arabic automatically when you reveal it.") +
     opt("listenFirst", "Listen first in role-play", "Hide their words until you tap, so you practise understanding by ear.") +
+    opt("voiceHelp", "Voice instructions", "Show the steps for adding an Arabic voice on the home screen.") +
     '<div class="actions" style="margin-top:14px"><button class="btn primary" data-act="close">Done</button></div></div></div>';
 }
 
@@ -1079,6 +1123,9 @@ document.addEventListener("click", e => {
     case "finish": finishScene(); break;
     case "back": if ("speechSynthesis" in window) speechSynthesis.cancel(); S.session = null; render(); window.scrollTo(0, 0); break;
     case "settings": S.sheet = true; render(); break;
+    case "vgdev": vgDev = v; render(); { const b = document.querySelector('[data-act="vgdev"][data-v="' + v + '"]'); if (b) b.focus(); } break;
+    case "vgtest": speak("مَرْحَبًا، كَيْفَ حَالُكَ؟"); break;
+    case "vghide": case "vgshow": settings.voiceHelp = act === "vgshow"; saveSettings(); render(); { const b = document.querySelector(act === "vghide" ? ".vg-show" : '[data-act="vghide"]'); if (b) b.focus(); } break;
     case "again": {
       const s = S.session;
       if (s.type === "swap"){ const d = s.queue[0].it.deck; s.title === "Mixed review" ? startSwap(allItems(), "Mixed review") : startSwap(d.items.map(it => Object.assign({deck:d}, it)), d.en); }
