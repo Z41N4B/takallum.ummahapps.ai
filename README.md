@@ -15,7 +15,15 @@ A free speaking-practice app for Modern Standard Arabic (fusha). Live at https:/
 - Practise as a man or a woman: items, chain steps and role-play turns can carry an `f` override with the feminine wording
 - Previous button during drills and chains to look back at earlier sentences
 - Review only the sentences already marked solid
+- Up to 3 learners on one device, each with their own progress and their own man or woman choice, shared with Takallum Kids, Kalimat and Kalimat Plus. Learner p1 keeps the original `qul-progress` key. Hidden when progress saves to an account.
 - Progress: each sentence has a level from 0 to 5; Got it on the first try in a session adds one, Missed it resets to 0; level 2 counts as solid
+
+## Shared with the other apps
+Takallum Kids, Kalimat, Kalimat Plus and Takallum share two things on the same device through `ummah.js`, which is copied into each app's folder (keep the four copies identical):
+- **Learners:** name, boy or girl (man or woman), and animal, in the `ua_l` cookie on `.ummahapps.ai`. A learner added in one app appears in the others; a learner still called "Learner 1" stays in its own app until renamed.
+- **Known words:** words learned in Takallum Kids and Known well words in Kalimat and Kalimat Plus go into a per-learner `ua_w_<id>` cookie as short hashes of the bare Arabic. Kalimat and Kalimat Plus offer to add words known from the other apps.
+
+Each page also ends with the same four-app family strip. On localhost, `ummah.js` points the strip's links at the local servers (Kids 8771, Kalimat 8766, Kalimat Plus 8772, Takallum 8770).
 
 ## SEO and GEO
 `index.html` has meta tags, Open Graph and JSON-LD (WebApplication + LearningResource + FAQPage), plus a visible About and FAQ section. `robots.txt`, `sitemap.xml` and `llms.txt` sit at the root.

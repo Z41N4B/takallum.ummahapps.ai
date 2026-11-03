@@ -16,6 +16,8 @@ Interface language: English. Practice language: Modern Standard Arabic.
 - **Review what you've learned**: practise only the sentences you already know.
 - **Role-play**: 6 everyday conversations with a model reply for each of your turns. Optional "listen first" mode hides the other speaker's words.
 
+Up to three learners can share one device, each with their own progress. They are the same learners as in the sister apps Takallum Kids (https://takallum-kids.ummahapps.ai/), Kalimat (https://kalimat.ummahapps.ai/) and Kalimat Plus (https://kalimat-plus.ummahapps.ai/).
+
 ## Patterns covered
 
 Everyday phrases:

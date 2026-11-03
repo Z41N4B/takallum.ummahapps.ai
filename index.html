@@ -218,6 +218,31 @@ button{font:inherit;color:inherit;cursor:pointer}
 .who-ask .seg button{background:var(--surface);color:var(--ink)}
 .gap{display:inline-block;width:2.4em;height:1.05em;vertical-align:-.12em;border:2px dashed var(--brass);border-radius:6px;margin:0 .15em}
 .sync{color:var(--muted);font-size:.82rem;text-align:center;margin-top:22px}
+/* learners, shared with the other Ummah Apps */
+.learners{display:flex;flex-wrap:wrap;align-items:center;gap:6px 8px;margin:-4px 0 14px}
+.learners .lab{font-weight:600;font-size:.88rem;color:var(--muted)}
+.lchip{font-weight:600;font-size:.9rem;min-height:38px;padding:4px 14px;border-radius:999px;border:1px solid var(--line);background:var(--surface);color:var(--ink)}
+.lchip[aria-pressed="true"]{background:var(--lapis);border-color:var(--lapis);color:var(--lapis-ink)}
+.lnk{background:none;border:0;color:var(--lapis);font-weight:600;font-size:.88rem;text-decoration:underline;min-height:38px;padding:4px 6px}
+.who-form{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 14px}
+.who-form input{flex:1 1 160px;font:inherit;min-height:42px;padding:8px 12px;border-radius:12px;border:1px solid var(--line);background:var(--surface);color:var(--ink)}
+.who-form button{font-weight:600;min-height:42px;padding:6px 16px;border-radius:12px;border:1px solid var(--line);background:var(--surface);color:var(--ink)}
+.who-form .go{background:var(--lapis);border-color:var(--lapis);color:var(--lapis-ink)}
+/* Ummah Apps family strip: the same in all four apps */
+.ua-fam{--f-card:#FFFFFF;--f-ink:#15233F;--f-muted:#56637D;--f-line:#D3DBE6;--f-lapis:#1E4FA0;--f-soft:#DCE6F7;margin:24px 0 0;padding-top:20px;border-top:1px solid var(--f-line)}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .ua-fam{--f-card:#162035;--f-ink:#E6EBF4;--f-muted:#9AA6BD;--f-line:#2A3753;--f-lapis:#8DB0EC;--f-soft:#1D2D4D}}
+:root[data-theme="dark"] .ua-fam{--f-card:#162035;--f-ink:#E6EBF4;--f-muted:#9AA6BD;--f-line:#2A3753;--f-lapis:#8DB0EC;--f-soft:#1D2D4D}
+.ua-fam h2{font-size:1.05rem;margin:0 0 10px;padding:0;border:0;color:var(--f-ink)}
+.ua-fam ul{list-style:none;margin:0 0 10px;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px}
+.ua-fam li{margin:0}
+.ua-app{display:grid;grid-template-columns:auto 1fr;gap:0 12px;align-items:center;height:100%;padding:10px 14px;border:1px solid var(--f-line);border-radius:16px;background:var(--f-card);color:var(--f-ink);text-decoration:none;line-height:1.35}
+a.ua-app:hover{border-color:var(--f-lapis)}
+.ua-app .ua-ar{grid-row:1 / span 2;font-family:"Amiri",serif;font-size:1.6rem;font-weight:700;line-height:1.3;color:var(--f-lapis)}
+.ua-app b{font-weight:700;font-size:.98rem}
+.ua-app small{grid-column:2;color:var(--f-muted);font-size:.84rem}
+.ua-app.here{background:var(--f-soft);border-color:transparent}
+.ua-app.here b::after{content:" · you are here";font-weight:400;color:var(--f-muted)}
+.ua-fam p{margin:0;color:var(--f-muted);font-size:.84rem}
 .group-h{font-size:.95rem;font-weight:600;color:var(--muted);margin:12px 2px 0}
 .explain-btn{background:none;border:0;color:var(--lapis);font-weight:600;padding:4px 2px;margin:0 0 10px;font-size:.92rem}
 .explain{background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--brass);border-radius:14px;padding:12px 16px;margin-bottom:14px;font-size:.95rem;line-height:1.6}
@@ -341,8 +366,19 @@ button{font:inherit;color:inherit;cursor:pointer}
   <details><summary>How do I make a pattern solid?</summary><p>A sentence is solid once you mark it <strong>Got it</strong> the first time you see it, in two separate sessions. <strong>Missed it</strong> sends it back to the start, and getting it right when it comes round again later in that session doesn’t count. So for 8 of 8 solid, run the pattern twice and get all eight right first time both times.</p></details>
   <details><summary>Does it cover feminine and plural forms?</summary><p>Yes. In settings, choose whether you’re practising as a man or a woman: it changes sentences about yourself, like “I was tired”, and how people speak to you in role-play. The “you: a man, a woman, a group” pattern and transform chain practise speaking to each.</p></details>
   <p class="credit">Takallum is part of <a href="https://ummahapps.ai/">Ummah Apps</a>.</p>
+  <nav class="ua-fam" aria-labelledby="ua-fam-h">
+    <h2 id="ua-fam-h">Four free Arabic apps that work together</h2>
+    <ul>
+      <li><a class="ua-app" href="https://takallum-kids.ummahapps.ai/"><span class="ua-ar" lang="ar" dir="rtl">تَكَلُّم</span><b>Takallum Kids</b><small>Ages 4 to 11: first words and short sentences to say out loud</small></a></li>
+      <li><a class="ua-app" href="https://kalimat.ummahapps.ai/"><span class="ua-ar" lang="ar" dir="rtl">كَلِمَات</span><b>Kalimat</b><small>Beginners: over 400 everyday words and Qur’an words, with pictures and games</small></a></li>
+      <li><a class="ua-app" href="https://kalimat-plus.ummahapps.ai/"><span class="ua-ar" lang="ar" dir="rtl">كَلِمَات</span><b>Kalimat Plus</b><small>Next step: words for worship, tarbiyyah, character and the environment</small></a></li>
+      <li><span class="ua-app here" aria-current="page"><span class="ua-ar" lang="ar" dir="rtl">تَكَلُّم</span><b>Takallum</b><small>Speaking drills, sentence chains and role-plays for older learners</small></span></li>
+    </ul>
+    <p>On the same device, the four apps share their learners and the words each learner knows.</p>
+  </nav>
 </footer>
 
+<script src="ummah.js"></script>
 <script>
 /* ---------- content ---------- */
 /* Conversation phrases said to someone: one row per phrase, with its form for a man (m), a woman (f) and a group (g).
@@ -1229,11 +1265,41 @@ let settings = {vowels:true, autoplay:true, listenFirst:false, voiceHelp:true, s
 const S = {tab:"swap", session:null, sheet:false};
 let syncMode = "device";
 
-try { const p = JSON.parse(localStorage.getItem("qul-progress") || "null"); if (p) progress = Object.assign(progress, p); } catch(e){}
 try { const s = JSON.parse(localStorage.getItem("qul-settings") || "null"); if (s) settings = Object.assign(settings, s); } catch(e){}
 
+/* Up to 3 learners on a device, the same learners as in the other Ummah Apps (ummah.js). Each keeps their own progress
+   and their own "practising as a man or a woman"; learner p1 keeps the original storage key so earlier progress carries over. */
+const MAXP = 3;
+const lsHas = k => { try { return !!localStorage.getItem(k); } catch(e){ return false; } };
+let profiles = null;
+try { profiles = JSON.parse(localStorage.getItem("qul-profiles") || "null"); } catch(e){}
+if (!profiles || !Array.isArray(profiles.list) || !profiles.list.length) profiles = {list:[{id:"p1", name:"Learner 1", g:settings.speaker}], cur:"p1"};
+if (window.UA){
+  const shared = UA.sync(profiles.list);
+  shared.extra.forEach(x => {
+    if (profiles.list.length >= MAXP) return;
+    /* A learner from another app takes over the first, untouched Learner 1 instead of sitting beside it. */
+    const blank = profiles.list.length === 1 && profiles.list[0].id === "p1" && !profiles.list[0].ua && !lsHas("qul-progress");
+    if (blank) profiles.list = [];
+    profiles.list.push({id:blank ? "p1" : "p" + Date.now().toString(36) + profiles.list.length, ua:x.ua, name:x.name, g:x.g, avatar:x.avatar});
+  });
+  const cur = profiles.list.find(p => p.ua && p.ua === shared.cur);
+  if (cur) profiles.cur = cur.id;
+}
+if (!profiles.list.some(p => p.id === profiles.cur)) profiles.cur = profiles.list[0].id;
+const me = () => profiles.list.find(p => p.id === profiles.cur);
+const progKey = id => id === "p1" ? "qul-progress" : "qul-progress-" + id;
+function saveProfiles(){ try { localStorage.setItem("qul-profiles", JSON.stringify(profiles)); } catch(e){} }
+function loadProgress(){
+  progress = {cards:{}, chains:{}, scenes:{}};
+  try { const p = JSON.parse(localStorage.getItem(progKey(profiles.cur)) || "null"); if (p) progress = Object.assign(progress, p); } catch(e){}
+  settings.speaker = me().g || null;
+}
+saveProfiles(); loadProgress();
+if (window.UA) UA.setCurrent(me().ua);
+
 let dbRef = null, saving = false, pending = false, saveTimer = null;
-function saveLocal(){ try { localStorage.setItem("qul-progress", JSON.stringify(progress)); } catch(e){} }
+function saveLocal(){ try { localStorage.setItem(progKey(profiles.cur), JSON.stringify(progress)); } catch(e){} }
 function saveSettings(){ try { localStorage.setItem("qul-settings", JSON.stringify(settings)); } catch(e){} }
 function scheduleSave(){
   saveLocal();
@@ -1371,9 +1437,41 @@ function voiceGuideHTML(){
     '<p>Opened this page from WhatsApp, Instagram or another app? Open it in Safari or Chrome instead, because in-app browsers often can’t speak.</p>' +
     '<div class="vg-actions"><button class="go" data-act="vgtest">Test the voice</button><button data-act="vghide">Hide these steps</button></div></section>';
 }
+/* Signed in to an account, progress belongs to that one person, so there are no learners to pick. */
+function learnersHTML(){
+  if (syncMode === "account") return "";
+  let h = '<div class="learners" role="group" aria-label="Learner"><span class="lab">Learner</span>' + profiles.list.map(p =>
+    '<button class="lchip" data-act="pickme" data-v="' + esc(p.id) + '" aria-pressed="' + (p.id === profiles.cur) + '">' + (p.avatar ? '<span aria-hidden="true">' + esc(p.avatar) + '</span> ' : "") + esc(p.name) + '</button>').join("") +
+    (profiles.list.length < MAXP ? '<button class="lchip" data-act="whoform" data-v="add">+ Add learner</button>' : "") +
+    '<button class="lnk" data-act="whoform" data-v="rename">Rename</button>' +
+    (profiles.list.length > 1 ? '<button class="lnk" data-act="removeme">Remove</button>' : "") + '</div>';
+  if (S.whoForm) h += '<div class="who-form"><input data-field="who" maxlength="20" autocomplete="off" aria-label="Learner’s name" placeholder="Learner’s name" value="' + (S.whoForm === "rename" ? esc(me().name) : "") + '">' +
+    '<button class="go" data-act="whosave">Save</button><button data-act="whocancel">Cancel</button></div>';
+  return h;
+}
+function switchLearner(id){
+  profiles.cur = id; saveProfiles(); loadProgress();
+  if (window.UA) UA.setCurrent(me().ua);
+}
+function saveWho(){
+  const input = document.querySelector('[data-field="who"]'), name = input ? input.value.trim().slice(0, 20) : "";
+  if (!name){ if (input) input.focus(); return; }
+  if (S.whoForm === "add" && profiles.list.length < MAXP){
+    const p = {id:"p" + Date.now().toString(36), name};
+    if (window.UA) p.ua = UA.save(p);
+    profiles.list.push(p); switchLearner(p.id);
+  } else if (S.whoForm === "rename"){
+    me().name = name;
+    if (window.UA){ me().ua = UA.save(me()); UA.setCurrent(me().ua); }
+    saveProfiles();
+  }
+  S.whoForm = null; render();
+}
+document.addEventListener("keydown", e => { if (e.key === "Enter" && e.target.dataset && e.target.dataset.field === "who"){ e.preventDefault(); saveWho(); } });
 function renderHome(){
   let h = '<header class="top"><h1 class="mark" lang="ar">تَكَلُّم</h1><p>Speaking drills in standard Arabic. Say every sentence out loud.</p>' +
           '<button class="icon-btn" data-act="settings" aria-label="Settings">' + ICON_GEAR + '</button></header>';
+  h += learnersHTML();
   h += '<div class="tabs" role="tablist">' +
        [["swap","Swap-in"],["transform","Transform"],["roleplay","Role-play"]].map(([k,l]) =>
          '<button role="tab" aria-selected="' + (S.tab === k) + '" data-act="tab" data-v="' + k + '">' + l + '</button>').join("") + '</div>';
@@ -1669,7 +1767,7 @@ document.addEventListener("click", e => {
     case "learned": startSwap("learned"); break;
     case "prev": prev(); break;
     case "peekback": peekBack(); break;
-    case "speaker": settings.speaker = v; saveSettings(); render(); { const b = document.querySelector('.sheet [data-act="speaker"][data-v="' + v + '"]'); if (b) b.focus(); } break;
+    case "speaker": settings.speaker = v; me().g = v; saveProfiles(); if (window.UA) me().ua = UA.save(me()); saveSettings(); render(); { const b = document.querySelector('.sheet [data-act="speaker"][data-v="' + v + '"]'); if (b) b.focus(); } break;
     case "chain": startChain(CHAINS.find(x => x.id === v)); break;
     case "scene": startScene(SCENES.find(x => x.id === v)); break;
     case "explain": S.session.explainOpen = !S.session.explainOpen; render(); break;
@@ -1680,6 +1778,19 @@ document.addEventListener("click", e => {
     case "finish": finishScene(); break;
     case "back": if ("speechSynthesis" in window) speechSynthesis.cancel(); S.session = null; render(); window.scrollTo(0, 0); break;
     case "settings": S.sheet = true; render(); break;
+    case "pickme": if (v !== profiles.cur){ switchLearner(v); S.whoForm = null; render(); } break;
+    case "whoform": S.whoForm = v; render(); { const i = document.querySelector('[data-field="who"]'); if (i) i.focus(); } break;
+    case "whocancel": S.whoForm = null; render(); break;
+    case "whosave": saveWho(); break;
+    case "removeme":
+      if (profiles.list.length > 1 && confirm("Remove " + me().name + " and their progress on this device?")){
+        const gone = me();
+        if (window.UA) UA.remove(gone.ua);
+        try { localStorage.removeItem(progKey(gone.id)); } catch(err){}
+        profiles.list = profiles.list.filter(p => p !== gone);
+        switchLearner(profiles.list[0].id); render();
+      }
+      break;
     case "vgdev": vgDev = v; render(); { const b = document.querySelector('[data-act="vgdev"][data-v="' + v + '"]'); if (b) b.focus(); } break;
     case "vgtest": speak("مَرْحَبًا، كَيْفَ حَالُكَ؟"); break;
     case "vghide": case "vgshow": settings.voiceHelp = act === "vgshow"; saveSettings(); render(); { const b = document.querySelector(act === "vghide" ? ".vg-show" : '[data-act="vghide"]'); if (b) b.focus(); } break;
