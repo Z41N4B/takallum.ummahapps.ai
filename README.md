@@ -2,7 +2,7 @@
 
 A free speaking-practice app for Modern Standard Arabic (fusha). Live at https://takallum.ummahapps.ai/
 
-**Content:** 19 sentence patterns (150 sentences), 8 transform chains and 6 role-play conversations, all with full harakat.
+**Content:** 27 sentence patterns (210 sentences, including 8 discussion patterns), 8 transform chains and 6 role-play conversations, all with full harakat.
 
 ## Features
 - Swap-in drills: read the English, say the Arabic out loud, reveal and mark yourself. Missed sentences come back sooner.

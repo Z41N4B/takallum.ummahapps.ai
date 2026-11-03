@@ -88,7 +88,8 @@
       ],
       "about": {"@type": "Language", "name": "Arabic", "alternateName": "ar"},
       "featureList": [
-        "Swap-in drills: 19 sentence patterns, 150 sentences",
+        "Swap-in drills: 27 sentence patterns, 210 sentences",
+        "Discussion phrases for giving opinions, agreeing and disagreeing, contrasting, giving reasons and organising what you say",
         "Transform chains: 8 chains where one sentence changes step by step",
         "Practise as a man or a woman; drills for speaking to a man, a woman and a group",
         "Review only the sentences you have already learned",
@@ -318,7 +319,7 @@ button{font:inherit;color:inherit;cursor:pointer}
   <p><strong>Takallum</strong> (<bdi class="ari" dir="rtl" lang="ar">تَكَلُّم</bdi>, “speaking”) is a free speaking-practice app for Modern Standard Arabic (fusha). Instead of reading about grammar, you say whole sentences out loud, compare them with a fully vowelled model answer and its audio, and mark yourself honestly. Sentences you miss come back sooner.</p>
   <h3>Three ways to practise</h3>
   <ul>
-    <li><strong>Swap-in drills.</strong> 19 sentence patterns and 150 sentences, from everyday phrases like <bdi class="ari" dir="rtl" lang="ar">أُرِيدُ أَنْ</bdi> (I want to) and <bdi class="ari" dir="rtl" lang="ar">أَيْنَ</bdi> (where is) to grammar builders: <bdi class="ari" dir="rtl" lang="ar">لَمْ</bdi> (didn’t), <bdi class="ari" dir="rtl" lang="ar">كَانَ</bdi> and its sisters, <bdi class="ari" dir="rtl" lang="ar">إِنَّ</bdi> and its sisters, <bdi class="ari" dir="rtl" lang="ar">مُنْذُ</bdi>, <bdi class="ari" dir="rtl" lang="ar">يَجِبُ</bdi>, <bdi class="ari" dir="rtl" lang="ar">الَّذِي</bdi>, the idafa, comparatives, conditionals with <bdi class="ari" dir="rtl" lang="ar">إِذَا</bdi> and <bdi class="ari" dir="rtl" lang="ar">لَوْ</bdi>, and numbers.</li>
+    <li><strong>Swap-in drills.</strong> 27 sentence patterns and 210 sentences, from everyday phrases like <bdi class="ari" dir="rtl" lang="ar">أُرِيدُ أَنْ</bdi> (I want to) and <bdi class="ari" dir="rtl" lang="ar">أَيْنَ</bdi> (where is), through discussion phrases like <bdi class="ari" dir="rtl" lang="ar">فِي رَأْيِي</bdi> (in my opinion), <bdi class="ari" dir="rtl" lang="ar">عَلَى الرَّغْمِ مِنْ</bdi> (despite) and <bdi class="ari" dir="rtl" lang="ar">لِذَلِكَ</bdi> (therefore), to grammar builders: <bdi class="ari" dir="rtl" lang="ar">لَمْ</bdi> (didn’t), <bdi class="ari" dir="rtl" lang="ar">كَانَ</bdi> and its sisters, <bdi class="ari" dir="rtl" lang="ar">إِنَّ</bdi> and its sisters, <bdi class="ari" dir="rtl" lang="ar">مُنْذُ</bdi>, <bdi class="ari" dir="rtl" lang="ar">يَجِبُ</bdi>, <bdi class="ari" dir="rtl" lang="ar">الَّذِي</bdi>, the idafa, comparatives, conditionals with <bdi class="ari" dir="rtl" lang="ar">إِذَا</bdi> and <bdi class="ari" dir="rtl" lang="ar">لَوْ</bdi>, and numbers.</li>
     <li><strong>Transform chains.</strong> 8 chains where one sentence changes step by step: a new person, tense, gender or negative each time.</li>
     <li><strong>Role-play.</strong> 6 everyday conversations: meeting someone, at the shop, asking the way, visiting a home, at the doctor’s and talking about yesterday.</li>
   </ul>
@@ -336,6 +337,98 @@ button{font:inherit;color:inherit;cursor:pointer}
 <script>
 /* ---------- content ---------- */
 const DECKS = [
+  {id:"opinion", group:"discussion", en:"Giving your opinion", frame:"فِي رَأْيِي {…}",
+   note:"After [[أَنَّ]] the next word takes a fatha ending: [[أَعْتَقِدُ أَنَّ الصَّبْرَ]].",
+   items:[
+    {id:"opinion1", en:"In my opinion, this solution is the most suitable.", ar:"{فِي رَأْيِي}، هَذَا الْحَلُّ هُوَ الْأَنْسَبُ."},
+    {id:"opinion2", en:"From my point of view, education is more important than money.", ar:"{مِنْ وِجْهَةِ نَظَرِي}، التَّعْلِيمُ أَهَمُّ مِنَ الْمَالِ.", tip:"[[وِجْهَةُ نَظَرٍ]] = a point of view; [[ي]] makes it “my”."},
+    {id:"opinion3", en:"I believe that patience is the key to relief.", ar:"{أَعْتَقِدُ أَنَّ} الصَّبْرَ مِفْتَاحُ الْفَرَجِ.", tip:"After [[أَنَّ]], [[الصَّبْرُ]] becomes [[الصَّبْرَ]]."},
+    {id:"opinion4", en:"I think that the idea is good.", ar:"{أَظُنُّ أَنَّ} الْفِكْرَةَ جَيِّدَةٌ.", tip:"[[الْفِكْرَةُ]] takes a fatha after [[أَنَّ]]; the describing word [[جَيِّدَةٌ]] keeps its damma."},
+    {id:"opinion5", en:"I think that dialogue is the best solution.", ar:"{أَرَى أَنَّ} الْحِوَارَ هُوَ الْحَلُّ الْأَفْضَلُ.", tip:"[[أَرَى]] is literally “I see”, a common way to say “I think”."},
+    {id:"opinion6", en:"It seems that the weather will change tomorrow.", ar:"{يَبْدُو أَنَّ} الطَّقْسَ سَيَتَغَيَّرُ غَدًا."},
+    {id:"opinion7", en:"Frankly, I did not like the idea.", ar:"{بِصَرَاحَةٍ}، لَمْ تُعْجِبْنِي الْفِكْرَةُ.", tip:"Arabic says “the idea did not please me”: [[لَمْ تُعْجِبْنِي]]."},
+    {id:"opinion8", en:"There is no doubt that knowledge is light.", ar:"{لَا شَكَّ أَنَّ} الْعِلْمَ نُورٌ."}
+  ]},
+  {id:"agree", group:"discussion", en:"Agreeing and disagreeing", frame:"أَتَّفِقُ مَعَكَ",
+   note:"[[أَتَّفِقُ مَعَكَ]] (I agree with you) and [[لَا أَتَّفِقُ مَعَكَ]] (I disagree). To a woman, [[مَعَكِ]].",
+   items:[
+    {id:"agree1", en:"I completely agree with you on this matter.", ar:"{أَتَّفِقُ مَعَكَ} تَمَامًا فِي هَذَا الْأَمْرِ."},
+    {id:"agree2", en:"I disagree with you on this point.", ar:"{لَا أَتَّفِقُ مَعَكَ} فِي هَذِهِ النُّقْطَةِ.", tip:"[[لَا]] before a present verb makes it negative."},
+    {id:"agree3", en:"That is true, but there are exceptions.", ar:"{هَذَا صَحِيحٌ}، وَلَكِنْ هُنَاكَ اسْتِثْنَاءَاتٌ."},
+    {id:"agree4", en:"The rich person is not necessarily happy.", ar:"الْغَنِيُّ {لَيْسَ بِالضَّرُورَةِ} سَعِيدًا.", tip:"After [[لَيْسَ]] the describing word takes a fatha: [[سَعِيدًا]]."},
+    {id:"agree5", en:"On the contrary, I think the matter is easy.", ar:"{عَلَى الْعَكْسِ}، أَنَا أَرَى أَنَّ الْأَمْرَ سَهْلٌ."},
+    {id:"agree6", en:"Everyone agreed to the decision.", ar:"{وَافَقَ} الْجَمِيعُ عَلَى الْقَرَارِ.", tip:"[[وَافَقَ عَلَى]] = to agree to something."},
+    {id:"agree7", en:"She refused the offer politely.", ar:"{رَفَضَتِ} الْعَرْضَ بِأَدَبٍ.", tip:"[[رَفَضَتْ]] (she refused) takes a kasra to join onto [[الْ]]."},
+    {id:"agree8", en:"He objected to the decision.", ar:"{اِعْتَرَضَ عَلَى} الْقَرَارِ.", tip:"[[اِعْتَرَضَ عَلَى]] = to object to."}
+  ]},
+  {id:"contrast", group:"discussion", en:"But, although, despite", frame:"وَلَكِنْ {…}",
+   note:"[[لَكِنَّ]] is followed by a noun with a fatha ending. [[وَلَكِنْ]] can be followed by anything.",
+   items:[
+    {id:"contrast1", en:"I like winter, but the cold is severe.", ar:"أُحِبُّ الشِّتَاءَ، {لَكِنَّ} الْبَرْدَ شَدِيدٌ.", tip:"After [[لَكِنَّ]], [[الْبَرْدُ]] becomes [[الْبَرْدَ]]."},
+    {id:"contrast2", en:"I wanted to visit him, but I did not have time.", ar:"أَرَدْتُ أَنْ أَزُورَهُ، {وَلَكِنْ} لَمْ يَكُنْ عِنْدِي وَقْتٌ."},
+    {id:"contrast3", en:"My brother loves travelling whereas I love staying at home.", ar:"يُحِبُّ أَخِي السَّفَرَ {بَيْنَمَا} أُحِبُّ الْبَقَاءَ فِي الْبَيْتِ."},
+    {id:"contrast4", en:"On the other hand, there are those who see it differently.", ar:"{فِي الْمُقَابِلِ}، هُنَاكَ مَنْ يَرَى غَيْرَ ذَلِكَ."},
+    {id:"contrast5", en:"From another angle, the project is costly.", ar:"{مِنْ نَاحِيَةٍ أُخْرَى}، الْمَشْرُوعُ مُكَلِّفٌ."},
+    {id:"contrast6", en:"Despite the tiredness, we carried on working.", ar:"{عَلَى الرَّغْمِ مِنَ} التَّعَبِ، وَاصَلْنَا الْعَمَلَ.", tip:"[[مِنْ]] becomes [[مِنَ]] before [[الْ]]."},
+    {id:"contrast7", en:"Although he is small, he understands a lot.", ar:"{مَعَ أَنَّهُ} صَغِيرٌ، فَهُوَ يَفْهَمُ كَثِيرًا.", tip:"[[أَنَّ]] + [[هُ]] (he) = [[أَنَّهُ]]."},
+    {id:"contrast8", en:"The road was long; nevertheless we arrived early.", ar:"كَانَ الطَّرِيقُ طَوِيلًا، {وَمَعَ ذَلِكَ} وَصَلْنَا مُبَكِّرًا."}
+  ]},
+  {id:"cause", group:"discussion", en:"Because, therefore, as a result", frame:"لِذَلِكَ {…}",
+   note:"[[لِأَنَّ]] is followed by a sentence; [[بِسَبَبِ]] by a noun ending in a kasra.",
+   items:[
+    {id:"cause1", en:"I was late because the train broke down.", ar:"تَأَخَّرْتُ {لِأَنَّ} الْقِطَارَ تَعَطَّلَ.", tip:"After [[لِأَنَّ]], [[الْقِطَارُ]] becomes [[الْقِطَارَ]]."},
+    {id:"cause2", en:"The trip was cancelled because of the rain.", ar:"أُلْغِيَتِ الرِّحْلَةُ {بِسَبَبِ} الْمَطَرِ.", tip:"After [[بِسَبَبِ]] the noun ends in a kasra: [[الْمَطَرِ]]."},
+    {id:"cause3", en:"I was tired, therefore I slept early.", ar:"كُنْتُ مُتْعَبًا، {لِذَلِكَ} نِمْتُ مُبَكِّرًا.", f:{ar:"كُنْتُ مُتْعَبَةً، {لِذَلِكَ} نِمْتُ مُبَكِّرًا."}},
+    {id:"cause4", en:"He did not study, and consequently he failed the exam.", ar:"لَمْ يَدْرُسْ، {وَبِالتَّالِي} رَسَبَ فِي الِامْتِحَانِ."},
+    {id:"cause5", en:"As a result of that, the plan changed.", ar:"{نَتِيجَةً لِذَلِكَ}، تَغَيَّرَتِ الْخُطَّةُ."},
+    {id:"cause6", en:"What is the cause of this problem?", ar:"مَا {سَبَبُ} هَذِهِ الْمُشْكِلَةِ؟", tip:"[[سَبَبٌ]] = reason or cause; plural [[أَسْبَابٌ]]."},
+    {id:"cause7", en:"The result was surprising.", ar:"كَانَتِ {النَّتِيجَةُ} مُفَاجِئَةً.", tip:"After [[كَانَتْ]] the describing word takes a fatha: [[مُفَاجِئَةً]]."}
+  ]},
+  {id:"order", group:"discussion", en:"Firstly, for example, in conclusion", frame:"أَوَّلًا {…}",
+   note:"Words that organise what you say: first, also, for example, in other words, finally.",
+   items:[
+    {id:"order1", en:"Firstly, we must understand the problem.", ar:"{أَوَّلًا}، يَجِبُ أَنْ نَفْهَمَ الْمُشْكِلَةَ."},
+    {id:"order2", en:"Fruits are beneficial, for example apples.", ar:"الْفَوَاكِهُ مُفِيدَةٌ، {عَلَى سَبِيلِ الْمِثَالِ} التُّفَّاحُ."},
+    {id:"order3", en:"In addition to that, he is a generous person.", ar:"{بِالْإِضَافَةِ إِلَى ذَلِكَ}، هُوَ إِنْسَانٌ كَرِيمٌ."},
+    {id:"order4", en:"I love reading, especially before sleep.", ar:"أُحِبُّ الْقِرَاءَةَ، {خُصُوصًا} قَبْلَ النَّوْمِ."},
+    {id:"order5", en:"I love fruit, and especially grapes.", ar:"أُحِبُّ الْفَوَاكِهَ، {وَخَاصَّةً} الْعِنَبَ."},
+    {id:"order6", en:"In other words, we cannot wait.", ar:"{بِمَعْنَى آخَرَ}، لَا نَسْتَطِيعُ الِانْتِظَارَ."},
+    {id:"order7", en:"In conclusion, dialogue is better than quarrelling.", ar:"{فِي الْخِتَامِ}، الْحِوَارُ أَفْضَلُ مِنَ الْخِصَامِ."},
+    {id:"order8", en:"Finally, I thank you for listening so well.", ar:"{أَخِيرًا}، أَشْكُرُكُمْ عَلَى حُسْنِ الِاسْتِمَاعِ."}
+  ]},
+  {id:"fact", group:"discussion", en:"In fact, in general, anyway", frame:"فِي الْحَقِيقَةِ {…}",
+   note:"Short openers that set up what you are about to say.",
+   items:[
+    {id:"fact1", en:"In fact, I did not know that.", ar:"{فِي الْحَقِيقَةِ}، لَمْ أَكُنْ أَعْرِفُ ذَلِكَ.", tip:"[[لَمْ أَكُنْ أَعْرِفُ]] = I did not know (I wasn’t knowing)."},
+    {id:"fact2", en:"In reality, the matter is simpler than we think.", ar:"{فِي الْوَاقِعِ}، الْأَمْرُ أَبْسَطُ مِمَّا نَظُنُّ.", tip:"[[مِمَّا]] = [[مِنْ]] + [[مَا]], “than what”."},
+    {id:"fact3", en:"In general, the people here are kind.", ar:"{بِشَكْلٍ عَامٍّ}، النَّاسُ هُنَا طَيِّبُونَ."},
+    {id:"fact4", en:"In any case, I will try once more.", ar:"{عَلَى أَيِّ حَالٍ}، سَأُحَاوِلُ مَرَّةً أُخْرَى."},
+    {id:"fact5", en:"Anyway, we will wait until tomorrow.", ar:"{عَلَى كُلِّ حَالٍ}، سَنَنْتَظِرُ حَتَّى الْغَدِ."},
+    {id:"fact6", en:"It is important to listen to others.", ar:"{مِنَ الْمُهِمِّ أَنْ} نَسْتَمِعَ إِلَى الْآخَرِينَ.", tip:"After [[أَنْ]] the verb ends in a fatha: [[نَسْتَمِعَ]]."}
+  ]},
+  {id:"discuss", group:"discussion", en:"Discuss, suggest, explain", frame:"نُنَاقِشُ {…}",
+   note:"Verbs for talking about a discussion. Each changes with who is doing it.",
+   items:[
+    {id:"discuss1", en:"We discuss the topic every week.", ar:"{نُنَاقِشُ} الْمَوْضُوعَ كُلَّ أُسْبُوعٍ.", tip:"[[نَاقَشَ]], [[يُنَاقِشُ]]: [[نُ]] at the start means “we”."},
+    {id:"discuss2", en:"He suggested a simple solution to us.", ar:"{اِقْتَرَحَ} عَلَيْنَا حَلًّا بَسِيطًا.", tip:"[[اِقْتَرَحَ عَلَى]] = to suggest to someone."},
+    {id:"discuss3", en:"The teacher explained the lesson clearly.", ar:"{شَرَحَ} الْمُعَلِّمُ الدَّرْسَ بِوُضُوحٍ."},
+    {id:"discuss4", en:"I compared the two opinions.", ar:"{قَارَنْتُ} بَيْنَ الرَّأْيَيْنِ.", tip:"[[الرَّأْيَيْنِ]] = the two opinions (dual)."},
+    {id:"discuss5", en:"I used to believe the matter was easy.", ar:"{كُنْتُ أَعْتَقِدُ} أَنَّ الْأَمْرَ سَهْلٌ.", tip:"[[كُنْتُ]] + present verb = used to."},
+    {id:"discuss6", en:"The director stressed the importance of time.", ar:"{أَكَّدَ} الْمُدِيرُ أَهَمِّيَّةَ الْوَقْتِ."},
+    {id:"discuss7", en:"He convinced me of his point of view.", ar:"{أَقْنَعَنِي} بِوَجْهَةِ نَظَرِهِ.", tip:"[[نِي]] (me) joins onto the verb: [[أَقْنَعَ]] + [[نِي]]."}
+  ]},
+  {id:"ideas", group:"discussion", en:"Opinion, idea, problem, solution", frame:"هَذِهِ {…}",
+   note:"Nouns you need to discuss anything.",
+   items:[
+    {id:"ideas1", en:"Everyone has their own opinion.", ar:"لِكُلِّ إِنْسَانٍ {رَأْيُهُ}.", tip:"[[رَأْيٌ]] = opinion, plural [[آرَاءٌ]]."},
+    {id:"ideas2", en:"This is an excellent idea.", ar:"هَذِهِ {فِكْرَةٌ} مُمْتَازَةٌ.", tip:"[[فِكْرَةٌ]] = idea, plural [[أَفْكَارٌ]]."},
+    {id:"ideas3", en:"What is the topic of the lecture?", ar:"مَا {مَوْضُوعُ} الْمُحَاضَرَةِ؟"},
+    {id:"ideas4", en:"I have a problem at work.", ar:"عِنْدِي {مُشْكِلَةٌ} فِي الْعَمَلِ."},
+    {id:"ideas5", en:"We are looking for a suitable solution.", ar:"نَبْحَثُ عَنْ {حَلٍّ} مُنَاسِبٍ.", tip:"After [[عَنْ]] the noun ends in a kasra: [[حَلٍّ]]."},
+    {id:"ideas6", en:"Give me an example from reality.", ar:"أَعْطِنِي {مِثَالًا} مِنَ الْوَاقِعِ.", tip:"To a woman: [[أَعْطِينِي]]."},
+    {id:"ideas7", en:"There is no evidence for that.", ar:"لَا يُوجَدُ {دَلِيلٌ} عَلَى ذَلِكَ."},
+    {id:"ideas8", en:"Calm dialogue solves disagreements.", ar:"{الْحِوَارُ} الْهَادِئُ يَحُلُّ الْخِلَافَاتِ."}
+  ]},
   {id:"you", group:"grammar", en:"you: a man, a woman, a group", frame:"أَنْتَ / أَنْتِ / أَنْتُمْ",
    note:"“Your” is [[كَ]] to a man, [[كِ]] to a woman and [[كُمْ]] to a group.",
    explain:[
@@ -967,7 +1060,7 @@ function renderHome(){
          (weak ? weak + " to strengthen" : "All solid") + '</span><span class="sub">Your 10 weakest sentences from every pattern.</span></button></li>';
     h += '<li><button class="row review" data-act="learned"' + (learned ? "" : " disabled") + '><span class="t">Review what you’ve learned</span><span class="s">' +
          learned + ' solid</span><span class="sub">' + (learned ? "Up to 10 of your solid sentences, so they stay solid." : "Sentences appear here once they’re solid.") + '</span></button></li>';
-    [["everyday","Everyday phrases"],["grammar","Grammar builders"]].forEach(([g, label]) => {
+    [["everyday","Everyday phrases"],["discussion","Discussion phrases"],["grammar","Grammar builders"]].forEach(([g, label]) => {
     h += '<li><h2 class="group-h">' + label + '</h2></li>';
     DECKS.filter(d => (d.group || "everyday") === g).forEach(d => {
       const n = solidCount(d.items), pct = Math.round(n / d.items.length * 100);
