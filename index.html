@@ -1386,7 +1386,7 @@ function renderHome(){
          (weak ? weak + " to strengthen" : "All solid") + '</span><span class="sub">Your 10 weakest sentences from every pattern.</span></button></li>';
     h += '<li><button class="row review" data-act="learned"' + (learned ? "" : " disabled") + '><span class="t">Review what you’ve learned</span><span class="s">' +
          learned + ' solid</span><span class="sub">' + (learned ? "Up to 10 of your solid sentences, so they stay solid." : "Sentences appear here once they’re solid.") + '</span></button></li>';
-    [["talk","Conversation phrases"],["everyday","Everyday phrases"],["discussion","Discussion words"],["grammar","Grammar builders"]].forEach(([g, label]) => {
+    [["talk","Conversation phrases"],["everyday","Everyday phrases"],["grammar","Grammar builders"],["discussion","Discussion words"]].forEach(([g, label]) => {
     h += '<li><h2 class="group-h">' + label + '</h2></li>';
     if (g === "discussion"){
       [...new Set(DECKS.filter(d => d.group === g).map(d => d.sec))].forEach(sec => {
