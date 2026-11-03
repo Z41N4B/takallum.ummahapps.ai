@@ -10,7 +10,7 @@ Interface language: English. Practice language: Modern Standard Arabic.
 
 ## Practice modes
 
-- **Swap-in drills**: 27 sentence patterns, 210 sentences, in three groups: everyday phrases, discussion phrases (giving opinions, agreeing and disagreeing, but/although/despite, because/therefore, firstly/for example/in conclusion, and the verbs and nouns of a discussion) and grammar builders. Each pattern has a short plain-English explanation and per-sentence tips.
+- **Swap-in drills**: 462 sentences in 85 sections, in four groups: conversation phrases (greetings and politeness, Islamic phrases, the same phrases said to a man, to a woman and to a group, and talking about yourself), everyday phrases, discussion words with one button per word, 60 in all, 4 sentences each (giving opinions, agreeing and disagreeing, but/although/despite, because/therefore, firstly/for example/in conclusion, and the verbs and nouns of a discussion) and grammar builders. Each pattern has a short plain-English explanation and per-sentence tips.
 - **Transform chains**: 8 chains in which one sentence changes step by step (person, gender, tense, negation, question).
 - **Practise as a man or a woman**: sentences about yourself and the role-play lines spoken to you switch to the feminine.
 - **Review what you've learned**: practise only the sentences you already know.
