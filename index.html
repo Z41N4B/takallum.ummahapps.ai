@@ -91,10 +91,10 @@
         "Swap-in drills: 462 sentences in 85 sections, including a separate button for each of 60 discussion words",
         "Conversation phrases: greetings, Islamic phrases, and phrases said to a man, a woman and a group",
         "Discussion phrases for giving opinions, agreeing and disagreeing, contrasting, giving reasons and organising what you say",
-        "Transform chains: 8 chains where one sentence changes step by step",
+        "Transform chains: 14 chains where one sentence changes step by step",
         "Practise as a man or a woman; drills for speaking to a man, a woman and a group",
         "Review only the sentences you have already learned",
-        "Role-play: 6 everyday conversations",
+        "Role-play: 13 everyday conversations", "Hear without seeing the words: practise by ear in every mode",
         "Normal and slow Arabic audio",
         "Vowel marks (harakat) that can be switched off",
         "Spaced repetition: missed sentences come back sooner",
@@ -303,6 +303,15 @@ a.ua-app:hover{border-color:var(--f-lapis)}
 .you .say button{background:transparent;border-color:currentColor;color:inherit}
 .you .tip{color:var(--ink);text-align:left}
 .hid{filter:blur(7px);user-select:none}
+.opt.listen-opt{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:10px 16px;margin-bottom:14px;cursor:pointer}
+.you .show-words{color:inherit;text-decoration:underline}
+.answer .show-words{display:block;margin:0 auto}
+.from .show-words{display:block}
+.gain{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:12px 16px;margin:0 0 18px}
+.gain p{margin:0 0 8px}
+.gain .prog{margin-bottom:8px}
+.gain .prog i{background:var(--brass)}
+.gain .note{margin:0}
 .show-words{background:none;border:0;color:var(--lapis);font-weight:600;padding:4px 0;font-size:.88rem}
 .turn{background:var(--surface);border:1px dashed var(--lapis);border-radius:16px;padding:14px 16px}
 .turn .lbl{margin:0 0 2px;font-size:.82rem;color:var(--muted)}
@@ -355,8 +364,8 @@ a.ua-app:hover{border-color:var(--f-lapis)}
   <h3>Three ways to practise</h3>
   <ul>
     <li><strong>Swap-in drills.</strong> 462 sentences in 85 sections: greetings and conversation phrases said to a man, a woman or a group, 60 discussion words with a button each, and everyday phrases like <bdi class="ari" dir="rtl" lang="ar">أُرِيدُ أَنْ</bdi> (I want to) and <bdi class="ari" dir="rtl" lang="ar">أَيْنَ</bdi> (where is), through discussion phrases like <bdi class="ari" dir="rtl" lang="ar">فِي رَأْيِي</bdi> (in my opinion), <bdi class="ari" dir="rtl" lang="ar">عَلَى الرَّغْمِ مِنْ</bdi> (despite) and <bdi class="ari" dir="rtl" lang="ar">لِذَلِكَ</bdi> (therefore), to grammar builders: <bdi class="ari" dir="rtl" lang="ar">لَمْ</bdi> (didn’t), <bdi class="ari" dir="rtl" lang="ar">كَانَ</bdi> and its sisters, <bdi class="ari" dir="rtl" lang="ar">إِنَّ</bdi> and its sisters, <bdi class="ari" dir="rtl" lang="ar">مُنْذُ</bdi>, <bdi class="ari" dir="rtl" lang="ar">يَجِبُ</bdi>, <bdi class="ari" dir="rtl" lang="ar">الَّذِي</bdi>, the idafa, comparatives, conditionals with <bdi class="ari" dir="rtl" lang="ar">إِذَا</bdi> and <bdi class="ari" dir="rtl" lang="ar">لَوْ</bdi>, and numbers.</li>
-    <li><strong>Transform chains.</strong> 8 chains where one sentence changes step by step: a new person, tense, gender or negative each time.</li>
-    <li><strong>Role-play.</strong> 6 everyday conversations: meeting someone, at the shop, asking the way, visiting a home, at the doctor’s and talking about yesterday.</li>
+    <li><strong>Transform chains.</strong> 14 chains where one sentence changes step by step: a new person, tense, gender or negative each time.</li>
+    <li><strong>Role-play.</strong> 13 everyday conversations, including meeting someone, at the shop, at the restaurant, on the phone, in class, at the mosque, in a taxi and at the doctor’s.</li>
   </ul>
   <h3>Questions</h3>
   <details><summary>Is Takallum free?</summary><p>Yes. It is free and needs no sign-up. Your progress is saved in your browser on this device.</p></details>
@@ -1212,6 +1221,71 @@ const CHAINS = [
      tip:"[[كَانَتْ]] matches the feminine [[سَيَّارَةٌ]]. Because [[عِنْدِي]] comes in between, the masculine [[كَانَ]] is also allowed, which is why [[لَيْسَ عِنْدَنَا]] was fine."},
     {i:"Ask a man the question", en:"Do you have a car?", ar:"{هَلْ عِنْدَكَ} سَيَّارَةٌ؟"}
   ]}
+  ,{id:"wantchain", en:"Wanting, with أَنْ", ar:"أُرِيدُ أَنْ", steps:[
+    {i:"Starting sentence", en:"I drink water.", ar:"{أَشْرَبُ} مَاءً."},
+    {i:"Say you want to", en:"I want to drink water.", ar:"{أُرِيدُ أَنْ أَشْرَبَ} مَاءً.", tip:"After [[أَنْ]] the verb ends in a fatha: [[أَشْرَبَ]]."},
+    {i:"Change I to he", en:"He wants to drink water.", ar:"{يُرِيدُ أَنْ يَشْرَبَ} مَاءً.", tip:"Both verbs change with the person."},
+    {i:"Change he to she", en:"She wants to drink water.", ar:"{تُرِيدُ أَنْ تَشْرَبَ} مَاءً."},
+    {i:"Change to we", en:"We want to drink water.", ar:"{نُرِيدُ أَنْ نَشْرَبَ} مَاءً."},
+    {i:"Change to they (men)", en:"They want to drink water.", ar:"{يُرِيدُونَ أَنْ يَشْرَبُوا} مَاءً.", tip:"After [[أَنْ]], [[يَشْرَبُونَ]] drops its [[نَ]], but [[يُرِيدُونَ]] keeps it."},
+    {i:"Make it negative", en:"They don’t want to drink water.", ar:"{لَا يُرِيدُونَ أَنْ يَشْرَبُوا} مَاءً."},
+    {i:"Make it past", en:"They wanted to drink water.", ar:"{أَرَادُوا أَنْ يَشْرَبُوا} مَاءً.", tip:"[[أَرَادَ]] is the past of [[يُرِيدُ]]."},
+    {i:"Change to I", en:"I wanted to drink water.", ar:"{أَرَدْتُ أَنْ أَشْرَبَ} مَاءً.", tip:"[[أَرَادَ]] shortens to [[أَرَدْ]] before endings like [[تُ]]."}
+  ]},
+  {id:"travelchain", en:"To travel", ar:"يُسَافِرُ", steps:[
+    {i:"Starting sentence", en:"He travels every year.", ar:"{يُسَافِرُ} كُلَّ سَنَةٍ."},
+    {i:"Make it future", en:"He will travel next year.", ar:"{سَيُسَافِرُ} فِي السَّنَةِ الْقَادِمَةِ.", tip:"[[سَـ]] + present verb = will."},
+    {i:"Change he to I", en:"I will travel next year.", ar:"{سَأُسَافِرُ} فِي السَّنَةِ الْقَادِمَةِ."},
+    {i:"Change to we", en:"We will travel next year.", ar:"{سَنُسَافِرُ} فِي السَّنَةِ الْقَادِمَةِ."},
+    {i:"Make the future negative", en:"We won’t travel next year.", ar:"{لَنْ نُسَافِرَ} فِي السَّنَةِ الْقَادِمَةِ.", tip:"[[لَنْ]] replaces [[سَـ]], and the verb ends in a fatha."},
+    {i:"Change to she", en:"She won’t travel next year.", ar:"{لَنْ تُسَافِرَ} فِي السَّنَةِ الْقَادِمَةِ."},
+    {i:"Make it past: last year", en:"She travelled last year.", ar:"{سَافَرَتْ} فِي السَّنَةِ الْمَاضِيَةِ."},
+    {i:"Make it negative", en:"She didn’t travel last year.", ar:"{لَمْ تُسَافِرْ} فِي السَّنَةِ الْمَاضِيَةِ.", tip:"[[لَمْ]] takes the present verb, ending in a sukun."},
+    {i:"Ask a man the question", en:"Did you travel last year?", ar:"{هَلْ سَافَرْتَ} فِي السَّنَةِ الْمَاضِيَةِ؟"}
+  ]},
+  {id:"usedchain", en:"Used to, with كَانَ", ar:"كَانَ يَدْرُسُ", steps:[
+    {i:"Starting sentence", en:"He studies at night.", ar:"{يَدْرُسُ} فِي اللَّيْلِ."},
+    {i:"Say he used to", en:"He used to study at night.", ar:"{كَانَ يَدْرُسُ} فِي اللَّيْلِ.", tip:"[[كَانَ]] + present verb = used to, or was doing."},
+    {i:"Change he to she", en:"She used to study at night.", ar:"{كَانَتْ تَدْرُسُ} فِي اللَّيْلِ.", tip:"Both words change with the person."},
+    {i:"Change to I", en:"I used to study at night.", ar:"{كُنْتُ أَدْرُسُ} فِي اللَّيْلِ."},
+    {i:"Change to we", en:"We used to study at night.", ar:"{كُنَّا نَدْرُسُ} فِي اللَّيْلِ."},
+    {i:"Change to they (men)", en:"They used to study at night.", ar:"{كَانُوا يَدْرُسُونَ} فِي اللَّيْلِ."},
+    {i:"Make it negative", en:"They didn’t use to study at night.", ar:"{لَمْ يَكُونُوا يَدْرُسُونَ} فِي اللَّيْلِ.", tip:"After [[لَمْ]], [[يَكُونُونَ]] drops its [[نَ]]. [[يَدْرُسُونَ]] keeps its [[نَ]]."},
+    {i:"Ask a man the question", en:"Did you use to study at night?", ar:"{هَلْ كُنْتَ تَدْرُسُ} فِي اللَّيْلِ؟"},
+    {i:"Ask a woman instead", en:"Did you use to study at night? (to a woman)", ar:"{هَلْ كُنْتِ تَدْرُسِينَ} فِي اللَّيْلِ؟"}
+  ]},
+  {id:"mustchain", en:"Must, with يَجِبُ", ar:"يَجِبُ", steps:[
+    {i:"Starting sentence", en:"I go to work.", ar:"{أَذْهَبُ} إِلَى الْعَمَلِ."},
+    {i:"Say you must", en:"I must go to work.", ar:"{يَجِبُ عَلَيَّ أَنْ أَذْهَبَ} إِلَى الْعَمَلِ.", tip:"[[يَجِبُ]] never changes. The person goes on [[عَلَى]], and the verb after [[أَنْ]] ends in a fatha."},
+    {i:"Change I to he", en:"He must go to work.", ar:"{يَجِبُ عَلَيْهِ أَنْ يَذْهَبَ} إِلَى الْعَمَلِ."},
+    {i:"Change he to she", en:"She must go to work.", ar:"{يَجِبُ عَلَيْهَا أَنْ تَذْهَبَ} إِلَى الْعَمَلِ."},
+    {i:"Change to we", en:"We must go to work.", ar:"{يَجِبُ عَلَيْنَا أَنْ نَذْهَبَ} إِلَى الْعَمَلِ."},
+    {i:"Say it to a man", en:"You must go to work. (to a man)", ar:"{يَجِبُ عَلَيْكَ أَنْ تَذْهَبَ} إِلَى الْعَمَلِ."},
+    {i:"Say it to a woman", en:"You must go to work. (to a woman)", ar:"{يَجِبُ عَلَيْكِ أَنْ تَذْهَبِي} إِلَى الْعَمَلِ.", tip:"After [[أَنْ]], [[تَذْهَبِينَ]] drops its [[نَ]]."},
+    {i:"Make it “don’t have to”, to a man", en:"You don’t have to go to work.", ar:"{لَا يَجِبُ عَلَيْكَ أَنْ تَذْهَبَ} إِلَى الْعَمَلِ."},
+    {i:"Make it past, with I", en:"I had to go to work.", ar:"{كَانَ يَجِبُ عَلَيَّ أَنْ أَذْهَبَ} إِلَى الْعَمَلِ."}
+  ]},
+  {id:"becausechain", en:"Because, with لِأَنَّ", ar:"لِأَنَّ", steps:[
+    {i:"Starting sentence", en:"The weather is cold.", ar:"الْجَوُّ {بَارِدٌ}."},
+    {i:"Start with “because”", en:"Because the weather is cold.", ar:"{لِأَنَّ الْجَوَّ} بَارِدٌ.", tip:"After [[لِأَنَّ]], [[الْجَوُّ]] becomes [[الْجَوَّ]]. [[بَارِدٌ]] doesn’t change."},
+    {i:"Add: I stayed at home", en:"I stayed at home because the weather is cold.", ar:"بَقِيتُ فِي الْبَيْتِ {لِأَنَّ} الْجَوَّ بَارِدٌ."},
+    {i:"Change the reason: I’m tired", en:"I stayed at home because I’m tired.", ar:"بَقِيتُ فِي الْبَيْتِ {لِأَنَّنِي} مُتْعَبٌ.", f:{ar:"بَقِيتُ فِي الْبَيْتِ {لِأَنَّنِي} مُتْعَبَةٌ."}, tip:"[[لِأَنَّ]] + [[نِي]] (me) = [[لِأَنَّنِي]]."},
+    {i:"Change I to he", en:"He stayed at home because he is tired.", ar:"{بَقِيَ} فِي الْبَيْتِ {لِأَنَّهُ} مُتْعَبٌ."},
+    {i:"Change he to she", en:"She stayed at home because she is tired.", ar:"{بَقِيَتْ} فِي الْبَيْتِ {لِأَنَّهَا} مُتْعَبَةٌ."},
+    {i:"Change to we", en:"We stayed at home because we are tired.", ar:"{بَقِينَا} فِي الْبَيْتِ {لِأَنَّنَا} مُتْعَبُونَ."},
+    {i:"Turn it round, with “so”", en:"We are tired, so we stayed at home.", ar:"نَحْنُ مُتْعَبُونَ، {لِذَلِكَ} بَقِينَا فِي الْبَيْتِ.", tip:"[[لِأَنَّ]] gives the reason. [[لِذَلِكَ]] gives the result."}
+  ]},
+  {id:"pluralchain", en:"This and these: gender and plurals", ar:"هَذَا / هَذِهِ / هَؤُلَاءِ", steps:[
+    {i:"Starting sentence", en:"This is a big house.", ar:"{هَذَا} بَيْتٌ كَبِيرٌ."},
+    {i:"Change house to car", en:"This is a big car.", ar:"{هَذِهِ} سَيَّارَةٌ {كَبِيرَةٌ}.", tip:"[[سَيَّارَةٌ]] is feminine, so [[هَذِهِ]] and [[كَبِيرَةٌ]]."},
+    {i:"Say “this car is big”", en:"This car is big.", ar:"هَذِهِ {السَّيَّارَةُ} كَبِيرَةٌ.", tip:"With [[الْ]], it becomes “this car”, and [[كَبِيرَةٌ]] tells you about it."},
+    {i:"Change this to that", en:"That car is big.", ar:"{تِلْكَ} السَّيَّارَةُ كَبِيرَةٌ.", tip:"[[ذَلِكَ]] for masculine, [[تِلْكَ]] for feminine."},
+    {i:"Make it plural", en:"Those cars are big.", ar:"تِلْكَ {السَّيَّارَاتُ} كَبِيرَةٌ.", tip:"A plural of things is treated as feminine singular, so [[تِلْكَ]] and [[كَبِيرَةٌ]] stay."},
+    {i:"New sentence: one student", en:"This student is hardworking.", ar:"{هَذَا الطَّالِبُ} مُجْتَهِدٌ."},
+    {i:"Change to a female student", en:"This female student is hardworking.", ar:"{هَذِهِ الطَّالِبَةُ} مُجْتَهِدَةٌ."},
+    {i:"Make it plural: men", en:"These students are hardworking.", ar:"{هَؤُلَاءِ الطُّلَّابُ} مُجْتَهِدُونَ.", tip:"[[هَؤُلَاءِ]] is for people, and people keep a true plural: [[مُجْتَهِدُونَ]]."},
+    {i:"Make it plural: women", en:"These female students are hardworking.", ar:"{هَؤُلَاءِ الطَّالِبَاتُ} مُجْتَهِدَاتٌ."}
+  ]}
 ];
 
 const SCENES = [
@@ -1257,6 +1331,58 @@ const SCENES = [
     {they:"مُنْذُ مَتَى؟", theyEn:"Since when?", cue:"Since yesterday.", you:"مُنْذُ أَمْسِ.", tip:"[[أَمْسِ]] always ends in a kasra."},
     {they:"هَلْ عِنْدَكَ حُمَّى؟", f:{they:"هَلْ عِنْدَكِ حُمَّى؟"}, theyEn:"Do you have a fever?", cue:"Say no, you don’t have a fever.", you:"لَا، لَيْسَ عِنْدِي حُمَّى.", tip:"[[لَيْسَ عِنْدِي]] = I don’t have. [[حُمَّى]] ends in [[ى]], so its ending never changes."},
     {they:"خُذْ هَذَا الدَّوَاءَ مَرَّتَيْنِ فِي الْيَوْمِ.", f:{they:"خُذِي هَذَا الدَّوَاءَ مَرَّتَيْنِ فِي الْيَوْمِ."}, theyEn:"Take this medicine twice a day.", cue:"Thank the doctor.", you:"شُكْرًا يَا دُكْتُورُ.", tip:"After [[يَا]], a title like [[دُكْتُورُ]] takes a damma with no tanwin."}
+  ]}
+  ,{id:"restaurant", en:"At the restaurant", ar:"فِي الْمَطْعَمِ", who:"Waiter", turns:[
+    {they:"أَهْلًا بِكَ، مَاذَا تُرِيدُ أَنْ تَأْكُلَ؟", f:{they:"أَهْلًا بِكِ، مَاذَا تُرِيدِينَ أَنْ تَأْكُلِي؟"}, theyEn:"Welcome, what would you like to eat?", cue:"Ask for chicken and rice, please.", you:"أُرِيدُ دَجَاجًا وَأَرُزًّا، مِنْ فَضْلِكَ.", tip:"Both things you want take a fatha with tanwin."},
+    {they:"وَمَاذَا تَشْرَبُ؟", f:{they:"وَمَاذَا تَشْرَبِينَ؟"}, theyEn:"And what will you drink?", cue:"Water, please.", you:"مَاءً، مِنْ فَضْلِكَ."},
+    {they:"هَلْ تُرِيدُ شَيْئًا آخَرَ؟", f:{they:"هَلْ تُرِيدِينَ شَيْئًا آخَرَ؟"}, theyEn:"Do you want anything else?", cue:"No thanks, that’s enough.", you:"لَا، شُكْرًا. هَذَا يَكْفِي."},
+    {they:"تَفَضَّلْ، هَذَا طَعَامُكَ.", f:{they:"تَفَضَّلِي، هَذَا طَعَامُكِ."}, theyEn:"Here you are, this is your food.", cue:"Say the food is very tasty.", you:"الطَّعَامُ لَذِيذٌ جِدًّا!"},
+    {they:"هَلْ تُرِيدُ الْحِسَابَ؟", f:{they:"هَلْ تُرِيدِينَ الْحِسَابَ؟"}, theyEn:"Would you like the bill?", cue:"Yes please. Ask how much it is.", you:"نَعَمْ، مِنْ فَضْلِكَ. كَمِ الْحِسَابُ؟", tip:"The sukun of [[كَمْ]] becomes a kasra before [[الْ]]."},
+    {they:"عِشْرُونَ رِيَالًا. شُكْرًا لِزِيَارَتِكَ.", f:{they:"عِشْرُونَ رِيَالًا. شُكْرًا لِزِيَارَتِكِ."}, theyEn:"Twenty riyals. Thank you for visiting."}
+  ]},
+  {id:"phone", en:"On the phone", ar:"عَلَى الْهَاتِفِ", who:"Friend", turns:[
+    {they:"السَّلَامُ عَلَيْكُمْ.", theyEn:"Peace be upon you.", cue:"Return the greeting and ask how he is.", you:"وَعَلَيْكُمُ السَّلَامُ. كَيْفَ حَالُكَ؟"},
+    {they:"بِخَيْرٍ، الْحَمْدُ لِلَّهِ. أَيْنَ أَنْتَ الْآنَ؟", f:{they:"بِخَيْرٍ، الْحَمْدُ لِلَّهِ. أَيْنَ أَنْتِ الْآنَ؟"}, theyEn:"Fine, praise be to Allah. Where are you now?", cue:"Say you are on the way.", you:"أَنَا فِي الطَّرِيقِ."},
+    {they:"مَتَى تَصِلُ؟", f:{they:"مَتَى تَصِلِينَ؟"}, theyEn:"When will you arrive?", cue:"Say in ten minutes.", you:"بَعْدَ عَشْرِ دَقَائِقَ.", tip:"[[دَقَائِقَ]] ends in a fatha instead of a kasra: plurals on this pattern never take a kasra or tanwin."},
+    {they:"هَلْ تُرِيدُ أَنْ أَنْتَظِرَكَ؟", f:{they:"هَلْ تُرِيدِينَ أَنْ أَنْتَظِرَكِ؟", you:"نَعَمْ، مِنْ فَضْلِكَ. آسِفَةٌ عَلَى التَّأَخُّرِ."}, theyEn:"Do you want me to wait for you?", cue:"Say yes please, and that you’re sorry for being late.", you:"نَعَمْ، مِنْ فَضْلِكَ. آسِفٌ عَلَى التَّأَخُّرِ."},
+    {they:"لَا بَأْسَ. إِلَى اللِّقَاءِ.", theyEn:"No problem. See you soon."}
+  ]},
+  {id:"classroom", en:"In class", ar:"فِي الصَّفِّ", who:"Teacher", turns:[
+    {they:"صَبَاحُ الْخَيْرِ. هَلْ كَتَبْتَ الْوَاجِبَ؟", f:{they:"صَبَاحُ الْخَيْرِ. هَلْ كَتَبْتِ الْوَاجِبَ؟"}, theyEn:"Good morning. Did you write the homework?", cue:"Say yes, but you have a question.", you:"نَعَمْ، وَلَكِنْ عِنْدِي سُؤَالٌ."},
+    {they:"تَفَضَّلْ، مَا سُؤَالُكَ؟", f:{they:"تَفَضَّلِي، مَا سُؤَالُكِ؟"}, theyEn:"Go ahead, what is your question?", cue:"Say you didn’t understand this word.", you:"لَمْ أَفْهَمْ هَذِهِ الْكَلِمَةَ.", tip:"After [[لَمْ]], [[أَفْهَمُ]] ends in a sukun: [[أَفْهَمْ]]."},
+    {they:"سَأَشْرَحُهَا لَكَ. هَلْ فَهِمْتَ الْآنَ؟", f:{they:"سَأَشْرَحُهَا لَكِ. هَلْ فَهِمْتِ الْآنَ؟"}, theyEn:"I’ll explain it to you. Do you understand now?", cue:"Say yes, you understood, and thank the teacher.", you:"نَعَمْ، فَهِمْتُ. شُكْرًا يَا أُسْتَاذُ."},
+    {they:"أَحْسَنْتَ. هَلْ أَنْتَ مُسْتَعِدٌّ لِلِامْتِحَانِ؟", f:{they:"أَحْسَنْتِ. هَلْ أَنْتِ مُسْتَعِدَّةٌ لِلِامْتِحَانِ؟"}, theyEn:"Well done. Are you ready for the exam?", cue:"Say not yet, you need more time.", you:"لَيْسَ بَعْدُ، أَحْتَاجُ إِلَى وَقْتٍ أَطْوَلَ.", tip:"[[أَطْوَلَ]] (longer) never takes tanwin, so it ends in a plain fatha."},
+    {they:"لَا تَقْلَقْ، أَنْتَ قَادِرٌ عَلَى ذَلِكَ.", f:{they:"لَا تَقْلَقِي، أَنْتِ قَادِرَةٌ عَلَى ذَلِكَ."}, theyEn:"Don’t worry, you can do it."}
+  ]},
+  {id:"mosque", en:"At the mosque", ar:"فِي الْمَسْجِدِ", who:"Neighbour", turns:[
+    {they:"السَّلَامُ عَلَيْكُمْ. تَقَبَّلَ اللَّهُ.", theyEn:"Peace be upon you. May Allah accept it from you.", cue:"Return the greeting, and say “from us and from you”.", you:"وَعَلَيْكُمُ السَّلَامُ. مِنَّا وَمِنْكُمْ.", tip:"[[مِنْ]] + [[نَا]] (us) = [[مِنَّا]]."},
+    {they:"هَلْ أَنْتَ جَدِيدٌ هُنَا؟", f:{they:"هَلْ أَنْتِ جَدِيدَةٌ هُنَا؟"}, theyEn:"Are you new here?", cue:"Say yes, you arrived last week.", you:"نَعَمْ، وَصَلْتُ فِي الْأُسْبُوعِ الْمَاضِي."},
+    {they:"مَا شَاءَ اللَّهُ. هَلْ تَحْضُرُ الدَّرْسَ بَعْدَ الصَّلَاةِ؟", f:{they:"مَا شَاءَ اللَّهُ. هَلْ تَحْضُرِينَ الدَّرْسَ بَعْدَ الصَّلَاةِ؟"}, theyEn:"Masha Allah. Will you come to the lesson after the prayer?", cue:"Say if Allah wills, and ask where the lesson is.", you:"إِنْ شَاءَ اللَّهُ. أَيْنَ الدَّرْسُ؟"},
+    {they:"فِي الْقَاعَةِ الْكَبِيرَةِ، بِجَانِبِ الْمَكْتَبَةِ.", theyEn:"In the big hall, next to the library.", cue:"Say may Allah reward you with good. (to a man)", you:"جَزَاكَ اللَّهُ خَيْرًا."},
+    {they:"وَإِيَّاكَ.", f:{they:"وَإِيَّاكِ."}, theyEn:"And you."}
+  ]},
+  {id:"taxi", en:"In a taxi", ar:"فِي سَيَّارَةِ الْأُجْرَةِ", who:"Driver", turns:[
+    {they:"إِلَى أَيْنَ؟", theyEn:"Where to?", cue:"To the airport, please.", you:"إِلَى الْمَطَارِ، مِنْ فَضْلِكَ."},
+    {they:"هَلْ عِنْدَكَ رِحْلَةٌ الْيَوْمَ؟", f:{they:"هَلْ عِنْدَكِ رِحْلَةٌ الْيَوْمَ؟"}, theyEn:"Do you have a flight today?", cue:"Say yes, at five o’clock.", you:"نَعَمْ، فِي السَّاعَةِ الْخَامِسَةِ."},
+    {they:"مَا زَالَ عِنْدَكَ وَقْتٌ.", f:{they:"مَا زَالَ عِنْدَكِ وَقْتٌ."}, theyEn:"You still have time.", cue:"Ask how long the journey takes.", you:"كَمْ يَسْتَغْرِقُ الطَّرِيقُ؟"},
+    {they:"نِصْفَ سَاعَةٍ تَقْرِيبًا.", theyEn:"About half an hour.", cue:"Ask how much the fare is.", you:"كَمِ الْأُجْرَةُ؟"},
+    {they:"خَمْسُونَ رِيَالًا.", theyEn:"Fifty riyals.", cue:"Hand over the money and thank him.", you:"تَفَضَّلْ. شُكْرًا جَزِيلًا."},
+    {they:"رِحْلَةً سَعِيدَةً!", theyEn:"Have a good trip!"}
+  ]},
+  {id:"clothes", en:"Buying clothes", ar:"فِي مَتْجَرِ الْمَلَابِسِ", who:"Shop assistant", turns:[
+    {they:"كَيْفَ أُسَاعِدُكَ؟", f:{they:"كَيْفَ أُسَاعِدُكِ؟"}, theyEn:"How can I help you?", cue:"Say you want a blue shirt.", you:"أُرِيدُ قَمِيصًا أَزْرَقَ.", tip:"Colours like [[أَزْرَقُ]] never take tanwin, so it ends in a plain fatha."},
+    {they:"مَا مَقَاسُكَ؟", f:{they:"مَا مَقَاسُكِ؟"}, theyEn:"What is your size?", cue:"Say medium.", you:"مُتَوَسِّطٌ."},
+    {they:"تَفَضَّلْ، هَذَا جَمِيلٌ.", f:{they:"تَفَضَّلِي، هَذَا جَمِيلٌ."}, theyEn:"Here you are, this one is beautiful.", cue:"Say it’s big, and ask if he has a smaller one.", you:"هَذَا كَبِيرٌ. هَلْ عِنْدَكَ أَصْغَرُ مِنْهُ؟", tip:"[[مِنْ]] + [[هُ]] (it) = [[مِنْهُ]]: smaller than it."},
+    {they:"نَعَمْ، تَفَضَّلْ هَذَا.", f:{they:"نَعَمْ، تَفَضَّلِي هَذَا."}, theyEn:"Yes, here is this one.", cue:"Say it’s good, and ask the price.", you:"هَذَا جَيِّدٌ. كَمْ ثَمَنُهُ؟"},
+    {they:"مِئَةُ رِيَالٍ.", theyEn:"A hundred riyals.", cue:"Say that’s expensive, and ask if he can lower the price.", you:"هَذَا غَالٍ! هَلْ يُمْكِنُكَ أَنْ تُخَفِّضَ السِّعْرَ؟", tip:"[[غَالٍ]] (expensive) ends in a kasra with tanwin in place of its final [[ي]]."},
+    {they:"ثَمَانُونَ رِيَالًا، مِنْ أَجْلِكَ.", f:{they:"ثَمَانُونَ رِيَالًا، مِنْ أَجْلِكِ."}, theyEn:"Eighty riyals, just for you.", cue:"Say OK, you’ll take it.", you:"حَسَنًا، سَآخُذُهُ.", tip:"[[سَـ]] + [[آخُذُ]] (I take) + [[هُ]] (it)."}
+  ]},
+  {id:"invite", en:"Inviting a friend", ar:"دَعْوَةٌ إِلَى الْعَشَاءِ", who:"Friend", turns:[
+    {they:"هَلْ أَنْتَ مَشْغُولٌ يَوْمَ الْجُمُعَةِ؟", f:{they:"هَلْ أَنْتِ مَشْغُولَةٌ يَوْمَ الْجُمُعَةِ؟", you:"لَا، أَنَا فَارِغَةٌ."}, theyEn:"Are you busy on Friday?", cue:"Say no, you are free.", you:"لَا، أَنَا فَارِغٌ."},
+    {they:"أَدْعُوكَ إِلَى الْعَشَاءِ فِي بَيْتِي.", f:{they:"أَدْعُوكِ إِلَى الْعَشَاءِ فِي بَيْتِي."}, theyEn:"I invite you to dinner at my house.", cue:"Say thank you, with pleasure.", you:"شُكْرًا، بِكُلِّ سُرُورٍ."},
+    {they:"هَلْ تَسْتَطِيعُ أَنْ تَأْتِيَ فِي السَّاعَةِ السَّابِعَةِ؟", f:{they:"هَلْ تَسْتَطِيعِينَ أَنْ تَأْتِي فِي السَّاعَةِ السَّابِعَةِ؟"}, theyEn:"Can you come at seven o’clock?", cue:"Say yes, and ask where his house is.", you:"نَعَمْ. أَيْنَ بَيْتُكَ؟"},
+    {they:"قَرِيبٌ مِنَ الْمَسْجِدِ. سَأُرْسِلُ لَكَ الْعُنْوَانَ.", f:{they:"قَرِيبٌ مِنَ الْمَسْجِدِ. سَأُرْسِلُ لَكِ الْعُنْوَانَ."}, theyEn:"Near the mosque. I’ll send you the address.", cue:"Say thank you, and ask if you should bring anything.", you:"شُكْرًا. هَلْ أُحْضِرُ شَيْئًا؟"},
+    {they:"لَا، أَحْضِرْ نَفْسَكَ فَقَطْ!", f:{they:"لَا، أَحْضِرِي نَفْسَكِ فَقَطْ!"}, theyEn:"No, just bring yourself!"}
   ]}
 ];
 
@@ -1381,6 +1507,18 @@ function shuffle(a){ for (let i = a.length - 1; i > 0; i--){ const j = Math.floo
 function box(id){ return progress.cards[id] || 0; }
 const SOLID = 2;
 function solidCount(items){ return items.filter(it => box(it.id) >= SOLID).length; }
+function doneCount(items){ return items.filter(it => progress.cards[it.id] != null).length; }
+/* Bar: a practised sentence counts a quarter, one right answer a half, solid the whole, so one lesson always moves it. */
+function deckPct(items){
+  const sum = items.reduce((a, it) => { const c = progress.cards[it.id]; return a + (c == null ? 0 : c >= SOLID ? 1 : c >= 1 ? .5 : .25); }, 0);
+  return Math.round(sum / items.length * 100);
+}
+function deckLabel(items){
+  const n = items.length, solid = solidCount(items), done = doneCount(items);
+  if (!done) return n + " sentences";
+  if (solid === n) return "All " + n + " solid";
+  return done + " of " + n + " done, " + solid + " solid";
+}
 /* Items, chain steps and role-play turns can carry an `f` override used when the learner speaks as a woman. */
 function gv(o){ return settings.speaker === "f" && o.f ? Object.assign({}, o, o.f) : o; }
 function deckItems(d){ return d.items.map(it => Object.assign({deck:d}, gv(it))); }
@@ -1478,7 +1616,8 @@ function renderHome(){
          '<button role="tab" aria-selected="' + (S.tab === k) + '" data-act="tab" data-v="' + k + '">' + l + '</button>').join("") + '</div>';
   if (!settings.speaker) h += '<div class="who-ask"><p>Some sentences change if a woman says them, like <bdi class="ari" dir="rtl" lang="ar">' + esc(vow("كُنْتُ مُتْعَبًا")) + '</bdi> and <bdi class="ari" dir="rtl" lang="ar">' + esc(vow("كُنْتُ مُتْعَبَةً")) + '</bdi> (I was tired). Are you practising as:</p>' +
     '<div class="seg"><button data-act="speaker" data-v="m">A man</button><button data-act="speaker" data-v="f">A woman</button></div></div>';
-  h += '<p class="intro">' + INTROS[S.tab] + '</p>' + voiceGuideHTML() + '<ul class="list">';
+  h += '<p class="intro">' + INTROS[S.tab] + '</p>' + voiceGuideHTML() +
+    '<label class="opt listen-opt"><span>Hear without seeing the words<small>Hide the Arabic until you tap Show words.</small></span><input type="checkbox" data-set="listenFirst"' + (settings.listenFirst ? " checked" : "") + '></label><ul class="list">';
   if (S.tab === "swap"){
     const all = allItems(), weak = all.filter(it => box(it.id) < SOLID).length, learned = all.length - weak;
     h += '<li><button class="row review" data-act="weak"><span class="t">Mixed review</span><span class="s">' +
@@ -1490,18 +1629,18 @@ function renderHome(){
     if (g === "discussion"){
       [...new Set(DECKS.filter(d => d.group === g).map(d => d.sec))].forEach(sec => {
         h += '<li><h3 class="sec-h">' + esc(sec) + '</h3><div class="word-grid">' + DECKS.filter(d => d.sec === sec).map(d => {
-          const n = solidCount(d.items);
+          const pct = deckPct(d.items);
           return '<button class="word-btn" data-act="deck" data-v="' + d.id + '"><span class="ar" lang="ar">' + esc(vow(d.frame)) + '</span>' +
-                 '<span class="t">' + esc(d.en) + '</span><span class="s">' + n + '/' + d.items.length + '</span>' +
-                 '<span class="meter"><i style="width:' + Math.round(n / d.items.length * 100) + '%"></i></span></button>';
+                 '<span class="t">' + esc(d.en) + '</span><span class="s">' + pct + '%</span>' +
+                 '<span class="meter"><i style="width:' + pct + '%"></i></span></button>';
         }).join("") + '</div></li>';
       });
       return;
     }
     DECKS.filter(d => (d.group || "everyday") === g).forEach(d => {
-      const n = solidCount(d.items), pct = Math.round(n / d.items.length * 100);
+      const pct = deckPct(d.items);
       h += '<li><button class="row" data-act="deck" data-v="' + d.id + '"><span class="ar" lang="ar">' + frameHTML(d.frame) + '</span>' +
-           '<span class="t">' + esc(d.en) + '</span><span class="s">' + n + ' of ' + d.items.length + ' solid</span>' +
+           '<span class="t">' + esc(d.en) + '</span><span class="s">' + deckLabel(d.items) + '</span>' +
            '<span class="meter"><i style="width:' + pct + '%"></i></span></button></li>';
     });
     });
@@ -1518,7 +1657,8 @@ function renderHome(){
       const r = progress.scenes[sc.id], replies = sc.turns.filter(t => t.cue).length;
       h += '<li><button class="row" data-act="scene" data-v="' + sc.id + '"><span class="ar" lang="ar">' + esc(vow(sc.ar)) + '</span>' +
            '<span class="t">' + esc(sc.en) + '</span><span class="s">' +
-           (r ? "Done " + r.runs + (r.runs === 1 ? " time" : " times") + ", best " + r.best + "/" + replies : replies + " replies") + '</span></button></li>';
+           (r ? "Done " + r.runs + (r.runs === 1 ? " time" : " times") + ", best " + r.best + "/" + replies : replies + " replies") + '</span>' +
+           '<span class="meter"><i style="width:' + (r ? Math.round(r.best / replies * 100) : 0) + '%"></i></span></button></li>';
     });
   }
   h += '</ul><p class="sync">' + (syncMode === "account" ? "Progress saves to your account, so it follows you between devices." : "Progress saves on this device.") + '</p>';
@@ -1546,20 +1686,26 @@ function startChain(chain, order){
 function startScene(scene){
   scene = Object.assign({}, scene, {turns:scene.turns.map(gv)});
   S.session = {type:"scene", scene, t:0, revealed:false, shown:false, log:[], got:0};
-  if (settings.autoplay) speak(scene.turns[0].they);
+  if (settings.autoplay || settings.listenFirst) speak(scene.turns[0].they);
   render(); window.scrollTo(0, 0);
 }
 
+/* The Arabic of the current sentence: blurred with a Show words button while listening without the words. */
+function hideWords(s){ return settings.listenFirst && !s.shown; }
+function answerHTML(s, ar, tip){
+  if (hideWords(s)) return '<p class="ar big hid" lang="ar" aria-hidden="true">' + arHTML(ar) + '</p><button class="show-words" data-act="show">Show words</button>' + sayButtons(ar);
+  return '<p class="ar big" lang="ar">' + arHTML(ar) + '</p>' + sayButtons(ar) + (tip ? '<p class="tip">' + noteHTML(tip) + '</p>' : "");
+}
 function barHTML(title, count, pct, prev){
   return '<div class="bar"><button class="link" data-act="back">‹ Exit</button><span class="bar-r">' +
          (prev ? '<button class="link" data-act="prev" aria-keyshortcuts="ArrowLeft">‹ Previous</button>' : "") +
-         '<span class="count">' + esc(count) + '</span></span></div>' +
+         '<button class="link" data-act="listen" aria-pressed="' + !!settings.listenFirst + '">' + (settings.listenFirst ? "Words: hidden" : "Words: shown") + '</button><span class="count">' + esc(count) + '</span></span></div>' +
          '<div class="prog" role="progressbar" aria-label="' + esc(title) + '" aria-valuenow="' + Math.round(pct) + '" aria-valuemin="0" aria-valuemax="100"><i style="width:' + pct + '%"></i></div>';
 }
 function actionsHTML(revealed){
   return '<div class="actions">' + (revealed
     ? '<button class="btn miss" data-act="mark" data-v="0">Missed it</button><button class="btn got" data-act="mark" data-v="1">Got it</button>'
-    : '<button class="btn primary" data-act="reveal">Reveal</button>') + '</div>' +
+    : '<button class="btn primary" data-act="reveal">' + (settings.listenFirst ? "Hear it" : "Reveal") + '</button>') + '</div>' +
     '<p class="keys">Space to reveal. Then 1 for missed, 2 for got it. Left arrow for the previous one.</p>';
 }
 
@@ -1590,7 +1736,7 @@ function renderSwap(s){
   if (d.explain) h += '<button class="explain-btn" data-act="explain" aria-expanded="' + !!s.explainOpen + '">' + (s.explainOpen ? "Hide explanation" : "How this works") + '</button>' +
     (s.explainOpen ? '<div class="explain">' + d.explain.map(p => '<p>' + noteHTML(p) + '</p>').join("") + '</div>' : "");
   h += '<section class="card"><p class="cue">' + esc(cur.en) + '</p><div class="answer" aria-live="polite">' +
-       (s.revealed ? '<p class="ar big" lang="ar">' + arHTML(cur.ar) + '</p>' + sayButtons(cur.ar) + (cur.tip ? '<p class="tip">' + noteHTML(cur.tip) + '</p>' : "")
+       (s.revealed ? answerHTML(s, cur.ar, cur.tip)
                    : '<p class="placeholder">Say it out loud first.</p>') + '</div></section>';
   return h + actionsHTML(s.revealed);
 }
@@ -1598,10 +1744,12 @@ function renderSwap(s){
 function renderChain(s){
   const c = s.chain, si = s.order[s.idx], step = c.steps[si], prev = si > 0 ? c.steps[si - 1] : null;
   let h = barHTML(c.en, (s.idx + 1) + " / " + s.order.length, s.idx / s.order.length * 100, s.hist.length > 0) + voiceNotice();
-  if (prev) h += '<div class="from"><p class="lbl">Now</p><p class="ar" lang="ar">' + arHTML(prev.ar.replace(/[{}]/g, "")) + '</p><p class="en">' + esc(prev.en) + '</p>' + sayButtons(prev.ar) + '</div>';
+  if (prev){ const hf = settings.listenFirst && !s.shownFrom;
+    h += '<div class="from"><p class="lbl">Now</p><p class="ar' + (hf ? " hid" : "") + '" lang="ar"' + (hf ? ' aria-hidden="true"' : "") + '>' + arHTML(prev.ar.replace(/[{}]/g, "")) + '</p>' +
+      (hf ? '<button class="show-words" data-act="showfrom">Show words</button>' : "") + '<p class="en">' + esc(prev.en) + '</p>' + sayButtons(prev.ar) + '</div>'; }
   h += '<p class="instr">' + esc(step.i) + '</p>';
   h += '<section class="card"><p class="cue">' + esc(step.en) + '</p><div class="answer" aria-live="polite">' +
-       (s.revealed ? '<p class="ar big" lang="ar">' + arHTML(step.ar) + '</p>' + sayButtons(step.ar) + (step.tip ? '<p class="tip">' + noteHTML(step.tip) + '</p>' : "")
+       (s.revealed ? answerHTML(s, step.ar, step.tip)
                    : '<p class="placeholder">Say it out loud first.</p>') + '</div></section>';
   return h + actionsHTML(s.revealed);
 }
@@ -1612,10 +1760,11 @@ function theyBubble(sc, turn, hidden){
     '<p class="en' + (hidden ? " hid" : "") + '"' + (hidden ? ' aria-hidden="true"' : "") + '>' + esc(turn.theyEn) + '</p>' +
     (hidden ? '<button class="show-words" data-act="show">Show words</button>' : "") + sayButtons(turn.they) + '</div>';
 }
-function youBubble(turn, ok){
+function youBubble(turn, ok, hidden){
   return '<div class="bub you"><p class="who">You' + (ok == null ? "" : ' <span class="res">' + (ok ? "✓ got it" : "✗ missed") + '</span>') + '</p>' +
-    '<p class="ar" lang="ar">' + esc(vow(turn.you)) + '</p><p class="en">' + esc(turn.cue) + '</p>' + sayButtons(turn.you) +
-    (ok == null && turn.tip ? '<p class="tip">' + noteHTML(turn.tip) + '</p>' : "") + '</div>';
+    '<p class="ar' + (hidden ? " hid" : "") + '" lang="ar"' + (hidden ? ' aria-hidden="true"' : "") + '>' + esc(vow(turn.you)) + '</p>' +
+    (hidden ? '<button class="show-words on-you" data-act="showyou">Show words</button>' : "") + '<p class="en">' + esc(turn.cue) + '</p>' + sayButtons(turn.you) +
+    (ok == null && !hidden && turn.tip ? '<p class="tip">' + noteHTML(turn.tip) + '</p>' : "") + '</div>';
 }
 function renderScene(s){
   const sc = s.scene, turns = sc.turns, cur = turns[s.t];
@@ -1623,7 +1772,7 @@ function renderScene(s){
   for (let i = 0; i < s.t; i++){ h += theyBubble(sc, turns[i], false); if (turns[i].cue) h += youBubble(turns[i], s.log[i]); }
   h += theyBubble(sc, cur, settings.listenFirst && !s.shown);
   if (cur.cue){
-    h += s.revealed ? youBubble(cur, null)
+    h += s.revealed ? youBubble(cur, null, settings.listenFirst && !s.shownYou)
          : '<div class="turn"><p class="lbl">Your turn</p><p class="cue">' + esc(cur.cue) + '</p></div>';
   }
   h += '</div>';
@@ -1634,11 +1783,14 @@ function renderScene(s){
 function renderDone(s){
   let h = '<div class="bar"><button class="link" data-act="back">‹ Exit</button>' +
           (s.hist && s.hist.length ? '<button class="link" data-act="prev">‹ Previous</button>' : "<span></span>") + '</div><section class="done">';
-  let missedItems = [], score = "", again = "", redo = "";
+  let missedItems = [], score = "", again = "", redo = "", gain = "";
   if (s.type === "swap"){
     score = s.first + " of " + s.total + " right on the first try.";
     missedItems = [...s.missed].map(id => allItems().find(it => it.id === id));
     again = '<button class="btn primary" data-act="again">Practise again</button>';
+    const its = [...new Set(s.queue.map(q => q.it.id))].map(id => s.queue.find(q => q.it.id === id).it), pct = deckPct(its), solid = solidCount(its);
+    gain = '<div class="gain"><p><b>' + pct + '%</b> of the way' + (s.kind === "deck" ? " through this lesson" : "") + '</p><div class="prog"><i style="width:' + pct + '%"></i></div><p class="note">' +
+      (solid === its.length ? "All of these are solid. Well done!" : "Solid means right first time in two separate sessions. " + solid + " of " + its.length + " are solid so far, and each right answer moves you closer.") + '</p></div>';
   } else if (s.type === "chain"){
     score = s.got + " of " + s.order.length + " steps right.";
     missedItems = s.missed.map(i => s.chain.steps[i]);
@@ -1650,7 +1802,7 @@ function renderDone(s){
     missedItems = s.scene.turns.filter((t, i) => t.cue && s.log[i] === false).map(t => ({en:t.cue, ar:t.you}));
     again = '<button class="btn primary" data-act="again">Do this conversation again</button>';
   }
-  h += '<h2>Session done</h2><p class="score">' + esc(score) + '</p>';
+  h += '<h2>Session done</h2><p class="score">' + esc(score) + '</p>' + gain;
   if (missedItems.length){
     h += '<p class="note">Say these once more out loud:</p><ul class="missed">' + missedItems.map(m =>
       '<li><p class="ar" lang="ar">' + arHTML(m.ar) + '</p><p class="en">' + esc(m.en) + '</p>' + sayButtons(m.ar) + '</li>').join("") + '</ul>';
@@ -1668,7 +1820,7 @@ function settingsHTML(){
     '<div class="seg" role="group" aria-label="Practising as"><button data-act="speaker" data-v="m" aria-pressed="' + (sp === "m") + '">A man</button><button data-act="speaker" data-v="f" aria-pressed="' + (sp === "f") + '">A woman</button></div></div>' +
     opt("vowels", "Vowel marks", "Show the harakat on Arabic text. Turn off once you can read without them.") +
     opt("autoplay", "Play on reveal", "Speak the Arabic automatically when you reveal it.") +
-    opt("listenFirst", "Listen first in role-play", "Hide their words until you tap, so you practise understanding by ear.") +
+    opt("listenFirst", "Hear without seeing the words", "Hide the Arabic in drills, transform and role-play until you tap Show words, so you practise by ear.") +
     opt("voiceHelp", "Voice instructions", "Show the steps for adding an Arabic voice on the home screen.") +
     '<div class="actions" style="margin-top:14px"><button class="btn primary" data-act="close">Done</button></div></div></div>';
 }
@@ -1692,8 +1844,8 @@ function render(){
 /* ---------- actions ---------- */
 function reveal(){
   const s = S.session; if (!s || s.done || s.revealed) return;
-  s.revealed = true;
-  if (settings.autoplay){
+  s.revealed = true; if (s.type !== "scene") s.shown = false;
+  if (settings.autoplay || settings.listenFirst){
     const ar = s.type === "swap" ? s.queue[s.idx].it.ar : s.type === "chain" ? s.chain.steps[s.order[s.idx]].ar : s.scene.turns[s.t].you;
     speak(ar);
   }
@@ -1711,12 +1863,12 @@ function mark(ok){
     }
     progress.cards[id] = b; scheduleSave();
     s.hist.push({it:cur.it, ok});
-    s.idx++; s.revealed = false;
+    s.idx++; s.revealed = false; s.shown = false;
     if (s.idx >= s.queue.length) s.done = true;
   } else if (s.type === "chain"){
     if (ok) s.got++; else s.missed.push(s.order[s.idx]);
     s.hist.push({si:s.order[s.idx], ok});
-    s.idx++; s.revealed = false;
+    s.idx++; s.revealed = false; s.shown = false; s.shownFrom = false;
     if (s.idx >= s.order.length){
       s.done = true;
       if (s.full){ const prev = progress.chains[s.chain.id] || 0; progress.chains[s.chain.id] = Math.max(prev, s.got); scheduleSave(); }
@@ -1742,9 +1894,9 @@ function peekBack(){
 }
 function nextTurn(){
   const s = S.session;
-  s.t++; s.revealed = false; s.shown = false;
+  s.t++; s.revealed = false; s.shown = false; s.shownYou = false;
   if (s.t >= s.scene.turns.length){ finishScene(); return; }
-  if (settings.autoplay) speak(s.scene.turns[s.t].they);
+  if (settings.autoplay || settings.listenFirst) speak(s.scene.turns[s.t].they);
   render();
   requestAnimationFrame(() => { const t = app.querySelector(".thread"); if (t && t.lastElementChild && t.lastElementChild.scrollIntoView) t.lastElementChild.scrollIntoView({block:"nearest", behavior:"smooth"}); });
 }
@@ -1776,6 +1928,9 @@ document.addEventListener("click", e => {
     case "mark": mark(v === "1"); break;
     case "say": speak(el.dataset.ar, el.dataset.slow === "1"); break;
     case "show": S.session.shown = true; render(); break;
+    case "showfrom": S.session.shownFrom = true; render(); break;
+    case "showyou": S.session.shownYou = true; render(); break;
+    case "listen": settings.listenFirst = !settings.listenFirst; saveSettings(); render(); break;
     case "finish": finishScene(); break;
     case "back": if ("speechSynthesis" in window) speechSynthesis.cancel(); S.session = null; render(); window.scrollTo(0, 0); break;
     case "settings": S.sheet = true; render(); break;
