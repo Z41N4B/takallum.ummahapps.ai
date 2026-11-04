@@ -118,7 +118,7 @@
         {"@type": "Question", "name": "How does Takallum decide what to practise?",
          "acceptedAnswer": {"@type": "Answer", "text": "It uses spaced repetition. Each sentence you mark as got it moves up a level; a missed sentence drops back and comes round again later in the same session. Mixed review gathers your ten weakest sentences from every pattern, and Review what you've learned practises only the sentences you already know."}},
         {"@type": "Question", "name": "How do I make a pattern solid in Takallum?",
-         "acceptedAnswer": {"@type": "Answer", "text": "A sentence is solid once you mark it Got it the first time you see it, in two separate sessions. Missing it sends it back to the start. A pattern shows 8 of 8 solid when every sentence in it has reached that point."}},
+         "acceptedAnswer": {"@type": "Answer", "text": "A sentence is solid once you mark it Got it the first time you see it, in two separate sessions. Missing it sends it back to the start. A pattern shows All 8 solid when every sentence in it has reached that point. The bar moves before then: a sentence you have practised counts a quarter, one you have got right counts a half, and a solid one counts in full."}},
         {"@type": "Question", "name": "Does Takallum cover feminine and plural forms?",
          "acceptedAnswer": {"@type": "Answer", "text": "Yes. You can practise as a man or a woman, which changes sentences about yourself and how people speak to you in role-play. A dedicated pattern and transform chain drill speaking to a man, a woman and a group."}}
       ]
@@ -371,9 +371,9 @@ a.ua-app:hover{border-color:var(--f-lapis)}
   <details><summary>Is Takallum free?</summary><p>Yes. It is free and needs no sign-up. Your progress is saved in your browser on this device.</p></details>
   <details><summary>Which kind of Arabic does it teach?</summary><p>Modern Standard Arabic (fusha), the formal Arabic used in books, news and education and understood across the Arab world. Every sentence is fully vowelled, and you can switch the vowel marks off in settings once you can read without them.</p></details>
   <details><summary>Who is it for?</summary><p>Beginner to intermediate learners who can read Arabic script and want to turn the grammar they have studied into sentences they can actually say.</p></details>
-  <details><summary>Does it have audio?</summary><p>Yes. Every Arabic sentence plays at normal or slow speed using your device’s Arabic text-to-speech voice. Without an Arabic voice the drills still work, just without sound.</p></details>
+  <details><summary>Does it have audio?</summary><p>Yes. Every Arabic sentence plays at normal or slow speed using your device’s Arabic text-to-speech voice. Without an Arabic voice the drills still work, just without sound. To practise by ear, turn on <strong>Hear without seeing the words</strong>, which hides the Arabic until you tap Show words.</p></details>
   <details><summary>How does it decide what to practise?</summary><p>It uses spaced repetition. A sentence you get right moves up a level; one you miss drops back and comes round again later in the same session. Mixed review gathers your ten weakest sentences from every pattern, and <strong>Review what you’ve learned</strong> practises only the ones you already know.</p></details>
-  <details><summary>How do I make a pattern solid?</summary><p>A sentence is solid once you mark it <strong>Got it</strong> the first time you see it, in two separate sessions. <strong>Missed it</strong> sends it back to the start, and getting it right when it comes round again later in that session doesn’t count. So for 8 of 8 solid, run the pattern twice and get all eight right first time both times.</p></details>
+  <details><summary>How do I make a pattern solid?</summary><p>A sentence is solid once you mark it <strong>Got it</strong> the first time you see it, in two separate sessions. <strong>Missed it</strong> sends it back to the start, and getting it right when it comes round again later in that session doesn’t count. So for all 8 solid, run the pattern twice and get all eight right first time both times. The bar moves before then: a sentence you’ve practised counts a quarter, one you’ve got right counts a half, and a solid one counts in full.</p></details>
   <details><summary>Does it cover feminine and plural forms?</summary><p>Yes. In settings, choose whether you’re practising as a man or a woman: it changes sentences about yourself, like “I was tired”, and how people speak to you in role-play. The “you: a man, a woman, a group” pattern and transform chain practise speaking to each.</p></details>
   <p class="credit">Takallum is part of <a href="https://ummahapps.ai/">Ummah Apps</a>.</p>
   <nav class="ua-fam" aria-labelledby="ua-fam-h">
@@ -407,7 +407,7 @@ const TALK_YOU = [
   {k:"excuse", en:"Excuse me. (to get attention)", m:"لَوْ {سَمَحْتَ}.", f:"لَوْ {سَمَحْتِ}.", g:"لَوْ {سَمَحْتُمْ}.",
    tip:{m:"Literally “if you would allow”. The polite way to stop someone or ask for something.", f:"A past verb to a woman ends in [[ـتِ]]: [[سَمَحْتِ]].", g:"A past verb to a group ends in [[ـتُمْ]]: [[سَمَحْتُمْ]]."}},
   {k:"name", en:{m:"What’s your name?", f:"What’s your name?", g:"What are your names?"}, m:"مَا {اسْمُكَ}؟", f:"مَا {اسْمُكِ}؟", g:"مَا {أَسْمَاؤُكُمْ}؟",
-   tip:{m:"Answer with [[اِسْمِي]] (my name is).", f:"Only the last vowel changes: [[اسْمُكِ]].", g:"For a group, ask for their names: [[أَسْمَاءُ]] is the plural of [[اِسْمٌ]]."}},
+   tip:{m:"Answer with [[اِسْمِي]] (my name is).", f:"Only the last vowel changes: [[اسْمُكِ]].", g:"For a group, ask for their names: [[أَسْمَاءٌ]] is the plural of [[اِسْمٌ]]."}},
   {k:"from", en:"Where are you from?", m:"مِنْ أَيْنَ {أَنْتَ}؟", f:"مِنْ أَيْنَ {أَنْتِ}؟", g:"مِنْ أَيْنَ {أَنْتُمْ}؟",
    tip:"Answer with [[أَنَا مِنْ]] (I am from)."},
   {k:"arabic", en:"Do you speak Arabic?", m:"هَلْ {تَتَكَلَّمُ} بِالْعَرَبِيَّةِ؟", f:"هَلْ {تَتَكَلَّمِينَ} بِالْعَرَبِيَّةِ؟", g:"هَلْ {تَتَكَلَّمُونَ} بِالْعَرَبِيَّةِ؟",
@@ -1241,7 +1241,7 @@ const CHAINS = [
     {i:"Change to she", en:"She won’t travel next year.", ar:"{لَنْ تُسَافِرَ} فِي السَّنَةِ الْقَادِمَةِ."},
     {i:"Make it past: last year", en:"She travelled last year.", ar:"{سَافَرَتْ} فِي السَّنَةِ الْمَاضِيَةِ."},
     {i:"Make it negative", en:"She didn’t travel last year.", ar:"{لَمْ تُسَافِرْ} فِي السَّنَةِ الْمَاضِيَةِ.", tip:"[[لَمْ]] takes the present verb, ending in a sukun."},
-    {i:"Ask a man the question", en:"Did you travel last year?", ar:"{هَلْ سَافَرْتَ} فِي السَّنَةِ الْمَاضِيَةِ؟"}
+    {i:"Ask a man the question", en:"Did you travel last year? (to a man)", ar:"{هَلْ سَافَرْتَ} فِي السَّنَةِ الْمَاضِيَةِ؟"}
   ]},
   {id:"usedchain", en:"Used to, with كَانَ", ar:"كَانَ يَدْرُسُ", steps:[
     {i:"Starting sentence", en:"He studies at night.", ar:"{يَدْرُسُ} فِي اللَّيْلِ."},
@@ -1251,7 +1251,7 @@ const CHAINS = [
     {i:"Change to we", en:"We used to study at night.", ar:"{كُنَّا نَدْرُسُ} فِي اللَّيْلِ."},
     {i:"Change to they (men)", en:"They used to study at night.", ar:"{كَانُوا يَدْرُسُونَ} فِي اللَّيْلِ."},
     {i:"Make it negative", en:"They didn’t use to study at night.", ar:"{لَمْ يَكُونُوا يَدْرُسُونَ} فِي اللَّيْلِ.", tip:"After [[لَمْ]], [[يَكُونُونَ]] drops its [[نَ]]. [[يَدْرُسُونَ]] keeps its [[نَ]]."},
-    {i:"Ask a man the question", en:"Did you use to study at night?", ar:"{هَلْ كُنْتَ تَدْرُسُ} فِي اللَّيْلِ؟"},
+    {i:"Ask a man the question", en:"Did you use to study at night? (to a man)", ar:"{هَلْ كُنْتَ تَدْرُسُ} فِي اللَّيْلِ؟"},
     {i:"Ask a woman instead", en:"Did you use to study at night? (to a woman)", ar:"{هَلْ كُنْتِ تَدْرُسِينَ} فِي اللَّيْلِ؟"}
   ]},
   {id:"mustchain", en:"Must, with يَجِبُ", ar:"يَجِبُ", steps:[
@@ -1262,18 +1262,18 @@ const CHAINS = [
     {i:"Change to we", en:"We must go to work.", ar:"{يَجِبُ عَلَيْنَا أَنْ نَذْهَبَ} إِلَى الْعَمَلِ."},
     {i:"Say it to a man", en:"You must go to work. (to a man)", ar:"{يَجِبُ عَلَيْكَ أَنْ تَذْهَبَ} إِلَى الْعَمَلِ."},
     {i:"Say it to a woman", en:"You must go to work. (to a woman)", ar:"{يَجِبُ عَلَيْكِ أَنْ تَذْهَبِي} إِلَى الْعَمَلِ.", tip:"After [[أَنْ]], [[تَذْهَبِينَ]] drops its [[نَ]]."},
-    {i:"Make it “don’t have to”, to a man", en:"You don’t have to go to work.", ar:"{لَا يَجِبُ عَلَيْكَ أَنْ تَذْهَبَ} إِلَى الْعَمَلِ."},
+    {i:"Make it “don’t have to”, to a man", en:"You don’t have to go to work. (to a man)", ar:"{لَيْسَ عَلَيْكَ أَنْ تَذْهَبَ} إِلَى الْعَمَلِ.", tip:"Use [[لَيْسَ عَلَيْكَ]] here. Many people hear [[لَا يَجِبُ]] as “mustn’t”."},
     {i:"Make it past, with I", en:"I had to go to work.", ar:"{كَانَ يَجِبُ عَلَيَّ أَنْ أَذْهَبَ} إِلَى الْعَمَلِ."}
   ]},
   {id:"becausechain", en:"Because, with لِأَنَّ", ar:"لِأَنَّ", steps:[
     {i:"Starting sentence", en:"The weather is cold.", ar:"الْجَوُّ {بَارِدٌ}."},
     {i:"Start with “because”", en:"Because the weather is cold.", ar:"{لِأَنَّ الْجَوَّ} بَارِدٌ.", tip:"After [[لِأَنَّ]], [[الْجَوُّ]] becomes [[الْجَوَّ]]. [[بَارِدٌ]] doesn’t change."},
-    {i:"Add: I stayed at home", en:"I stayed at home because the weather is cold.", ar:"بَقِيتُ فِي الْبَيْتِ {لِأَنَّ} الْجَوَّ بَارِدٌ."},
-    {i:"Change the reason: I’m tired", en:"I stayed at home because I’m tired.", ar:"بَقِيتُ فِي الْبَيْتِ {لِأَنَّنِي} مُتْعَبٌ.", f:{ar:"بَقِيتُ فِي الْبَيْتِ {لِأَنَّنِي} مُتْعَبَةٌ."}, tip:"[[لِأَنَّ]] + [[نِي]] (me) = [[لِأَنَّنِي]]."},
-    {i:"Change I to he", en:"He stayed at home because he is tired.", ar:"{بَقِيَ} فِي الْبَيْتِ {لِأَنَّهُ} مُتْعَبٌ."},
-    {i:"Change he to she", en:"She stayed at home because she is tired.", ar:"{بَقِيَتْ} فِي الْبَيْتِ {لِأَنَّهَا} مُتْعَبَةٌ."},
-    {i:"Change to we", en:"We stayed at home because we are tired.", ar:"{بَقِينَا} فِي الْبَيْتِ {لِأَنَّنَا} مُتْعَبُونَ."},
-    {i:"Turn it round, with “so”", en:"We are tired, so we stayed at home.", ar:"نَحْنُ مُتْعَبُونَ، {لِذَلِكَ} بَقِينَا فِي الْبَيْتِ.", tip:"[[لِأَنَّ]] gives the reason. [[لِذَلِكَ]] gives the result."}
+    {i:"Add: I stayed at home, and make it past", en:"I stayed at home because the weather was cold.", ar:"{بَقِيتُ فِي الْبَيْتِ} لِأَنَّ الْجَوَّ {كَانَ بَارِدًا}.", tip:"After [[كَانَ]], [[بَارِدٌ]] becomes [[بَارِدًا]]."},
+    {i:"Change the reason: I was tired", en:"I stayed at home because I was tired.", ar:"بَقِيتُ فِي الْبَيْتِ {لِأَنَّنِي كُنْتُ مُتْعَبًا}.", f:{ar:"بَقِيتُ فِي الْبَيْتِ {لِأَنَّنِي كُنْتُ مُتْعَبَةً}."}, tip:"[[لِأَنَّ]] + [[نِي]] (me) = [[لِأَنَّنِي]]. After [[كُنْتُ]], the describing word ends in a fatha."},
+    {i:"Change I to he", en:"He stayed at home because he was tired.", ar:"{بَقِيَ} فِي الْبَيْتِ {لِأَنَّهُ كَانَ} مُتْعَبًا."},
+    {i:"Change he to she", en:"She stayed at home because she was tired.", ar:"{بَقِيَتْ} فِي الْبَيْتِ {لِأَنَّهَا كَانَتْ} مُتْعَبَةً."},
+    {i:"Change to we", en:"We stayed at home because we were tired.", ar:"{بَقِينَا} فِي الْبَيْتِ {لِأَنَّنَا كُنَّا مُتْعَبِينَ}.", tip:"After [[كُنَّا]], [[مُتْعَبُونَ]] becomes [[مُتْعَبِينَ]]."},
+    {i:"Turn it round, with “so”", en:"We were tired, so we stayed at home.", ar:"كُنَّا مُتْعَبِينَ، {لِذَلِكَ} بَقِينَا فِي الْبَيْتِ.", tip:"[[لِأَنَّ]] gives the reason. [[لِذَلِكَ]] gives the result."}
   ]},
   {id:"pluralchain", en:"This and these: gender and plurals", ar:"هَذَا / هَذِهِ / هَؤُلَاءِ", steps:[
     {i:"Starting sentence", en:"This is a big house.", ar:"{هَذَا} بَيْتٌ كَبِيرٌ."},
@@ -1341,24 +1341,24 @@ const SCENES = [
     {they:"عِشْرُونَ رِيَالًا. شُكْرًا لِزِيَارَتِكَ.", f:{they:"عِشْرُونَ رِيَالًا. شُكْرًا لِزِيَارَتِكِ."}, theyEn:"Twenty riyals. Thank you for visiting."}
   ]},
   {id:"phone", en:"On the phone", ar:"عَلَى الْهَاتِفِ", who:"Friend", turns:[
-    {they:"السَّلَامُ عَلَيْكُمْ.", theyEn:"Peace be upon you.", cue:"Return the greeting and ask how he is.", you:"وَعَلَيْكُمُ السَّلَامُ. كَيْفَ حَالُكَ؟"},
+    {they:"السَّلَامُ عَلَيْكُمْ.", f:{cue:"Return the greeting and ask how she is.", you:"وَعَلَيْكُمُ السَّلَامُ. كَيْفَ حَالُكِ؟"}, theyEn:"Peace be upon you.", cue:"Return the greeting and ask how he is.", you:"وَعَلَيْكُمُ السَّلَامُ. كَيْفَ حَالُكَ؟"},
     {they:"بِخَيْرٍ، الْحَمْدُ لِلَّهِ. أَيْنَ أَنْتَ الْآنَ؟", f:{they:"بِخَيْرٍ، الْحَمْدُ لِلَّهِ. أَيْنَ أَنْتِ الْآنَ؟"}, theyEn:"Fine, praise be to Allah. Where are you now?", cue:"Say you are on the way.", you:"أَنَا فِي الطَّرِيقِ."},
     {they:"مَتَى تَصِلُ؟", f:{they:"مَتَى تَصِلِينَ؟"}, theyEn:"When will you arrive?", cue:"Say in ten minutes.", you:"بَعْدَ عَشْرِ دَقَائِقَ.", tip:"[[دَقَائِقَ]] ends in a fatha instead of a kasra: plurals on this pattern never take a kasra or tanwin."},
-    {they:"هَلْ تُرِيدُ أَنْ أَنْتَظِرَكَ؟", f:{they:"هَلْ تُرِيدِينَ أَنْ أَنْتَظِرَكِ؟", you:"نَعَمْ، مِنْ فَضْلِكَ. آسِفَةٌ عَلَى التَّأَخُّرِ."}, theyEn:"Do you want me to wait for you?", cue:"Say yes please, and that you’re sorry for being late.", you:"نَعَمْ، مِنْ فَضْلِكَ. آسِفٌ عَلَى التَّأَخُّرِ."},
+    {they:"هَلْ تُرِيدُ أَنْ أَنْتَظِرَكَ؟", f:{they:"هَلْ تُرِيدِينَ أَنْ أَنْتَظِرَكِ؟", you:"نَعَمْ، مِنْ فَضْلِكِ. آسِفَةٌ عَلَى التَّأَخُّرِ."}, theyEn:"Do you want me to wait for you?", cue:"Say yes please, and that you’re sorry for being late.", you:"نَعَمْ، مِنْ فَضْلِكَ. آسِفٌ عَلَى التَّأَخُّرِ."},
     {they:"لَا بَأْسَ. إِلَى اللِّقَاءِ.", theyEn:"No problem. See you soon."}
   ]},
   {id:"classroom", en:"In class", ar:"فِي الصَّفِّ", who:"Teacher", turns:[
-    {they:"صَبَاحُ الْخَيْرِ. هَلْ كَتَبْتَ الْوَاجِبَ؟", f:{they:"صَبَاحُ الْخَيْرِ. هَلْ كَتَبْتِ الْوَاجِبَ؟"}, theyEn:"Good morning. Did you write the homework?", cue:"Say yes, but you have a question.", you:"نَعَمْ، وَلَكِنْ عِنْدِي سُؤَالٌ."},
+    {they:"صَبَاحُ الْخَيْرِ. هَلْ كَتَبْتَ الْوَاجِبَ؟", f:{they:"صَبَاحُ الْخَيْرِ. هَلْ كَتَبْتِ الْوَاجِبَ؟"}, theyEn:"Good morning. Did you do the homework?", cue:"Say yes, but you have a question.", you:"نَعَمْ، وَلَكِنْ عِنْدِي سُؤَالٌ."},
     {they:"تَفَضَّلْ، مَا سُؤَالُكَ؟", f:{they:"تَفَضَّلِي، مَا سُؤَالُكِ؟"}, theyEn:"Go ahead, what is your question?", cue:"Say you didn’t understand this word.", you:"لَمْ أَفْهَمْ هَذِهِ الْكَلِمَةَ.", tip:"After [[لَمْ]], [[أَفْهَمُ]] ends in a sukun: [[أَفْهَمْ]]."},
     {they:"سَأَشْرَحُهَا لَكَ. هَلْ فَهِمْتَ الْآنَ؟", f:{they:"سَأَشْرَحُهَا لَكِ. هَلْ فَهِمْتِ الْآنَ؟"}, theyEn:"I’ll explain it to you. Do you understand now?", cue:"Say yes, you understood, and thank the teacher.", you:"نَعَمْ، فَهِمْتُ. شُكْرًا يَا أُسْتَاذُ."},
     {they:"أَحْسَنْتَ. هَلْ أَنْتَ مُسْتَعِدٌّ لِلِامْتِحَانِ؟", f:{they:"أَحْسَنْتِ. هَلْ أَنْتِ مُسْتَعِدَّةٌ لِلِامْتِحَانِ؟"}, theyEn:"Well done. Are you ready for the exam?", cue:"Say not yet, you need more time.", you:"لَيْسَ بَعْدُ، أَحْتَاجُ إِلَى وَقْتٍ أَطْوَلَ.", tip:"[[أَطْوَلَ]] (longer) never takes tanwin, so it ends in a plain fatha."},
     {they:"لَا تَقْلَقْ، أَنْتَ قَادِرٌ عَلَى ذَلِكَ.", f:{they:"لَا تَقْلَقِي، أَنْتِ قَادِرَةٌ عَلَى ذَلِكَ."}, theyEn:"Don’t worry, you can do it."}
   ]},
   {id:"mosque", en:"At the mosque", ar:"فِي الْمَسْجِدِ", who:"Neighbour", turns:[
-    {they:"السَّلَامُ عَلَيْكُمْ. تَقَبَّلَ اللَّهُ.", theyEn:"Peace be upon you. May Allah accept it from you.", cue:"Return the greeting, and say “from us and from you”.", you:"وَعَلَيْكُمُ السَّلَامُ. مِنَّا وَمِنْكُمْ.", tip:"[[مِنْ]] + [[نَا]] (us) = [[مِنَّا]]."},
+    {they:"السَّلَامُ عَلَيْكُمْ. تَقَبَّلَ اللَّهُ.", theyEn:"Peace be upon you. May Allah accept it.", cue:"Return the greeting, and say “from us and from you”.", you:"وَعَلَيْكُمُ السَّلَامُ. مِنَّا وَمِنْكُمْ.", tip:"[[مِنْ]] + [[نَا]] (us) = [[مِنَّا]]."},
     {they:"هَلْ أَنْتَ جَدِيدٌ هُنَا؟", f:{they:"هَلْ أَنْتِ جَدِيدَةٌ هُنَا؟"}, theyEn:"Are you new here?", cue:"Say yes, you arrived last week.", you:"نَعَمْ، وَصَلْتُ فِي الْأُسْبُوعِ الْمَاضِي."},
-    {they:"مَا شَاءَ اللَّهُ. هَلْ تَحْضُرُ الدَّرْسَ بَعْدَ الصَّلَاةِ؟", f:{they:"مَا شَاءَ اللَّهُ. هَلْ تَحْضُرِينَ الدَّرْسَ بَعْدَ الصَّلَاةِ؟"}, theyEn:"Masha Allah. Will you come to the lesson after the prayer?", cue:"Say if Allah wills, and ask where the lesson is.", you:"إِنْ شَاءَ اللَّهُ. أَيْنَ الدَّرْسُ؟"},
-    {they:"فِي الْقَاعَةِ الْكَبِيرَةِ، بِجَانِبِ الْمَكْتَبَةِ.", theyEn:"In the big hall, next to the library.", cue:"Say may Allah reward you with good. (to a man)", you:"جَزَاكَ اللَّهُ خَيْرًا."},
+    {they:"أَهْلًا وَسَهْلًا. هَلْ تَحْضُرُ الدَّرْسَ بَعْدَ الصَّلَاةِ؟", f:{they:"أَهْلًا وَسَهْلًا. هَلْ تَحْضُرِينَ الدَّرْسَ بَعْدَ الصَّلَاةِ؟"}, theyEn:"Welcome. Will you come to the lesson after the prayer?", cue:"Say if Allah wills, and ask where the lesson is.", you:"إِنْ شَاءَ اللَّهُ. أَيْنَ الدَّرْسُ؟"},
+    {they:"فِي الْقَاعَةِ الْكَبِيرَةِ، بِجَانِبِ الْمَكْتَبَةِ.", f:{cue:"Say may Allah reward you with good. (to a woman)", you:"جَزَاكِ اللَّهُ خَيْرًا."}, theyEn:"In the big hall, next to the library.", cue:"Say may Allah reward you with good. (to a man)", you:"جَزَاكَ اللَّهُ خَيْرًا."},
     {they:"وَإِيَّاكَ.", f:{they:"وَإِيَّاكِ."}, theyEn:"And you."}
   ]},
   {id:"taxi", en:"In a taxi", ar:"فِي سَيَّارَةِ الْأُجْرَةِ", who:"Driver", turns:[
@@ -1378,11 +1378,11 @@ const SCENES = [
     {they:"ثَمَانُونَ رِيَالًا، مِنْ أَجْلِكَ.", f:{they:"ثَمَانُونَ رِيَالًا، مِنْ أَجْلِكِ."}, theyEn:"Eighty riyals, just for you.", cue:"Say OK, you’ll take it.", you:"حَسَنًا، سَآخُذُهُ.", tip:"[[سَـ]] + [[آخُذُ]] (I take) + [[هُ]] (it)."}
   ]},
   {id:"invite", en:"Inviting a friend", ar:"دَعْوَةٌ إِلَى الْعَشَاءِ", who:"Friend", turns:[
-    {they:"هَلْ أَنْتَ مَشْغُولٌ يَوْمَ الْجُمُعَةِ؟", f:{they:"هَلْ أَنْتِ مَشْغُولَةٌ يَوْمَ الْجُمُعَةِ؟", you:"لَا، أَنَا فَارِغَةٌ."}, theyEn:"Are you busy on Friday?", cue:"Say no, you are free.", you:"لَا، أَنَا فَارِغٌ."},
+    {they:"هَلْ أَنْتَ مَشْغُولٌ يَوْمَ الْجُمُعَةِ؟", f:{they:"هَلْ أَنْتِ مَشْغُولَةٌ يَوْمَ الْجُمُعَةِ؟", you:"لَا، لَسْتُ مَشْغُولَةً."}, theyEn:"Are you busy on Friday?", cue:"Say no, you aren’t busy.", you:"لَا، لَسْتُ مَشْغُولًا.", tip:"After [[لَسْتُ]], the describing word ends in a fatha."},
     {they:"أَدْعُوكَ إِلَى الْعَشَاءِ فِي بَيْتِي.", f:{they:"أَدْعُوكِ إِلَى الْعَشَاءِ فِي بَيْتِي."}, theyEn:"I invite you to dinner at my house.", cue:"Say thank you, with pleasure.", you:"شُكْرًا، بِكُلِّ سُرُورٍ."},
-    {they:"هَلْ تَسْتَطِيعُ أَنْ تَأْتِيَ فِي السَّاعَةِ السَّابِعَةِ؟", f:{they:"هَلْ تَسْتَطِيعِينَ أَنْ تَأْتِي فِي السَّاعَةِ السَّابِعَةِ؟"}, theyEn:"Can you come at seven o’clock?", cue:"Say yes, and ask where his house is.", you:"نَعَمْ. أَيْنَ بَيْتُكَ؟"},
+    {they:"هَلْ تَسْتَطِيعُ أَنْ تَأْتِيَ فِي السَّاعَةِ السَّابِعَةِ؟", f:{they:"هَلْ تَسْتَطِيعِينَ أَنْ تَأْتِي فِي السَّاعَةِ السَّابِعَةِ؟", cue:"Say yes, and ask where her house is.", you:"نَعَمْ. أَيْنَ بَيْتُكِ؟"}, theyEn:"Can you come at seven o’clock?", cue:"Say yes, and ask where his house is.", you:"نَعَمْ. أَيْنَ بَيْتُكَ؟"},
     {they:"قَرِيبٌ مِنَ الْمَسْجِدِ. سَأُرْسِلُ لَكَ الْعُنْوَانَ.", f:{they:"قَرِيبٌ مِنَ الْمَسْجِدِ. سَأُرْسِلُ لَكِ الْعُنْوَانَ."}, theyEn:"Near the mosque. I’ll send you the address.", cue:"Say thank you, and ask if you should bring anything.", you:"شُكْرًا. هَلْ أُحْضِرُ شَيْئًا؟"},
-    {they:"لَا، أَحْضِرْ نَفْسَكَ فَقَطْ!", f:{they:"لَا، أَحْضِرِي نَفْسَكِ فَقَطْ!"}, theyEn:"No, just bring yourself!"}
+    {they:"لَا، لَا تُحْضِرْ شَيْئًا. تَعَالَ فَقَطْ!", f:{they:"لَا، لَا تُحْضِرِي شَيْئًا. تَعَالَيْ فَقَطْ!"}, theyEn:"No, don’t bring anything. Just come!"}
   ]}
 ];
 
@@ -1789,7 +1789,7 @@ function renderDone(s){
     missedItems = [...s.missed].map(id => allItems().find(it => it.id === id));
     again = '<button class="btn primary" data-act="again">Practise again</button>';
     const its = [...new Set(s.queue.map(q => q.it.id))].map(id => s.queue.find(q => q.it.id === id).it), pct = deckPct(its), solid = solidCount(its);
-    gain = '<div class="gain"><p><b>' + pct + '%</b> of the way' + (s.kind === "deck" ? " through this lesson" : "") + '</p><div class="prog"><i style="width:' + pct + '%"></i></div><p class="note">' +
+    gain = '<div class="gain"><p><b>' + pct + '%</b> of the way' + (s.kind === "deck" ? " through this lesson" : " through these sentences") + '</p><div class="prog"><i style="width:' + pct + '%"></i></div><p class="note">' +
       (solid === its.length ? "All of these are solid. Well done!" : "Solid means right first time in two separate sessions. " + solid + " of " + its.length + " are solid so far, and each right answer moves you closer.") + '</p></div>';
   } else if (s.type === "chain"){
     score = s.got + " of " + s.order.length + " steps right.";

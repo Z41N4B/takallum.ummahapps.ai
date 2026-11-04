@@ -46,11 +46,11 @@ Grammar builders:
 
 ## Transform chains
 
-you: a man, a woman, a group (أَنْتَ / أَنْتِ / أَنْتُمْ); لَمْ (didn't); كَانَ (was); to go (يَذْهَبُ); to write (يَكْتُبُ); to eat (يَأْكُلُ); the weather (الْجَوُّ); to have (عِنْدِي).
+you: a man, a woman, a group (أَنْتَ / أَنْتِ / أَنْتُمْ); لَمْ (didn't); كَانَ (was); to go (يَذْهَبُ); to write (يَكْتُبُ); to eat (يَأْكُلُ); the weather (الْجَوُّ); to have (عِنْدِي); wanting, with أَنْ; to travel (يُسَافِرُ); used to, with كَانَ; must, with يَجِبُ; because, with لِأَنَّ; this and these, with gender and plurals (هَذَا / هَذِهِ / هَؤُلَاءِ).
 
 ## Role-play conversations
 
-Talking about yesterday; meeting someone; at the shop; asking the way; visiting a home; at the doctor's.
+Talking about yesterday; meeting someone; at the shop; asking the way; visiting a home; at the doctor's; at the restaurant; on the phone; in class; at the mosque; in a taxi; buying clothes; inviting a friend.
 
 ## Features
 

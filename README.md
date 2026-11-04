@@ -7,7 +7,8 @@ A free speaking-practice app for Modern Standard Arabic (fusha). Live at https:/
 ## Features
 - Swap-in drills: read the English, say the Arabic out loud, reveal and mark yourself. Missed sentences come back sooner.
 - Transform chains: one sentence changes step by step (person, gender, tense, negation).
-- Role-play: everyday conversations with a model reply for each turn, and an optional listen-first mode.
+- Role-play: everyday conversations with a model reply for each turn.
+- Hear without seeing the words: an option in drills, chains and role-play that hides the Arabic until you tap Show words.
 - Short grammar tips under most drill answers and role-play replies, shown once you reveal them.
 - Plain-English grammar explanations for lam, kana and its sisters, inna and its sisters, mundhu, yajibu, alladhi, the idafa, comparatives, conditionals and numbers
 - Normal and slow audio (uses the device's Arabic text-to-speech voice)
@@ -16,7 +17,7 @@ A free speaking-practice app for Modern Standard Arabic (fusha). Live at https:/
 - Previous button during drills and chains to look back at earlier sentences
 - Review only the sentences already marked solid
 - Up to 3 learners on one device, each with their own progress and their own man or woman choice, shared with Takallum Kids, Kalimat and Kalimat Plus. Learner p1 keeps the original `qul-progress` key. Hidden when progress saves to an account.
-- Progress: each sentence has a level from 0 to 5; Got it on the first try in a session adds one, Missed it resets to 0; level 2 counts as solid
+- Progress: each sentence has a level from 0 to 5; Got it on the first try in a session adds one, Missed it resets to 0; level 2 counts as solid. Bars count a practised sentence as a quarter, a sentence at level 1 as a half and a solid one in full, so one lesson always moves them
 
 ## Shared with the other apps
 Takallum Kids, Kalimat, Kalimat Plus and Takallum share two things on the same device through `ummah.js`, which is copied into each app's folder (keep the four copies identical):
