@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Takallum: Arabic speaking drills</title>
-<meta name="description" content="Free speaking practice for Modern Standard Arabic (fusha). Say sentences out loud with pattern drills, step-by-step transformation chains and role-play conversations, with audio and full vowel marks.">
+<meta name="description" content="Free Modern Standard Arabic speaking practice. Say sentences out loud with pattern drills, transformation chains and role-plays, with audio and vowel marks.">
 <meta name="keywords" content="Arabic speaking practice, learn Arabic, Modern Standard Arabic, fusha, MSA drills, Arabic grammar practice, Arabic conversation, spoken Arabic, Arabic sentence patterns, kana and her sisters, inna and her sisters, idafa">
 <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1">
 <meta name="author" content="Ummah Apps">
@@ -168,6 +168,7 @@ button{font:inherit;color:inherit;cursor:pointer}
 
 /* header */
 .top{display:flex;align-items:center;gap:14px;margin-bottom:18px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
 .mark{font-family:"Amiri",serif;font-size:2.6rem;line-height:1;color:var(--lapis);font-weight:700;margin:0}
 .top p{margin:0;color:var(--muted);font-size:.95rem;line-height:1.3;flex:1}
 .icon-btn{background:none;border:1px solid var(--line);border-radius:999px;width:42px;height:42px;display:grid;place-items:center;color:var(--muted)}
@@ -344,7 +345,7 @@ a.ua-app:hover{border-color:var(--f-lapis)}
 </head>
 <body>
 <main class="wrap" id="app">
-  <header class="top"><h1 class="mark" lang="ar">تَكَلُّم</h1><p>Speaking drills in standard Arabic. Say every sentence out loud.</p></header>
+  <header class="top"><h1 class="mark"><span lang="ar">تَكَلُّم</span><span class="sr"> Takallum: Arabic speaking drills</span></h1><p>Speaking drills in standard Arabic. Say every sentence out loud.</p></header>
   <noscript><div class="notice">Takallum needs JavaScript to run the drills. Please turn it on, or open this page in another browser.</div></noscript>
 </main>
 
@@ -1469,7 +1470,7 @@ function saveWho(){
 }
 document.addEventListener("keydown", e => { if (e.key === "Enter" && e.target.dataset && e.target.dataset.field === "who"){ e.preventDefault(); saveWho(); } });
 function renderHome(){
-  let h = '<header class="top"><h1 class="mark" lang="ar">تَكَلُّم</h1><p>Speaking drills in standard Arabic. Say every sentence out loud.</p>' +
+  let h = '<header class="top"><h1 class="mark"><span lang="ar">تَكَلُّم</span><span class="sr"> Takallum: Arabic speaking drills</span></h1><p>Speaking drills in standard Arabic. Say every sentence out loud.</p>' +
           '<button class="icon-btn" data-act="settings" aria-label="Settings">' + ICON_GEAR + '</button></header>';
   h += learnersHTML();
   h += '<div class="tabs" role="tablist">' +
