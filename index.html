@@ -117,6 +117,8 @@
          "acceptedAnswer": {"@type": "Answer", "text": "Yes. Every Arabic sentence can be played at normal or slow speed using your device's Arabic text-to-speech voice. If your device has no Arabic voice, the drills still work without sound."}},
         {"@type": "Question", "name": "How does Takallum decide what to practise?",
          "acceptedAnswer": {"@type": "Answer", "text": "It uses spaced repetition. Each sentence you mark as got it moves up a level; a missed sentence drops back and comes round again later in the same session. Mixed review gathers your ten weakest sentences from every pattern, and Review what you've learned practises only the sentences you already know."}},
+        {"@type": "Question", "name": "Can I skip sentences I already know in Takallum?",
+         "acceptedAnswer": {"@type": "Answer", "text": "Yes. On the Swap-in tab, open Mark what you already know and tick single sentences, whole sections or a whole group, or tap I already know this during a lesson. Lessons skip those sentences and your bars count them as solid. They still come up in Review what you’ve learned, and if you miss one there it goes back into your lessons."}},
         {"@type": "Question", "name": "How do I make a pattern solid in Takallum?",
          "acceptedAnswer": {"@type": "Answer", "text": "A sentence is solid once you mark it Got it the first time you see it, in two separate sessions. Missing it sends it back to the start. A pattern shows All 8 solid when every sentence in it has reached that point. The bar moves before then: a sentence you have practised counts a quarter, one you have got right counts a half, and a solid one counts in full."}},
         {"@type": "Question", "name": "Does Takallum cover feminine and plural forms?",
@@ -256,6 +258,28 @@ a.ua-app:hover{border-color:var(--f-lapis)}
 .count{color:var(--muted);font-size:.9rem;font-variant-numeric:tabular-nums}
 .bar-r{display:flex;align-items:center;gap:14px}
 .peek{border-style:dashed}
+.know-line{text-align:center;margin:-6px 0 12px}
+.kn-title{font-size:1.25rem;margin:6px 0 6px}
+.kn-groups{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px}
+.kn-groups button{font-weight:600;font-size:.9rem;min-height:40px;padding:4px 14px;border-radius:999px;border:1px solid var(--line);background:var(--surface);color:var(--ink)}
+.kn-groups button[aria-pressed="true"]{background:var(--lapis);border-color:var(--lapis);color:var(--surface)}
+.kn-groupall{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px;margin:0 2px 12px;color:var(--muted);font-size:.9rem}
+.kn-all{flex:none;font-weight:600;font-size:.85rem;min-height:40px;padding:4px 12px;border-radius:12px;border:1px solid var(--line);background:var(--surface);color:var(--lapis)}
+.kn-deck{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:8px 12px;margin-bottom:8px}
+.kn-row{display:flex;align-items:center;gap:10px}
+.kn-head{flex:1;min-width:0;display:grid;gap:2px;text-align:left;background:none;border:0;padding:4px 0;color:inherit}
+.kn-head .ar{font-size:1.15rem;line-height:1.5;text-align:right}
+.kn-head .t{font-weight:600}
+.kn-head .s{font-size:.85rem;color:var(--muted)}
+.kn-items{list-style:none;margin:8px 0 2px;padding:0;display:grid;gap:6px}
+.kn-item{width:100%;display:flex;align-items:flex-start;gap:10px;text-align:left;background:var(--sunk);border:1px solid transparent;border-radius:12px;padding:10px 12px;color:inherit}
+.kn-item[aria-pressed="true"]{border-color:var(--good)}
+.kn-box{flex:none;width:22px;height:22px;margin-top:2px;border:2px solid var(--muted);border-radius:6px;display:grid;place-items:center;font-size:.9rem;line-height:1;color:var(--surface)}
+.kn-item[aria-pressed="true"] .kn-box{background:var(--good);border-color:var(--good)}
+.kn-item[aria-pressed="true"] .kn-box::after{content:"✓"}
+.kn-text{flex:1;min-width:0;display:grid;gap:2px}
+.kn-text .ar{font-size:1.2rem;line-height:1.6;text-align:right}
+.kn-text .en{font-size:.9rem;color:var(--muted)}
 .peek-lbl{margin:0 0 8px;font-size:.85rem;color:var(--muted)}
 .peek-lbl .ok{color:var(--good)}
 .peek-lbl .no{color:var(--miss)}
@@ -373,6 +397,7 @@ a.ua-app:hover{border-color:var(--f-lapis)}
   <details><summary>Who is it for?</summary><p>Beginner to intermediate learners who can read Arabic script and want to turn the grammar they have studied into sentences they can actually say.</p></details>
   <details><summary>Does it have audio?</summary><p>Yes. Every Arabic sentence plays at normal or slow speed using your device’s Arabic text-to-speech voice. Without an Arabic voice the drills still work, just without sound. To practise by ear, turn on <strong>Hear without seeing the words</strong>, which hides the Arabic until you tap Show words.</p></details>
   <details><summary>How does it decide what to practise?</summary><p>It uses spaced repetition. A sentence you get right moves up a level; one you miss drops back and comes round again later in the same session. Mixed review gathers your ten weakest sentences from every pattern, and <strong>Review what you’ve learned</strong> practises only the ones you already know.</p></details>
+  <details><summary>Can I skip sentences I already know?</summary><p>Yes. On the Swap-in tab, open Mark what you already know and tick single sentences, whole sections or a whole group, or tap I already know this during a lesson. Lessons skip those sentences and your bars count them as solid. They still come up in Review what you’ve learned, and if you miss one there it goes back into your lessons.</p></details>
   <details><summary>How do I make a pattern solid?</summary><p>A sentence is solid once you mark it <strong>Got it</strong> the first time you see it, in two separate sessions. <strong>Missed it</strong> sends it back to the start, and getting it right when it comes round again later in that session doesn’t count. So for all 8 solid, run the pattern twice and get all eight right first time both times. The bar moves before then: a sentence you’ve practised counts a quarter, one you’ve got right counts a half, and a solid one counts in full.</p></details>
   <details><summary>Does it cover feminine and plural forms?</summary><p>Yes. In settings, choose whether you’re practising as a man or a woman: it changes sentences about yourself, like “I was tired”, and how people speak to you in role-play. The “you: a man, a woman, a group” pattern and transform chain practise speaking to each.</p></details>
   <p class="credit">Takallum is part of <a href="https://ummahapps.ai/">Ummah Apps</a>.</p>
@@ -1387,7 +1412,7 @@ const SCENES = [
 ];
 
 /* ---------- state + storage ---------- */
-let progress = {cards:{}, chains:{}, scenes:{}};
+let progress = {cards:{}, chains:{}, scenes:{}, known:{}};
 let settings = {vowels:true, autoplay:true, listenFirst:false, voiceHelp:true, speaker:null};
 const S = {tab:"swap", session:null, sheet:false};
 let syncMode = "device";
@@ -1418,7 +1443,7 @@ const me = () => profiles.list.find(p => p.id === profiles.cur);
 const progKey = id => id === "p1" ? "qul-progress" : "qul-progress-" + id;
 function saveProfiles(){ try { localStorage.setItem("qul-profiles", JSON.stringify(profiles)); } catch(e){} }
 function loadProgress(){
-  progress = {cards:{}, chains:{}, scenes:{}};
+  progress = {cards:{}, chains:{}, scenes:{}, known:{}};
   try { const p = JSON.parse(localStorage.getItem(progKey(profiles.cur)) || "null"); if (p) progress = Object.assign(progress, p); } catch(e){}
   settings.speaker = me().g || null;
 }
@@ -1438,7 +1463,7 @@ async function flush(){
   if (!dbRef) return;
   if (saving){ pending = true; return; }
   saving = true;
-  try { await dbRef.set({cards:progress.cards, chains:progress.chains, scenes:progress.scenes, v:1}); }
+  try { await dbRef.set({cards:progress.cards, chains:progress.chains, scenes:progress.scenes, known:progress.known, v:1}); }
   catch(e){ if (e && e.code === "invalid_argument"){ dbRef = null; syncMode = "device"; } }
   saving = false;
   if (pending){ pending = false; flush(); }
@@ -1457,7 +1482,8 @@ async function flush(){
       progress = {
         cards: Object.assign({}, progress.cards, r.cards || {}),
         chains: Object.assign({}, progress.chains, r.chains || {}),
-        scenes: Object.assign({}, progress.scenes, r.scenes || {})
+        scenes: Object.assign({}, progress.scenes, r.scenes || {}),
+        known: Object.assign({}, progress.known, r.known || {})
       };
       saveLocal();
     }
@@ -1516,6 +1542,7 @@ function deckPct(items){
 function deckLabel(items){
   const n = items.length, solid = solidCount(items), done = doneCount(items);
   if (!done) return n + " sentences";
+  if (items.every(it => isKnown(it.id))) return "All " + n + " already known";
   if (solid === n) return "All " + n + " solid";
   return done + " of " + n + " done, " + solid + " solid";
 }
@@ -1524,6 +1551,18 @@ function gv(o){ return settings.speaker === "f" && o.f ? Object.assign({}, o, o.
 function deckItems(d){ return d.items.map(it => Object.assign({deck:d}, gv(it))); }
 function allItems(){ return DECKS.flatMap(deckItems); }
 function learnedItems(){ return allItems().filter(it => box(it.id) >= SOLID); }
+/* "I already know this": lessons skip the sentence and it counts as solid. progress.known keeps its level from before (-1 if never practised), so unticking puts it back. */
+function isKnown(id){ return progress.known[id] != null; }
+function setKnown(id, on){
+  if (on){
+    if (!isKnown(id)) progress.known[id] = progress.cards[id] == null ? -1 : progress.cards[id];
+    progress.cards[id] = Math.max(box(id), SOLID);
+  } else if (isKnown(id)){
+    const before = progress.known[id];
+    delete progress.known[id];
+    if (before < 0) delete progress.cards[id]; else progress.cards[id] = before;
+  }
+}
 
 const ICON_PLAY = '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9-5.5z" fill="currentColor"/></svg>';
 const ICON_GEAR = '<svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="3.2"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg>';
@@ -1624,6 +1663,8 @@ function renderHome(){
          (weak ? weak + " to strengthen" : "All solid") + '</span><span class="sub">Your 10 weakest sentences from every pattern.</span></button></li>';
     h += '<li><button class="row review" data-act="learned"' + (learned ? "" : " disabled") + '><span class="t">Review what you’ve learned</span><span class="s">' +
          learned + ' solid</span><span class="sub">' + (learned ? "Up to 10 of your solid sentences, so they stay solid." : "Sentences appear here once they’re solid.") + '</span></button></li>';
+    const marked = all.filter(it => isKnown(it.id)).length;
+    h += '<li><button class="row review" data-act="knownpick"><span class="t">Mark what you already know</span><span class="s">' + marked + ' marked</span><span class="sub">Tick sentences you know well and lessons will skip them.</span></button></li>';
     [["talk","Conversation phrases"],["everyday","Everyday phrases"],["grammar","Grammar builders"],["discussion","Discussion words"]].forEach(([g, label]) => {
     h += '<li><h2 class="group-h">' + label + '</h2></li>';
     if (g === "discussion"){
@@ -1672,7 +1713,8 @@ function startSwap(kind, deckId){
   const items = d ? deckItems(d) : kind === "learned" ? learnedItems() : allItems();
   if (!items.length) return;
   const title = d ? d.en : kind === "learned" ? "Review what you’ve learned" : "Mixed review";
-  const sorted = shuffle(items.slice()).sort((a, b) => box(a.id) - box(b.id)).slice(0, 10);
+  const fresh = kind === "learned" ? items : items.filter(it => !isKnown(it.id));
+  const sorted = shuffle((fresh.length ? fresh : items).slice()).sort((a, b) => box(a.id) - box(b.id)).slice(0, 10);
   S.session = {type:"swap", kind, deckId, title, queue:sorted.map(it => ({it, tries:0})), idx:0, revealed:false, missed:new Set(), first:0, total:sorted.length,
     hist:[], peek:null,
     explainOpen: !!(d && d.explain) && items.every(it => progress.cards[it.id] == null)};
@@ -1721,7 +1763,8 @@ function renderPeek(s){
     const step = s.chain.steps[e.si]; cue = step.en; ar = step.ar; tip = step.tip;
     top = '<p class="instr">' + esc(step.i) + '</p>';
   }
-  h += top + '<section class="card peek"><p class="peek-lbl">You marked this <b class="' + (e.ok ? "ok" : "no") + '">' + (e.ok ? "Got it" : "Missed it") + '</b></p>' +
+  const lbl = e.known ? '<b class="ok">Already known</b> <button class="link" data-act="undoknown">Undo</button>' : e.undone ? '<b>Back in this lesson</b>' : '<b class="' + (e.ok ? "ok" : "no") + '">' + (e.ok ? "Got it" : "Missed it") + '</b>';
+  h += top + '<section class="card peek"><p class="peek-lbl">You marked this ' + lbl + '</p>' +
        '<p class="cue">' + esc(cue) + '</p><div class="answer"><p class="ar big" lang="ar">' + arHTML(ar) + '</p>' + sayButtons(ar) +
        (tip ? '<p class="tip">' + noteHTML(tip) + '</p>' : "") + '</div></section>';
   return h + '<div class="actions"><button class="btn primary" data-act="peekback">' + (s.done ? "Back to results" : "Back to where I was") + ' ›</button></div>' +
@@ -1738,6 +1781,7 @@ function renderSwap(s){
   h += '<section class="card"><p class="cue">' + esc(cur.en) + '</p><div class="answer" aria-live="polite">' +
        (s.revealed ? answerHTML(s, cur.ar, cur.tip)
                    : '<p class="placeholder">Say it out loud first.</p>') + '</div></section>';
+  if (s.kind !== "learned" && !isKnown(cur.id)) h += '<p class="know-line"><button class="link" data-act="knowit">I already know this</button></p>';
   return h + actionsHTML(s.revealed);
 }
 
@@ -1785,7 +1829,7 @@ function renderDone(s){
           (s.hist && s.hist.length ? '<button class="link" data-act="prev">‹ Previous</button>' : "<span></span>") + '</div><section class="done">';
   let missedItems = [], score = "", again = "", redo = "", gain = "";
   if (s.type === "swap"){
-    score = s.first + " of " + s.total + " right on the first try.";
+    score = s.total ? s.first + " of " + s.total + " right on the first try." : "You already know all of these.";
     missedItems = [...s.missed].map(id => allItems().find(it => it.id === id));
     again = '<button class="btn primary" data-act="again">Practise again</button>';
     const its = [...new Set(s.queue.map(q => q.it.id))].map(id => s.queue.find(q => q.it.id === id).it), pct = deckPct(its), solid = solidCount(its);
@@ -1811,6 +1855,35 @@ function renderDone(s){
   return h;
 }
 
+const KNOW_GROUPS = [["talk","Conversation"],["everyday","Everyday"],["grammar","Grammar"],["discussion","Discussion"]];
+function groupDecks(g){ return DECKS.filter(d => (d.group || "everyday") === g); }
+function knowAllBtn(act, v, items){
+  const all = items.every(it => isKnown(it.id));
+  return '<button class="kn-all" data-act="' + act + '" data-v="' + v + '" data-on="' + (all ? "0" : "1") + '">' + (all ? "Unmark all" : "Mark all") + '</button>';
+}
+function renderKnown(s){
+  const marked = allItems().filter(it => isKnown(it.id)).length, decks = groupDecks(s.group), groupItems = decks.flatMap(deckItems);
+  let h = '<div class="bar"><button class="link" data-act="back">‹ Back to the list</button><span class="count">' + marked + ' marked</span></div>' +
+    '<h2 class="kn-title">Mark what you already know</h2><p class="intro">Tick the sentences you know well. Lessons skip them and your bars count them as solid. They still come up in Review what you’ve learned, and if you miss one there it goes back into your lessons.</p>' +
+    '<div class="kn-groups" role="group" aria-label="Groups">' + KNOW_GROUPS.map(([g, l]) => '<button data-act="knowgroup" data-v="' + g + '" aria-pressed="' + (s.group === g) + '">' + l + '</button>').join("") + '</div>' +
+    '<p class="kn-groupall"><span>' + groupItems.filter(it => isKnown(it.id)).length + ' of ' + groupItems.length + ' known in this group</span>' + knowAllBtn("knowwhole", s.group, groupItems) + '</p>';
+  let sec = null;
+  decks.forEach(d => {
+    if (d.sec && d.sec !== sec){ sec = d.sec; h += '<h3 class="sec-h">' + esc(sec) + '</h3>'; }
+    const items = deckItems(d), opened = !!s.open[d.id], k = items.filter(it => isKnown(it.id)).length;
+    h += '<div class="kn-deck"><div class="kn-row"><button class="kn-head" data-act="knowopen" data-v="' + d.id + '" aria-expanded="' + opened + '"><span class="ar" lang="ar">' + frameHTML(d.frame) + '</span><span class="t">' + esc(d.en) + '</span><span class="s">' + k + ' of ' + items.length + ' known. ' + (opened ? "Hide sentences" : "Show sentences") + '</span></button>' + knowAllBtn("knowdeck", d.id, items) + '</div>';
+    if (opened) h += '<ul class="kn-items">' + items.map(it => '<li><button class="kn-item" data-act="knowone" data-v="' + it.id + '" aria-pressed="' + isKnown(it.id) + '"><span class="kn-box" aria-hidden="true"></span><span class="kn-text"><span class="ar" lang="ar">' + esc(vow(plain(it.ar))) + '</span><span class="en">' + esc(it.en) + '</span></span></button></li>').join("") + '</ul>';
+    h += '</div>';
+  });
+  return h;
+}
+/* Re-render without losing the learner's place */
+function renderKeepFocus(el){
+  const sel = '[data-act="' + el.dataset.act + '"]' + (el.dataset.v ? '[data-v="' + el.dataset.v + '"]' : "");
+  render();
+  const b = document.querySelector(sel); if (b) b.focus({preventScroll:true});
+}
+
 function settingsHTML(){
   const opt = (k, t, sub) => '<label class="opt"><span>' + t + '<small>' + sub + '</small></span><input type="checkbox" data-set="' + k + '"' + (settings[k] ? " checked" : "") + '></label>';
   const sp = settings.speaker || "m";
@@ -1834,6 +1907,7 @@ function render(){
   if (!s) h = renderHome();
   else if (s.peek != null) h = renderPeek(s);
   else if (s.done) h = renderDone(s);
+  else if (s.type === "known") h = renderKnown(s);
   else if (s.type === "swap") h = renderSwap(s);
   else if (s.type === "chain") h = renderChain(s);
   else h = renderScene(s);
@@ -1851,6 +1925,25 @@ function reveal(){
   }
   render();
 }
+function knowIt(){
+  const s = S.session; if (!s || s.type !== "swap" || s.done) return;
+  const cur = s.queue[s.idx], id = cur.it.id;
+  setKnown(id, true); scheduleSave();
+  s.queue = s.queue.filter((q, i) => i <= s.idx || q.it.id !== id);
+  s.missed.delete(id); s.total--;
+  s.hist.push({it:cur.it, known:true});
+  s.idx++; s.revealed = false; s.shown = false;
+  if (s.idx >= s.queue.length) s.done = true;
+  render();
+}
+function undoKnown(){
+  const s = S.session; if (!s || s.peek == null) return;
+  const e = s.hist[s.peek];
+  setKnown(e.it.id, false); scheduleSave();
+  e.known = false; e.undone = true;
+  s.queue.push({it:e.it, tries:0}); s.total++; s.done = false;
+  render();
+}
 function mark(ok){
   const s = S.session; if (!s || s.done || !s.revealed) return;
   if (s.type === "swap"){
@@ -1858,7 +1951,7 @@ function mark(ok){
     let b = box(id);
     if (ok){ if (!s.missed.has(id)){ b = Math.min(b + 1, 5); s.first++; } }
     else {
-      b = 0; s.missed.add(id);
+      b = 0; s.missed.add(id); delete progress.known[id];
       if (cur.tries < 2) s.queue.splice(Math.min(s.idx + 4, s.queue.length), 0, {it:cur.it, tries:cur.tries + 1});
     }
     progress.cards[id] = b; scheduleSave();
@@ -1918,6 +2011,14 @@ document.addEventListener("click", e => {
     case "deck": startSwap("deck", v); break;
     case "weak": startSwap("weak"); break;
     case "learned": startSwap("learned"); break;
+    case "knownpick": S.session = {type:"known", group:"talk", open:{}}; render(); window.scrollTo(0, 0); break;
+    case "knowgroup": S.session.group = v; renderKeepFocus(el); break;
+    case "knowopen": S.session.open[v] = !S.session.open[v]; renderKeepFocus(el); break;
+    case "knowone": setKnown(v, !isKnown(v)); scheduleSave(); renderKeepFocus(el); break;
+    case "knowdeck": DECKS.find(d => d.id === v).items.forEach(it => setKnown(it.id, el.dataset.on === "1")); scheduleSave(); renderKeepFocus(el); break;
+    case "knowwhole": groupDecks(v).forEach(d => d.items.forEach(it => setKnown(it.id, el.dataset.on === "1"))); scheduleSave(); renderKeepFocus(el); break;
+    case "knowit": knowIt(); break;
+    case "undoknown": undoKnown(); break;
     case "prev": prev(); break;
     case "peekback": peekBack(); break;
     case "speaker": settings.speaker = v; me().g = v; saveProfiles(); if (window.UA) me().ua = UA.save(me()); saveSettings(); render(); { const b = document.querySelector('.sheet [data-act="speaker"][data-v="' + v + '"]'); if (b) b.focus(); } break;
@@ -1967,7 +2068,7 @@ document.addEventListener("change", e => {
 });
 document.addEventListener("keydown", e => {
   if (S.sheet){ if (e.key === "Escape"){ S.sheet = false; render(); } return; }
-  const s = S.session; if (!s) return;
+  const s = S.session; if (!s || s.type === "known") return;
   if (s.peek != null){
     if (e.key === "ArrowLeft") prev();
     else if (e.key === "ArrowRight" || e.key === "Escape") peekBack();

@@ -14,6 +14,7 @@ Interface language: English. Practice language: Modern Standard Arabic.
 - **Transform chains**: 14 chains in which one sentence changes step by step (person, gender, tense, negation, question).
 - **Practise as a man or a woman**: sentences about yourself and the role-play lines spoken to you switch to the feminine.
 - **Review what you've learned**: practise only the sentences you already know.
+- **Mark what you already know**: tick single sentences, whole sections or a whole group, or tap I already know this during a lesson, so learners at a higher level can skip them. Lessons leave them out and they count as solid.
 - **Role-play**: 13 everyday conversations with a model reply for each of your turns.
 - **Hear without seeing the words**: an option in every mode that hides the Arabic until you tap Show words, so you practise by ear.
 

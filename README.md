@@ -16,6 +16,7 @@ A free speaking-practice app for Modern Standard Arabic (fusha). Live at https:/
 - Practise as a man or a woman: items, chain steps and role-play turns can carry an `f` override with the feminine wording
 - Previous button during drills and chains to look back at earlier sentences
 - Review only the sentences already marked solid
+- I already know this: tick single sentences, whole sections or a whole group, or skip one during a lesson. Lessons skip them and they count as solid; `progress.known` keeps the level from before so unticking restores it, and missing one in review puts it back into lessons
 - Up to 3 learners on one device, each with their own progress and their own man or woman choice, shared with Takallum Kids, Kalimat and Kalimat Plus. Learner p1 keeps the original `qul-progress` key. Hidden when progress saves to an account.
 - Progress: each sentence has a level from 0 to 5; Got it on the first try in a session adds one, Missed it resets to 0; level 2 counts as solid. Bars count a practised sentence as a quarter, a sentence at level 1 as a half and a solid one in full, so one lesson always moves them
 
