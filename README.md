@@ -2,7 +2,7 @@
 
 A free speaking-practice app for Modern Standard Arabic (fusha). Live at https://takallum.ummahapps.ai/
 
-**Content:** 85 swap-in sections (462 sentences): conversation phrases (greetings, Islamic phrases, phrases to a man, a woman and a group, about yourself), everyday phrases, 60 discussion words moved from Kalimat Plus with their own button and 4 sentences each, and grammar builders; 14 transform chains and 13 role-play conversations, all with full harakat.
+**Content:** 124 swap-in sections (803 sentences): conversation phrases (greetings, Islamic phrases, phrases to a man, a woman and a group, about yourself), at home with children (commands, praise and questions to a boy, a girl and several children, children to each other, children to their elders), from the ahadith (short everyday phrases, duas and sayings from Sahih al-Bukhari and Sahih Muslim, each with its sunnah.com number), everyday phrases, 60 discussion words moved from Kalimat Plus with their own button and 4 sentences each, and grammar builders; 14 transform chains and 13 role-play conversations, all with full harakat.
 
 ## Features
 - Swap-in drills: read the English, say the Arabic out loud, reveal and mark yourself. Missed sentences come back sooner.
