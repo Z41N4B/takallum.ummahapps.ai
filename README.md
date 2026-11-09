@@ -21,9 +21,10 @@ A free speaking-practice app for Modern Standard Arabic (fusha). Live at https:/
 - Progress: each sentence has a level from 0 to 5; Got it on the first try in a session adds one, Missed it resets to 0; level 2 counts as solid. Bars count a practised sentence as a quarter, a sentence at level 1 as a half and a solid one in full, so one lesson always moves them
 
 ## Shared with the other apps
-Takallum Kids, Kalimat, Kalimat Plus and Takallum share two things on the same device through `ummah.js`, which is copied into each app's folder (keep the four copies identical):
+Takallum Kids, Kalimat, Kalimat Plus and Takallum share three things on the same device through `ummah.js`, which is copied into each app's folder (keep the four copies identical):
 - **Learners:** name, boy or girl (man or woman), and animal, in the `ua_l` cookie on `.ummahapps.ai`. A learner added in one app appears in the others; a learner still called "Learner 1" stays in its own app until renamed.
 - **Known words:** words learned in Takallum Kids and Known well words in Kalimat and Kalimat Plus go into a per-learner `ua_w_<id>` cookie as short hashes of the bare Arabic. Kalimat and Kalimat Plus offer to add words known from the other apps.
+- **Settings:** voice speed (slow, normal, natural), playing the Arabic straight away and vowel marks go with each learner in a `ua_s_<id>` cookie (`ua_s_d` for a learner with no name yet), and the voice help goes with the device in `ua_d`. The Settings panel that changes them is drawn by `ummah.js`, so it is the same in all four apps; each app opens it from its learner row or settings sheet and turns the speed into its own voice rate. The first time an app loads the shared settings, what was set in that app before fills in for the learners already on the device; new learners start from the defaults.
 
 Each page also ends with the same four-app family strip. On localhost, `ummah.js` points the strip's links at the local servers (Kids 8771, Kalimat 8766, Kalimat Plus 8772, Takallum 8770).
 

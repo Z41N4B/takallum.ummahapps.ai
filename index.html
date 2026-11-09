@@ -358,6 +358,7 @@ a.ua-app:hover{border-color:var(--f-lapis)}
 .notice{background:var(--brass-soft);border-radius:12px;padding:10px 14px;font-size:.9rem;margin-bottom:14px}
 .sheet-bg{position:fixed;inset:0;background:rgba(5,10,20,.45);display:flex;align-items:flex-end;justify-content:center;z-index:20}
 .sheet{background:var(--surface);width:100%;max-width:620px;border-radius:20px 20px 0 0;padding:20px 20px calc(24px + env(safe-area-inset-bottom,0px))}
+.open-shared{background:none;border:1px solid var(--lapis);color:var(--lapis);border-radius:10px;padding:7px 14px;font-weight:600;font-size:.88rem;flex:none}
 .sheet h2{margin:0 0 12px;font-size:1.2rem}
 .opt{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:12px 0;border-top:1px solid var(--line)}
 .opt span small{display:block;color:var(--muted);font-size:.85rem}
@@ -1690,7 +1691,7 @@ DECKS.push(...HADITH_DECKS.map(d => ({id:d.id, group:"hadith", sec:d.sec, word:t
 
 /* ---------- state + storage ---------- */
 let progress = {cards:{}, chains:{}, scenes:{}, known:{}};
-let settings = {vowels:true, autoplay:true, listenFirst:false, voiceHelp:true, speaker:null};
+let settings = {vowels:true, autoplay:true, listenFirst:false, voiceHelp:true, speaker:null, speed:"normal"};
 const S = {tab:"swap", session:null, sheet:false};
 let syncMode = "device";
 
@@ -1723,6 +1724,7 @@ function loadProgress(){
   progress = {cards:{}, chains:{}, scenes:{}, known:{}};
   try { const p = JSON.parse(localStorage.getItem(progKey(profiles.cur)) || "null"); if (p) progress = Object.assign(progress, p); } catch(e){}
   settings.speaker = me().g || null;
+  loadShared();
 }
 saveProfiles(); loadProgress();
 if (window.UA) UA.setCurrent(me().ua);
@@ -1730,6 +1732,21 @@ if (window.UA) UA.setCurrent(me().ua);
 let dbRef = null, saving = false, pending = false, saveTimer = null;
 function saveLocal(){ try { localStorage.setItem(progKey(profiles.cur), JSON.stringify(progress)); } catch(e){} }
 function saveSettings(){ try { localStorage.setItem("qul-settings", JSON.stringify(settings)); } catch(e){} }
+/* Voice speed, vowel marks, playing straight away and voice help go with each learner in all four Ummah Apps Arabic apps (ummah.js).
+   They are changed in the shared Settings panel. The first time, what was set here before fills in for the learners already here; new learners start from the defaults. */
+function loadShared(){
+  if (!window.UA) return;
+  if (!lsHas("qul-shared")){
+    let mine = {}; try { mine = JSON.parse(localStorage.getItem("qul-settings") || "null") || {}; } catch(e){}
+    UA.settings(null, mine); profiles.list.forEach(p => UA.settings(p.ua, mine));
+    try { localStorage.setItem("qul-shared", "1"); } catch(e){}
+  }
+  Object.assign(settings, UA.settings(me().ua)); saveSettings();
+}
+function shareSetting(k){ if (window.UA) UA.setSetting(me().ua, k, settings[k]); }
+function sharedChanged(s){ Object.assign(settings, s); saveSettings(); render(); }
+if (window.UA) UA.watch(() => me().ua, sharedChanged);
+const RATES = {slow:0.7, normal:0.9, natural:1};
 function scheduleSave(){
   saveLocal();
   if (!dbRef) return;
@@ -1795,7 +1812,7 @@ function speak(text, slow){
     const u = new SpeechSynthesisUtterance(SAY.reduce((t, [a, b]) => t.replace(a, b), plain(text)));
     u.lang = arVoice ? arVoice.lang : "ar-SA";
     if (arVoice) u.voice = arVoice;
-    u.rate = slow ? 0.55 : 0.9;
+    u.rate = slow ? 0.55 : RATES[settings.speed] || 0.9;
     speechSynthesis.speak(u);
   } catch(e){}
 }
@@ -2170,10 +2187,8 @@ function settingsHTML(){
     '<h2>Settings</h2>' + voiceNotice() +
     '<div class="opt"><span>Practising as<small>Changes sentences about yourself, like “I was tired”, and how people speak to you in role-play.</small></span>' +
     '<div class="seg" role="group" aria-label="Practising as"><button data-act="speaker" data-v="m" aria-pressed="' + (sp === "m") + '">A man</button><button data-act="speaker" data-v="f" aria-pressed="' + (sp === "f") + '">A woman</button></div></div>' +
-    opt("vowels", "Vowel marks", "Show the harakat on Arabic text. Turn off once you can read without them.") +
-    opt("autoplay", "Play on reveal", "Speak the Arabic automatically when you reveal it.") +
     opt("listenFirst", "Hear without seeing the words", "Hide the Arabic in drills, transform and role-play until you tap Show words, so you practise by ear.") +
-    opt("voiceHelp", "Voice instructions", "Show the steps for adding an Arabic voice on the home screen.") +
+    '<div class="opt"><span>Speed, vowel marks and sound<small>Voice speed, vowel marks, playing the Arabic straight away and voice help. These go with ' + esc(me().name) + ' in all four Ummah Apps Arabic apps.</small></span><button class="open-shared" data-act="shared">Open</button></div>' +
     '<div class="actions" style="margin-top:14px"><button class="btn primary" data-act="close">Done</button></div></div></div>';
 }
 
@@ -2314,6 +2329,7 @@ document.addEventListener("click", e => {
     case "finish": finishScene(); break;
     case "back": if ("speechSynthesis" in window) speechSynthesis.cancel(); S.session = null; render(); window.scrollTo(0, 0); break;
     case "settings": S.sheet = true; render(); break;
+    case "shared": if (window.UA) UA.openSettings({ua:me().ua, name:me().name, app:"takallum", onChange:sharedChanged}); break;
     case "pickme": if (v !== profiles.cur){ switchLearner(v); S.whoForm = null; render(); } break;
     case "whoform": S.whoForm = v; render(); { const i = document.querySelector('[data-field="who"]'); if (i) i.focus(); } break;
     case "whocancel": S.whoForm = null; render(); break;
@@ -2329,7 +2345,7 @@ document.addEventListener("click", e => {
       break;
     case "vgdev": vgDev = v; render(); { const b = document.querySelector('[data-act="vgdev"][data-v="' + v + '"]'); if (b) b.focus(); } break;
     case "vgtest": speak("مَرْحَبًا، كَيْفَ حَالُكَ؟"); break;
-    case "vghide": case "vgshow": settings.voiceHelp = act === "vgshow"; saveSettings(); render(); { const b = document.querySelector(act === "vghide" ? ".vg-show" : '[data-act="vghide"]'); if (b) b.focus(); } break;
+    case "vghide": case "vgshow": settings.voiceHelp = act === "vgshow"; saveSettings(); shareSetting("voiceHelp"); render(); { const b = document.querySelector(act === "vghide" ? ".vg-show" : '[data-act="vghide"]'); if (b) b.focus(); } break;
     case "again": {
       const s = S.session;
       if (s.type === "swap"){ if (s.kind === "learned" && !learnedItems().length) startSwap("weak"); else startSwap(s.kind, s.deckId); }
@@ -2343,7 +2359,7 @@ document.addEventListener("click", e => {
 document.addEventListener("change", e => {
   const k = e.target.dataset && e.target.dataset.set;
   if (!k) return;
-  settings[k] = e.target.checked; saveSettings(); render();
+  settings[k] = e.target.checked; saveSettings(); shareSetting(k); render();
 });
 document.addEventListener("keydown", e => {
   if (S.sheet){ if (e.key === "Escape"){ S.sheet = false; render(); } return; }
