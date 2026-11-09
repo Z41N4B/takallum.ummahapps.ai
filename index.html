@@ -1690,7 +1690,7 @@ DECKS.push(...HADITH_DECKS.map(d => ({id:d.id, group:"hadith", sec:d.sec, word:t
   items:d.rows.map((r, i) => ({id:d.id + i, en:r[0], ar:r[1], ref:r[2], tip:r[2] + "." + (r[3] ? " " + r[3] : "")}))})));
 
 /* ---------- state + storage ---------- */
-let progress = {cards:{}, chains:{}, scenes:{}, known:{}};
+let progress = {cards:{}, chains:{}, scenes:{}, known:{}, due:{}};
 let settings = {vowels:true, autoplay:true, listenFirst:false, voiceHelp:true, speaker:null, speed:"normal"};
 const S = {tab:"swap", session:null, sheet:false};
 let syncMode = "device";
@@ -1721,8 +1721,9 @@ const me = () => profiles.list.find(p => p.id === profiles.cur);
 const progKey = id => id === "p1" ? "qul-progress" : "qul-progress-" + id;
 function saveProfiles(){ try { localStorage.setItem("qul-profiles", JSON.stringify(profiles)); } catch(e){} }
 function loadProgress(){
-  progress = {cards:{}, chains:{}, scenes:{}, known:{}};
+  progress = {cards:{}, chains:{}, scenes:{}, known:{}, due:{}};
   try { const p = JSON.parse(localStorage.getItem(progKey(profiles.cur)) || "null"); if (p) progress = Object.assign(progress, p); } catch(e){}
+  if (!progress.dueFrom){ progress.dueFrom = tday(); try { localStorage.setItem(progKey(profiles.cur), JSON.stringify(progress)); } catch(e){} }
   settings.speaker = me().g || null;
   loadShared();
 }
@@ -1757,7 +1758,7 @@ async function flush(){
   if (!dbRef) return;
   if (saving){ pending = true; return; }
   saving = true;
-  try { await dbRef.set({cards:progress.cards, chains:progress.chains, scenes:progress.scenes, known:progress.known, v:1}); }
+  try { await dbRef.set({cards:progress.cards, chains:progress.chains, scenes:progress.scenes, known:progress.known, due:progress.due || {}, dueFrom:progress.dueFrom || 0, v:1}); }
   catch(e){ if (e && e.code === "invalid_argument"){ dbRef = null; syncMode = "device"; } }
   saving = false;
   if (pending){ pending = false; flush(); }
@@ -1777,7 +1778,9 @@ async function flush(){
         cards: Object.assign({}, progress.cards, r.cards || {}),
         chains: Object.assign({}, progress.chains, r.chains || {}),
         scenes: Object.assign({}, progress.scenes, r.scenes || {}),
-        known: Object.assign({}, progress.known, r.known || {})
+        known: Object.assign({}, progress.known, r.known || {}),
+        due: Object.assign({}, progress.due, r.due || {}),
+        dueFrom: r.dueFrom || progress.dueFrom
       };
       saveLocal();
     }
@@ -1849,6 +1852,15 @@ function allItems(){ return DECKS.flatMap(deckItems); }
 function learnedItems(){ return allItems().filter(it => box(it.id) >= SOLID); }
 /* "I already know this": lessons skip the sentence and it counts as solid. progress.known keeps its level from before (-1 if never practised), so unticking puts it back. */
 function isKnown(id){ return progress.known[id] != null; }
+/* Revision dates (Today's practice in ummah.js). A solid sentence comes back 3, 7, 14, then 30 days after each right answer;
+   a wrong answer takes it back to practice. Sentences that were solid before dates existed come back spread over two weeks. */
+const TGAP = {2:3, 3:7, 4:14, 5:30};
+function tday(){ return window.UA ? UA.dayNo() : Math.floor(Date.now() / 864e5); }
+function spread(id){ let h = 0; for (const c of id) h = (h * 31 + c.charCodeAt(0)) >>> 0; return 1 + h % 14; }
+function dueOn(id){ return (progress.due && progress.due[id]) || (progress.dueFrom || tday()) + spread(id); }
+const onRevision = it => box(it.id) >= SOLID && !isKnown(it.id);
+function dueRevision(){ const t = tday(); return allItems().filter(it => onRevision(it) && dueOn(it.id) <= t); }
+function recentItems(){ return allItems().filter(it => progress.cards[it.id] != null && box(it.id) < SOLID && !isKnown(it.id)); }
 function setKnown(id, on){
   if (on){
     if (!isKnown(id)) progress.known[id] = progress.cards[id] == null ? -1 : progress.cards[id];
@@ -1946,6 +1958,7 @@ function renderHome(){
   let h = '<header class="top"><h1 class="mark"><span lang="ar">تَكَلُّم</span><span class="sr"> Takallum: Arabic speaking drills</span></h1><p>Speaking drills in standard Arabic. Say every sentence out loud.</p>' +
           '<button class="icon-btn" data-act="settings" aria-label="Settings">' + ICON_GEAR + '</button></header>';
   h += learnersHTML();
+  h += '<section id="ua-today" aria-label="Today’s practice" hidden></section>';
   h += '<div class="tabs" role="tablist">' +
        [["swap","Swap-in"],["transform","Transform"],["roleplay","Role-play"]].map(([k,l]) =>
          '<button role="tab" aria-selected="' + (S.tab === k) + '" data-act="tab" data-v="' + k + '">' + l + '</button>').join("") + '</div>';
@@ -2006,11 +2019,12 @@ function renderHome(){
 /* kind: "deck" (with deckId), "weak" or "learned" */
 function startSwap(kind, deckId){
   const d = kind === "deck" ? DECKS.find(x => x.id === deckId) : null;
-  const items = d ? deckItems(d) : kind === "learned" ? learnedItems() : allItems();
+  const items = d ? deckItems(d) : kind === "learned" ? learnedItems() : kind === "due" ? dueRevision() : kind === "recent" ? recentItems() : allItems();
   if (!items.length) return;
-  const title = d ? d.en : kind === "learned" ? "Review what you’ve learned" : "Mixed review";
-  const fresh = kind === "learned" ? items : items.filter(it => !isKnown(it.id));
-  const sorted = shuffle((fresh.length ? fresh : items).slice()).sort((a, b) => box(a.id) - box(b.id)).slice(0, 10);
+  const title = d ? d.en : kind === "learned" ? "Review what you’ve learned" : kind === "due" ? "Revise old sentences" : kind === "recent" ? "Strengthen recent sentences" : "Mixed review";
+  const fresh = kind === "learned" || kind === "due" ? items : items.filter(it => !isKnown(it.id));
+  const order = kind === "due" ? (a, b) => dueOn(a.id) - dueOn(b.id) : (a, b) => box(a.id) - box(b.id);
+  const sorted = shuffle((fresh.length ? fresh : items).slice()).sort(order).slice(0, 10);
   S.session = {type:"swap", kind, deckId, title, queue:sorted.map(it => ({it, tries:0})), idx:0, revealed:false, missed:new Set(), first:0, total:sorted.length,
     hist:[], peek:null,
     explainOpen: !!(d && d.explain) && items.every(it => progress.cards[it.id] == null)};
@@ -2207,6 +2221,7 @@ function render(){
   else h = renderScene(s);
   app.innerHTML = h + (S.sheet ? settingsHTML() : "");
   about.hidden = !!s;
+  if (window.UA) UA.refreshToday(document.getElementById("ua-today"));
 }
 
 /* ---------- actions ---------- */
@@ -2243,12 +2258,17 @@ function mark(ok){
   if (s.type === "swap"){
     const cur = s.queue[s.idx], id = cur.it.id;
     let b = box(id);
+    const wasNew = progress.cards[id] == null, wasDue = b >= SOLID && !isKnown(id) && dueOn(id) <= tday();
     if (ok){ if (!s.missed.has(id)){ b = Math.min(b + 1, 5); s.first++; } }
     else {
       b = 0; s.missed.add(id); delete progress.known[id];
       if (cur.tries < 2) s.queue.splice(Math.min(s.idx + 4, s.queue.length), 0, {it:cur.it, tries:cur.tries + 1});
     }
-    progress.cards[id] = b; scheduleSave();
+    progress.cards[id] = b;
+    if (!progress.due) progress.due = {};
+    if (b < SOLID) delete progress.due[id]; else if (ok && !s.missed.has(id)) progress.due[id] = tday() + TGAP[b];
+    scheduleSave();
+    if (!cur.tries) addPractice(wasNew ? {n:1} : wasDue ? {v:1} : {c:1});
     s.hist.push({it:cur.it, ok});
     s.idx++; s.revealed = false; s.shown = false;
     if (s.idx >= s.queue.length) s.done = true;
@@ -2382,6 +2402,26 @@ const h0 = location.hash.slice(1);
 if (["swap","transform","roleplay"].includes(h0)) S.tab = h0;
 window.addEventListener("hashchange", () => { const h = location.hash.slice(1); if (["swap","transform","roleplay"].includes(h)){ S.tab = h; if (!S.session) render(); } });
 render();
+
+/* ---------- Today's practice across the four apps (ummah.js) ---------- */
+function addPractice(x){ if (window.UA) UA.practiceAdd(me().ua, "takallum", x); }
+function practiceState(){
+  const t = tday(), o = [0, 0, 0, 0, 0, 0, 0]; let r = 0;
+  allItems().forEach(it => {
+    if (onRevision(it)){ const d = dueOn(it.id); for (let i = 0; i < 7; i++) if (d <= t + i) o[i]++; }
+    else if (progress.cards[it.id] != null && !isKnown(it.id)) r++;
+  });
+  return {o, r};
+}
+function startStep(step){
+  S.sheet = false;
+  if (step === "old" && dueRevision().length) startSwap("due");
+  else if (step === "old") startSwap("learned");
+  else if (step === "recent" && recentItems().length) startSwap("recent");
+  else if (step === "recent") startSwap("weak");
+  else { S.session = null; S.tab = "swap"; render(); const l = document.querySelector(".tabs"); if (l) l.scrollIntoView({behavior:"smooth", block:"start"}); }
+}
+if (window.UA) UA.mountToday(document.getElementById("ua-today"), {app:"takallum", ua:() => me().ua, name:() => me().name, state:practiceState, start:startStep, onSettings:sharedChanged});
 </script>
 </body>
 </html>
