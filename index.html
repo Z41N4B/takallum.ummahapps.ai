@@ -1706,6 +1706,11 @@ try { profiles = JSON.parse(localStorage.getItem("qul-profiles") || "null"); } c
 if (!profiles || !Array.isArray(profiles.list) || !profiles.list.length) profiles = {list:[{id:"p1", name:"Learner 1", g:settings.speaker}], cur:"p1"};
 if (window.UA){
   const shared = UA.sync(profiles.list);
+  /* A learner removed in another of the apps is removed here too, with their progress. */
+  const goneIds = shared.removed.map(i => profiles.list[i].id);
+  goneIds.forEach(id => { try { localStorage.removeItem(id === "p1" ? "qul-progress" : "qul-progress-" + id); } catch(e){} });
+  profiles.list = profiles.list.filter(p => !goneIds.includes(p.id));
+  if (!profiles.list.length) profiles = {list:[{id:"p1", name:"Learner 1"}], cur:"p1"};
   shared.extra.forEach(x => {
     if (profiles.list.length >= MAXP) return;
     /* A learner from another app takes over the first, untouched Learner 1 instead of sitting beside it. */
@@ -2355,7 +2360,7 @@ document.addEventListener("click", e => {
     case "whocancel": S.whoForm = null; render(); break;
     case "whosave": saveWho(); break;
     case "removeme":
-      if (profiles.list.length > 1 && confirm("Remove " + me().name + " and their progress on this device?")){
+      if (profiles.list.length > 1 && (window.UA ? UA.confirmRemove(me().name, me().ua) : confirm("Remove " + me().name + " and all their progress on this device? It cannot be undone."))){
         const gone = me();
         if (window.UA) UA.remove(gone.ua);
         try { localStorage.removeItem(progKey(gone.id)); } catch(err){}
