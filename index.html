@@ -88,7 +88,7 @@
       ],
       "about": {"@type": "Language", "name": "Arabic", "alternateName": "ar"},
       "featureList": [
-        "Swap-in drills: 912 sentences in 137 sections, including a separate button for each of 60 discussion words", "GCSE Arabic: a speaking lesson for each of the 13 topics of the five Pearson Edexcel GCSE themes",
+        "Swap-in drills: 939 sentences in 141 sections, including a separate button for each of 60 discussion words", "GCSE Arabic: a speaking lesson for each of the 13 topics of the five Pearson Edexcel GCSE themes", "Arabic proverbs and sayings: 27 well-known proverbs and lines of classical poetry with their meanings",
         "Conversation phrases: greetings, Islamic phrases, and phrases said to a man, a woman and a group",
         "Discussion phrases for giving opinions, agreeing and disagreeing, contrasting, giving reasons and organising what you say",
         "Transform chains: 14 chains where one sentence changes step by step",
@@ -392,7 +392,7 @@ a.ua-app:hover{border-color:var(--f-lapis)}
   <p><strong>Takallum</strong> (<bdi class="ari" dir="rtl" lang="ar">تَكَلُّم</bdi>, “speaking”) is a free speaking-practice app for Modern Standard Arabic (fusha). Instead of reading about grammar, you say whole sentences out loud, compare them with a fully vowelled model answer and its audio, and mark yourself honestly. Sentences you miss come back sooner.</p>
   <h3>Three ways to practise</h3>
   <ul>
-    <li><strong>Swap-in drills.</strong> 912 sentences in 137 sections, including 13 lessons for the GCSE Arabic speaking topics: greetings and conversation phrases said to a man, a woman or a group, 60 discussion words with a button each, and everyday phrases like <bdi class="ari" dir="rtl" lang="ar">أُرِيدُ أَنْ</bdi> (I want to) and <bdi class="ari" dir="rtl" lang="ar">أَيْنَ</bdi> (where is), through discussion phrases like <bdi class="ari" dir="rtl" lang="ar">فِي رَأْيِي</bdi> (in my opinion), <bdi class="ari" dir="rtl" lang="ar">عَلَى الرَّغْمِ مِنْ</bdi> (despite) and <bdi class="ari" dir="rtl" lang="ar">لِذَلِكَ</bdi> (therefore), to grammar builders: <bdi class="ari" dir="rtl" lang="ar">لَمْ</bdi> (didn’t), <bdi class="ari" dir="rtl" lang="ar">كَانَ</bdi> and its sisters, <bdi class="ari" dir="rtl" lang="ar">إِنَّ</bdi> and its sisters, <bdi class="ari" dir="rtl" lang="ar">مُنْذُ</bdi>, <bdi class="ari" dir="rtl" lang="ar">يَجِبُ</bdi>, <bdi class="ari" dir="rtl" lang="ar">الَّذِي</bdi>, the idafa, comparatives, conditionals with <bdi class="ari" dir="rtl" lang="ar">إِذَا</bdi> and <bdi class="ari" dir="rtl" lang="ar">لَوْ</bdi>, and numbers.</li>
+    <li><strong>Swap-in drills.</strong> 939 sentences in 141 sections, including 27 Arabic proverbs and 13 lessons for the GCSE Arabic speaking topics: greetings and conversation phrases said to a man, a woman or a group, 60 discussion words with a button each, and everyday phrases like <bdi class="ari" dir="rtl" lang="ar">أُرِيدُ أَنْ</bdi> (I want to) and <bdi class="ari" dir="rtl" lang="ar">أَيْنَ</bdi> (where is), through discussion phrases like <bdi class="ari" dir="rtl" lang="ar">فِي رَأْيِي</bdi> (in my opinion), <bdi class="ari" dir="rtl" lang="ar">عَلَى الرَّغْمِ مِنْ</bdi> (despite) and <bdi class="ari" dir="rtl" lang="ar">لِذَلِكَ</bdi> (therefore), to grammar builders: <bdi class="ari" dir="rtl" lang="ar">لَمْ</bdi> (didn’t), <bdi class="ari" dir="rtl" lang="ar">كَانَ</bdi> and its sisters, <bdi class="ari" dir="rtl" lang="ar">إِنَّ</bdi> and its sisters, <bdi class="ari" dir="rtl" lang="ar">مُنْذُ</bdi>, <bdi class="ari" dir="rtl" lang="ar">يَجِبُ</bdi>, <bdi class="ari" dir="rtl" lang="ar">الَّذِي</bdi>, the idafa, comparatives, conditionals with <bdi class="ari" dir="rtl" lang="ar">إِذَا</bdi> and <bdi class="ari" dir="rtl" lang="ar">لَوْ</bdi>, and numbers.</li>
     <li><strong>Transform chains.</strong> 14 chains where one sentence changes step by step: a new person, tense, gender or negative each time.</li>
     <li><strong>Role-play.</strong> 13 everyday conversations, including meeting someone, at the shop, at the restaurant, on the phone, in class, at the mosque, in a taxi and at the doctor’s.</li>
   </ul>
@@ -1855,6 +1855,54 @@ const GCSE_DECKS = [
 ];
 DECKS.push(...GCSE_DECKS.map(d => ({...d, group:"gcse"})));
 
+/* ---------- Arabic proverbs and sayings: well-known traditional proverbs, and a few lines of classical poetry, with their meaning ---------- */
+const PROVERB_DECKS = [
+  {id:"pv_work", en:"Hard work and patience", frame:"مَنْ جَدَّ وَجَدَ",
+   note:"Proverbs about trying hard and not giving up. Say each one, then think of a time it was true for you.",
+   items:[
+    {id:"pv1", en:"Whoever works hard, finds (success).", ar:"مَنْ {جَدَّ} وَجَدَ.", tip:"[[جَدَّ]] (worked hard) and [[وَجَدَ]] (found) sound alike, so it is easy to remember."},
+    {id:"pv2", en:"Whoever plants, harvests.", ar:"مَنْ {زَرَعَ} حَصَدَ.", tip:"You get back what you put in."},
+    {id:"pv3", en:"Patience is the key to relief.", ar:"{الصَّبْرُ} مِفْتَاحُ الْفَرَجِ.", tip:"[[الْفَرَج]] is the relief that comes after a hard time."},
+    {id:"pv4", en:"Whoever wants to reach high stays up at night.", ar:"مَنْ طَلَبَ الْعُلَا {سَهِرَ اللَّيَالِي}.", tip:"Great things take long hours of work."},
+    {id:"pv5", en:"Don’t put off today’s work until tomorrow.", ar:"لَا تُؤَجِّلْ عَمَلَ الْيَوْمِ {إِلَى الْغَدِ}."},
+    {id:"pv6", en:"The first of the rain is a drop.", ar:"أَوَّلُ الْغَيْثِ {قَطْرَةٌ}.", tip:"Big things start small."},
+    {id:"pv7", en:"Whoever keeps walking the path gets there.", ar:"مَنْ سَارَ عَلَى الدَّرْبِ {وَصَلَ}."}
+  ]},
+  {id:"pv_people", en:"Friends and family", frame:"الصَّدِيقُ وَقْتَ الضِّيقِ",
+   note:"Proverbs about friends, family and working together.",
+   items:[
+    {id:"pv8", en:"A true friend is there in hard times.", ar:"{الصَّدِيقُ} وَقْتَ الضِّيقِ.", tip:"Literally “the friend (is) at the time of hardship”."},
+    {id:"pv9", en:"Many a brother of yours was not born to your mother.", ar:"رُبَّ أَخٍ لَكَ {لَمْ تَلِدْهُ أُمُّكَ}.", tip:"A close friend can be like a brother."},
+    {id:"pv10", en:"One hand can’t clap.", ar:"يَدٌ وَاحِدَةٌ {لَا تُصَفِّقُ}.", tip:"We get more done together."},
+    {id:"pv11", en:"Out of sight, out of mind.", ar:"الْبَعِيدُ عَنِ الْعَيْنِ {بَعِيدٌ عَنِ الْقَلْبِ}.", tip:"Literally “far from the eye is far from the heart”."},
+    {id:"pv12", en:"Every pot gives out what is inside it.", ar:"كُلُّ إِنَاءٍ {بِمَا فِيهِ يَنْضَحُ}.", tip:"What people say and do shows what they are like inside."},
+    {id:"pv13", en:"A mother is a school.", ar:"الْأُمُّ {مَدْرَسَةٌ}.", tip:"From a poem by Hafiz Ibrahim: a mother who is well taught raises a whole people."}
+  ]},
+  {id:"pv_speech", en:"Speaking, silence and learning", frame:"لِسَانُكَ حِصَانُكَ",
+   note:"Proverbs about what we say, and about learning.",
+   items:[
+    {id:"pv14", en:"Your tongue is your horse: look after it and it looks after you.", ar:"لِسَانُكَ حِصَانُكَ، {إِنْ صُنْتَهُ صَانَكَ}."},
+    {id:"pv15", en:"If speech is silver, silence is gold.", ar:"إِذَا كَانَ الْكَلَامُ مِنْ فِضَّةٍ {فَالسُّكُوتُ مِنْ ذَهَبٍ}."},
+    {id:"pv16", en:"Every situation has its right words.", ar:"لِكُلِّ مَقَامٍ {مَقَالٌ}.", tip:"[[مَقَام]] (situation) and [[مَقَال]] (words said) sound alike."},
+    {id:"pv17", en:"Repetition teaches the clever.", ar:"{التِّكْرَارُ} يُعَلِّمُ الشُّطَّارَ.", tip:"Just what you are doing now: say it again and again."},
+    {id:"pv18", en:"Learning when young is like carving in stone.", ar:"الْعِلْمُ فِي الصِّغَرِ {كَالنَّقْشِ عَلَى الْحَجَرِ}.", tip:"What we learn as children stays with us."},
+    {id:"pv19", en:"The best companion, at any time, is a book.", ar:"خَيْرُ جَلِيسٍ فِي الزَّمَانِ {كِتَابُ}.", tip:"A line by the poet al-Mutanabbi. [[كِتَابُ]] has no -un ending here because it rhymes."}
+  ]},
+  {id:"pv_life", en:"Wisdom for life", frame:"لِكُلِّ جَوَادٍ كَبْوَةٌ",
+   note:"Proverbs about mistakes, taking care and planning.",
+   items:[
+    {id:"pv20", en:"Every good horse stumbles.", ar:"لِكُلِّ جَوَادٍ {كَبْوَةٌ}.", tip:"Even the best people make mistakes."},
+    {id:"pv21", en:"Taking your time is safe; rushing brings regret.", ar:"فِي التَّأَنِّي السَّلَامَةُ، {وَفِي الْعَجَلَةِ النَّدَامَةُ}."},
+    {id:"pv22", en:"A coin of prevention is better than a fortune of cure.", ar:"دِرْهَمُ وِقَايَةٍ {خَيْرٌ مِنْ قِنْطَارِ عِلَاجٍ}.", tip:"Like the English “prevention is better than cure”."},
+    {id:"pv23", en:"Need is the mother of invention.", ar:"الْحَاجَةُ {أُمُّ الِاخْتِرَاعِ}."},
+    {id:"pv24", en:"A bird in the hand is better than ten in the tree.", ar:"عُصْفُورٌ فِي الْيَدِ {خَيْرٌ مِنْ عَشَرَةٍ عَلَى الشَّجَرَةِ}."},
+    {id:"pv25", en:"Not everything a person wishes for comes to them: the winds blow where the ships don’t want.", ar:"مَا كُلُّ مَا يَتَمَنَّى الْمَرْءُ يُدْرِكُهُ، {تَجْرِي الرِّيَاحُ بِمَا لَا تَشْتَهِي السُّفُنُ}.", tip:"A line by the poet al-Mutanabbi. The second half is often said on its own when plans go wrong."},
+    {id:"pv26", en:"Better late than never.", ar:"أَنْ تَصِلَ مُتَأَخِّرًا {خَيْرٌ مِنْ أَلَّا تَصِلَ أَبَدًا}."},
+    {id:"pv27", en:"A healthy mind is in a healthy body.", ar:"الْعَقْلُ السَّلِيمُ {فِي الْجِسْمِ السَّلِيمِ}."}
+  ]}
+];
+DECKS.push(...PROVERB_DECKS.map(d => ({...d, group:"proverbs"})));
+
 /* ---------- state + storage ---------- */
 let progress = {cards:{}, chains:{}, scenes:{}, known:{}, due:{}};
 let settings = {vowels:true, autoplay:true, listenFirst:false, voiceHelp:true, speaker:null, speed:"normal"};
@@ -2148,7 +2196,7 @@ function renderHome(){
          learned + ' solid</span><span class="sub">' + (learned ? "Up to 10 of your solid sentences, so they stay solid." : "Sentences appear here once they’re solid.") + '</span></button></li>';
     const marked = all.filter(it => isKnown(it.id)).length;
     h += '<li><button class="row review" data-act="knownpick"><span class="t">Mark what you already know</span><span class="s">' + marked + ' marked</span><span class="sub">Tick sentences you know well and lessons will skip them.</span></button></li>';
-    [["talk","Conversation phrases"],["home","At home with children"],["hadith","From the ahadith"],["everyday","Everyday phrases"],["grammar","Grammar builders"],["discussion","Discussion words"],["gcse","GCSE Arabic"]].forEach(([g, label]) => {
+    [["talk","Conversation phrases"],["home","At home with children"],["hadith","From the ahadith"],["everyday","Everyday phrases"],["grammar","Grammar builders"],["discussion","Discussion words"],["proverbs","Arabic proverbs and sayings"],["gcse","GCSE Arabic"]].forEach(([g, label]) => {
     h += '<li><h2 class="group-h">' + label + '</h2></li>';
     if (g === "discussion" || g === "home" || g === "hadith"){
       [...new Set(DECKS.filter(d => d.group === g).map(d => d.sec))].forEach(sec => {
@@ -2341,7 +2389,7 @@ function renderDone(s){
   return h;
 }
 
-const KNOW_GROUPS = [["talk","Conversation"],["home","Home"],["hadith","Ahadith"],["everyday","Everyday"],["grammar","Grammar"],["discussion","Discussion"],["gcse","GCSE"]];
+const KNOW_GROUPS = [["talk","Conversation"],["home","Home"],["hadith","Ahadith"],["everyday","Everyday"],["grammar","Grammar"],["discussion","Discussion"],["proverbs","Proverbs"],["gcse","GCSE"]];
 function groupDecks(g){ return DECKS.filter(d => (d.group || "everyday") === g); }
 function knowAllBtn(act, v, items){
   const all = items.every(it => isKnown(it.id));
@@ -2601,7 +2649,7 @@ function startStep(step){
 }
 /* The next lesson in the order the home screen lists them: one already begun and not yet solid, or else the first not yet solid. */
 function nextDeck(){
-  const order = ["talk","home","hadith","everyday","grammar","discussion","gcse"], g = d => { const i = order.indexOf(d.group); return i < 0 ? order.length : i; };
+  const order = ["talk","home","hadith","everyday","grammar","discussion","proverbs","gcse"], g = d => { const i = order.indexOf(d.group); return i < 0 ? order.length : i; };
   const decks = DECKS.map((d, i) => [d, i]).sort((a, b) => g(a[0]) - g(b[0]) || a[1] - b[1]).map(x => x[0]);
   const open = d => !deckItems(d).every(it => box(it.id) >= SOLID);
   return decks.find(d => open(d) && doneCount(deckItems(d)) > 0) || decks.find(open) || null;
