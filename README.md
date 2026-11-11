@@ -38,3 +38,6 @@ Each page starts with the four apps’ icons as quick links, top right in line w
 node serve.js
 ```
 Then open http://localhost:8765
+
+## Next lesson
+The Swap-in list starts with Next lesson: the first lesson, in the order of the groups on the home screen, that is begun but not all solid, or else the first one not all solid. Today’s practice uses it for Something new.

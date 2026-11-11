@@ -1973,6 +1973,9 @@ function renderHome(){
     '<label class="opt listen-opt"><span>Hear without seeing the words<small>Hide the Arabic until you tap Show words.</small></span><input type="checkbox" data-set="listenFirst"' + (settings.listenFirst ? " checked" : "") + '></label><ul class="list">';
   if (S.tab === "swap"){
     const all = allItems(), weak = all.filter(it => box(it.id) < SOLID).length, learned = all.length - weak;
+    const nd = nextDeck();
+    if (nd){ const its = deckItems(nd), began = doneCount(its) > 0;
+      h += '<li><button class="row review next-lesson" data-act="nextdeck"><span class="t">Next lesson: ' + esc(nd.en) + '</span><span class="s">' + deckLabel(its) + '</span><span class="sub">' + (began ? "Carry on where you left off." : "The next lesson in order, so you don’t have to choose.") + '</span></button></li>'; }
     h += '<li><button class="row review" data-act="weak"><span class="t">Mixed review</span><span class="s">' +
          (weak ? weak + " to strengthen" : "All solid") + '</span><span class="sub">Your 10 weakest sentences from every pattern.</span></button></li>';
     h += '<li><button class="row review" data-act="learned"' + (learned ? "" : " disabled") + '><span class="t">Review what you’ve learned</span><span class="s">' +
@@ -2329,6 +2332,7 @@ document.addEventListener("click", e => {
     case "tab": S.tab = v; try { history.replaceState(null, "", "#" + v); } catch(err){} render(); break;
     case "deck": startSwap("deck", v); break;
     case "weak": startSwap("weak"); break;
+    case "nextdeck": { const nd = nextDeck(); if (nd) startSwap("deck", nd.id); } break;
     case "learned": startSwap("learned"); break;
     case "knownpick": S.session = {type:"known", group:"talk", open:{}}; render(); window.scrollTo(0, 0); break;
     case "knowgroup": S.session.group = v; renderKeepFocus(el); break;
@@ -2424,7 +2428,15 @@ function startStep(step){
   else if (step === "old") startSwap("learned");
   else if (step === "recent" && recentItems().length) startSwap("recent");
   else if (step === "recent") startSwap("weak");
+  else if (nextDeck()) startSwap("deck", nextDeck().id);
   else { S.session = null; S.tab = "swap"; render(); const l = document.querySelector(".tabs"); if (l) l.scrollIntoView({behavior:"smooth", block:"start"}); }
+}
+/* The next lesson in the order the home screen lists them: one already begun and not yet solid, or else the first not yet solid. */
+function nextDeck(){
+  const order = ["talk","home","hadith","everyday","grammar","discussion"], g = d => { const i = order.indexOf(d.group); return i < 0 ? order.length : i; };
+  const decks = DECKS.map((d, i) => [d, i]).sort((a, b) => g(a[0]) - g(b[0]) || a[1] - b[1]).map(x => x[0]);
+  const open = d => !deckItems(d).every(it => box(it.id) >= SOLID);
+  return decks.find(d => open(d) && doneCount(deckItems(d)) > 0) || decks.find(open) || null;
 }
 if (window.UA) UA.mountToday(document.getElementById("ua-today"), {app:"takallum", ua:() => me().ua, name:() => me().name, state:practiceState, start:startStep, onSettings:sharedChanged});
 </script>
