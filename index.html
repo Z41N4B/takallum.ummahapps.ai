@@ -392,7 +392,7 @@ a.ua-app:hover{border-color:var(--f-lapis)}
   <p><strong>Takallum</strong> (<bdi class="ari" dir="rtl" lang="ar">تَكَلُّم</bdi>, “speaking”) is a free speaking-practice app for Modern Standard Arabic (fusha). Instead of reading about grammar, you say whole sentences out loud, compare them with a fully vowelled model answer and its audio, and mark yourself honestly. Sentences you miss come back sooner.</p>
   <h3>Three ways to practise</h3>
   <ul>
-    <li><strong>Swap-in drills.</strong> 803 sentences in 124 sections: greetings and conversation phrases said to a man, a woman or a group, 60 discussion words with a button each, and everyday phrases like <bdi class="ari" dir="rtl" lang="ar">أُرِيدُ أَنْ</bdi> (I want to) and <bdi class="ari" dir="rtl" lang="ar">أَيْنَ</bdi> (where is), through discussion phrases like <bdi class="ari" dir="rtl" lang="ar">فِي رَأْيِي</bdi> (in my opinion), <bdi class="ari" dir="rtl" lang="ar">عَلَى الرَّغْمِ مِنْ</bdi> (despite) and <bdi class="ari" dir="rtl" lang="ar">لِذَلِكَ</bdi> (therefore), to grammar builders: <bdi class="ari" dir="rtl" lang="ar">لَمْ</bdi> (didn’t), <bdi class="ari" dir="rtl" lang="ar">كَانَ</bdi> and its sisters, <bdi class="ari" dir="rtl" lang="ar">إِنَّ</bdi> and its sisters, <bdi class="ari" dir="rtl" lang="ar">مُنْذُ</bdi>, <bdi class="ari" dir="rtl" lang="ar">يَجِبُ</bdi>, <bdi class="ari" dir="rtl" lang="ar">الَّذِي</bdi>, the idafa, comparatives, conditionals with <bdi class="ari" dir="rtl" lang="ar">إِذَا</bdi> and <bdi class="ari" dir="rtl" lang="ar">لَوْ</bdi>, and numbers.</li>
+    <li><strong>Swap-in drills.</strong> 912 sentences in 137 sections, including 13 lessons for the GCSE Arabic speaking topics: greetings and conversation phrases said to a man, a woman or a group, 60 discussion words with a button each, and everyday phrases like <bdi class="ari" dir="rtl" lang="ar">أُرِيدُ أَنْ</bdi> (I want to) and <bdi class="ari" dir="rtl" lang="ar">أَيْنَ</bdi> (where is), through discussion phrases like <bdi class="ari" dir="rtl" lang="ar">فِي رَأْيِي</bdi> (in my opinion), <bdi class="ari" dir="rtl" lang="ar">عَلَى الرَّغْمِ مِنْ</bdi> (despite) and <bdi class="ari" dir="rtl" lang="ar">لِذَلِكَ</bdi> (therefore), to grammar builders: <bdi class="ari" dir="rtl" lang="ar">لَمْ</bdi> (didn’t), <bdi class="ari" dir="rtl" lang="ar">كَانَ</bdi> and its sisters, <bdi class="ari" dir="rtl" lang="ar">إِنَّ</bdi> and its sisters, <bdi class="ari" dir="rtl" lang="ar">مُنْذُ</bdi>, <bdi class="ari" dir="rtl" lang="ar">يَجِبُ</bdi>, <bdi class="ari" dir="rtl" lang="ar">الَّذِي</bdi>, the idafa, comparatives, conditionals with <bdi class="ari" dir="rtl" lang="ar">إِذَا</bdi> and <bdi class="ari" dir="rtl" lang="ar">لَوْ</bdi>, and numbers.</li>
     <li><strong>Transform chains.</strong> 14 chains where one sentence changes step by step: a new person, tense, gender or negative each time.</li>
     <li><strong>Role-play.</strong> 13 everyday conversations, including meeting someone, at the shop, at the restaurant, on the phone, in class, at the mosque, in a taxi and at the doctor’s.</li>
   </ul>
@@ -1689,6 +1689,172 @@ const HADITH_DECKS = [
 DECKS.push(...HADITH_DECKS.map(d => ({id:d.id, group:"hadith", sec:d.sec, word:true, en:d.en, frame:d.frame, note:HADITH_NOTE,
   items:d.rows.map((r, i) => ({id:d.id + i, en:r[0], ar:r[1], ref:r[2], tip:r[2] + "." + (r[3] ? " " + r[3] : "")}))})));
 
+/* ---------- GCSE Arabic: speaking phrases for each GCSE topic (Pearson Edexcel), in the order of the five themes ---------- */
+const GCSE_DECKS = [
+  {id:"gc_who", sec:"Theme 1: Identity and culture", en:"Who am I? Family and friends", frame:"عَائِلَتِي",
+   note:"Talking about yourself, your family and your friends. Practising as a woman? Describing words about you add [[ة]]. Set this in Settings.",
+   items:[
+    {id:"gcw1", en:"There are five people in my family.", ar:"فِي عَائِلَتِي {خَمْسَةُ أَشْخَاصٍ}.", tip:"[[فِي عَائِلَتِي]] (in my family) comes first, then what there is."},
+    {id:"gcw2", en:"I have a good relationship with my mother.", ar:"عَلَاقَتِي {جَيِّدَةٌ} مَعَ أُمِّي.", tip:"[[جَيِّدَةٌ]] ends in [[ة]] because [[عَلَاقَة]] (relationship) is feminine."},
+    {id:"gcw3", en:"Sometimes I argue with my brother.", ar:"{أَحْيَانًا} أَتَشَاجَرُ مَعَ أَخِي."},
+    {id:"gcw4", en:"My best friend is kind and funny.", ar:"صَدِيقِي الْمُفَضَّلُ {لَطِيفٌ وَمُضْحِكٌ}.", tip:"For a girl friend: [[صَدِيقَتِي الْمُفَضَّلَةُ لَطِيفَةٌ وَمُضْحِكَةٌ]]."},
+    {id:"gcw5", en:"A good friend is someone who listens to you.", ar:"الصَّدِيقُ الْجَيِّدُ {هُوَ الَّذِي يَسْتَمِعُ إِلَيْكَ}."},
+    {id:"gcw6", en:"When I was younger, I used to live in Birmingham.", ar:"عِنْدَمَا كُنْتُ {أَصْغَرَ}، كُنْتُ أَسْكُنُ فِي بِرْمِنْغْهَام.", tip:"[[كُنْتُ أَسْكُنُ]] (I used to live): [[كَانَ]] + a present verb."},
+    {id:"gcw7", en:"My role model is my grandfather, because he is patient.", ar:"قُدْوَتِي جَدِّي {لِأَنَّهُ صَبُورٌ}."},
+    {id:"gcw8", en:"In my free time I read and play football.", ar:"{فِي وَقْتِ فَرَاغِي} أَقْرَأُ وَأَلْعَبُ كُرَةَ الْقَدَمِ."},
+    {id:"gcw9", en:"I am tall and I have brown eyes.", ar:"أَنَا {طَوِيلٌ} وَعَيْنَايَ بُنِّيَّتَانِ.", f:{ar:"أَنَا {طَوِيلَةٌ} وَعَيْنَايَ بُنِّيَّتَانِ."}, tip:"[[عَيْنَايَ]] (my two eyes) takes the two-form [[بُنِّيَّتَانِ]]."}
+  ]},
+  {id:"gc_daily", sec:"Theme 1: Identity and culture", en:"Daily life: food, shopping and technology", frame:"كُلَّ يَوْمٍ",
+   note:"Your day, what you eat, shopping and how you use technology.",
+   items:[
+    {id:"gcd1", en:"I wake up at seven o’clock.", ar:"أَسْتَيْقِظُ {فِي السَّاعَةِ السَّابِعَةِ}."},
+    {id:"gcd2", en:"I eat bread and eggs for breakfast.", ar:"{آكُلُ} الْخُبْزَ وَالْبَيْضَ فِي الْإِفْطَارِ."},
+    {id:"gcd3", en:"I try to eat healthy food.", ar:"أُحَاوِلُ أَنْ {آكُلَ طَعَامًا صِحِّيًّا}.", tip:"After [[أَنْ]] the verb ends in a fatha: [[آكُلَ]]."},
+    {id:"gcd4", en:"My favourite dish is rice with chicken.", ar:"طَبَقِي الْمُفَضَّلُ {الْأَرُزُّ بِالدَّجَاجِ}."},
+    {id:"gcd5", en:"I go shopping with my mother on Saturdays.", ar:"{أَتَسَوَّقُ} مَعَ أُمِّي يَوْمَ السَّبْتِ."},
+    {id:"gcd6", en:"I use my phone every day.", ar:"أَسْتَعْمِلُ هَاتِفِي {كُلَّ يَوْمٍ}."},
+    {id:"gcd7", en:"Social media can be dangerous.", ar:"{وَسَائِلُ التَّوَاصُلِ الِاجْتِمَاعِيِّ} قَدْ تَكُونُ خَطِيرَةً.", tip:"[[قَدْ]] + present verb = can, might."},
+    {id:"gcd8", en:"I spend two hours a day on the internet.", ar:"أَقْضِي {سَاعَتَيْنِ} عَلَى الْإِنْتَرْنِتِ كُلَّ يَوْمٍ.", tip:"[[سَاعَتَيْنِ]] is the two-form of [[سَاعَة]] (hour)."},
+    {id:"gcd9", en:"In my family we have dinner together.", ar:"فِي عَائِلَتِي {نَتَعَشَّى مَعًا}."}
+  ]},
+  {id:"gc_cult", sec:"Theme 1: Identity and culture", en:"Cultural life: festivals, sport and films", frame:"نَحْتَفِلُ",
+   note:"Celebrations, reading, sport, films and TV.",
+   items:[
+    {id:"gcc1", en:"We celebrate Eid with the whole family.", ar:"{نَحْتَفِلُ بِالْعِيدِ} مَعَ الْعَائِلَةِ كُلِّهَا."},
+    {id:"gcc2", en:"At Eid we wear new clothes and visit our relatives.", ar:"فِي الْعِيدِ نَلْبَسُ مَلَابِسَ جَدِيدَةً {وَنَزُورُ الْأَقَارِبَ}."},
+    {id:"gcc3", en:"I love reading, especially novels.", ar:"أُحِبُّ الْقِرَاءَةَ، {خَاصَّةً الرِّوَايَاتِ}."},
+    {id:"gcc4", en:"My favourite sport is swimming.", ar:"رِيَاضَتِي الْمُفَضَّلَةُ {السِّبَاحَةُ}."},
+    {id:"gcc5", en:"I play football twice a week.", ar:"أَلْعَبُ كُرَةَ الْقَدَمِ {مَرَّتَيْنِ فِي الْأُسْبُوعِ}."},
+    {id:"gcc6", en:"Last weekend I watched a documentary.", ar:"فِي نِهَايَةِ الْأُسْبُوعِ الْمَاضِي {شَاهَدْتُ فِيلْمًا وَثَائِقِيًّا}."},
+    {id:"gcc7", en:"I think the film was boring.", ar:"{أَعْتَقِدُ أَنَّ} الْفِيلْمَ كَانَ مُمِلًّا.", tip:"After [[أَنَّ]] the next word ends in a fatha: [[الْفِيلْمَ]]."},
+    {id:"gcc8", en:"Our team won the match.", ar:"{فَازَ فَرِيقُنَا} بِالْمُبَارَاةِ."}
+  ]},
+  {id:"gc_hol", sec:"Theme 2: Local area, holiday and travel", en:"Holidays", frame:"فِي الْعُطْلَةِ",
+   note:"Where you went, what you did, and your plans for next time.",
+   items:[
+    {id:"gch1", en:"Last summer I went to Morocco with my family.", ar:"فِي الصَّيْفِ الْمَاضِي {ذَهَبْتُ إِلَى الْمَغْرِبِ} مَعَ عَائِلَتِي."},
+    {id:"gch2", en:"We stayed in a hotel near the sea.", ar:"{أَقَمْنَا فِي فُنْدُقٍ} قُرْبَ الْبَحْرِ."},
+    {id:"gch3", en:"We travelled by plane.", ar:"{سَافَرْنَا بِالطَّائِرَةِ}."},
+    {id:"gch4", en:"The weather was hot and sunny.", ar:"{كَانَ الْجَوُّ} حَارًّا وَمُشْمِسًا.", tip:"After [[كَانَ]] the describing words end in a fatha: [[حَارًّا]]."},
+    {id:"gch5", en:"I visited the old market and bought presents.", ar:"زُرْتُ السُّوقَ الْقَدِيمَ {وَاشْتَرَيْتُ هَدَايَا}."},
+    {id:"gch6", en:"I prefer a holiday at the beach.", ar:"{أُفَضِّلُ} الْعُطْلَةَ عَلَى الشَّاطِئِ."},
+    {id:"gch7", en:"Next year I will go to Jordan.", ar:"{فِي السَّنَةِ الْقَادِمَةِ} سَأَذْهَبُ إِلَى الْأُرْدُنِّ.", tip:"[[سَـ]] + present verb = will."},
+    {id:"gch8", en:"It was an unforgettable trip.", ar:"كَانَتْ رِحْلَةً {لَا تُنْسَى}."}
+  ]},
+  {id:"gc_travel", sec:"Theme 2: Local area, holiday and travel", en:"Travel: hotels, directions and eating out", frame:"مِنْ فَضْلِكَ",
+   note:"Booking, buying tickets, asking the way, sorting out problems and ordering food. [[مِنْ فَضْلِكَ]] is to a man; to a woman say [[مِنْ فَضْلِكِ]].",
+   items:[
+    {id:"gct1", en:"I’d like a room for two nights, please.", ar:"أُرِيدُ غُرْفَةً {لِلَيْلَتَيْنِ}، مِنْ فَضْلِكَ."},
+    {id:"gct2", en:"Where is the station, please?", ar:"{أَيْنَ الْمَحَطَّةُ}، مِنْ فَضْلِكَ؟"},
+    {id:"gct3", en:"Go straight on, then turn right.", ar:"اِذْهَبْ مُسْتَقِيمًا {ثُمَّ انْعَطِفْ يَمِينًا}."},
+    {id:"gct4", en:"How much is the ticket?", ar:"{بِكَمِ} التَّذْكِرَةُ؟"},
+    {id:"gct5", en:"A return ticket to Cairo, please.", ar:"تَذْكِرَةُ ذَهَابٍ وَإِيَابٍ {إِلَى الْقَاهِرَةِ}، مِنْ فَضْلِكَ.", tip:"[[ذَهَابٍ وَإِيَابٍ]]: going and coming back."},
+    {id:"gct6", en:"I’ve lost my passport.", ar:"{فَقَدْتُ} جَوَازَ سَفَرِي."},
+    {id:"gct7", en:"The air conditioning in my room is broken.", ar:"التَّكْيِيفُ فِي غُرْفَتِي {مُعَطَّلٌ}."},
+    {id:"gct8", en:"The menu, please.", ar:"{قَائِمَةُ الطَّعَامِ}، مِنْ فَضْلِكَ."},
+    {id:"gct9", en:"I’d like fish and rice.", ar:"{أُرِيدُ} سَمَكًا وَأَرُزًّا."},
+    {id:"gct10", en:"The bill, please.", ar:"{الْحِسَابُ}، مِنْ فَضْلِكَ."}
+  ]},
+  {id:"gc_town", sec:"Theme 2: Local area, holiday and travel", en:"My town and region", frame:"فِي مَدِينَتِي",
+   note:"Where you live, what there is to do, and the weather.",
+   items:[
+    {id:"gcn1", en:"I live in a big city in the north of England.", ar:"أَسْكُنُ فِي مَدِينَةٍ كَبِيرَةٍ {فِي شَمَالِ إِنْجِلْتِرَا}."},
+    {id:"gcn2", en:"In my town there is a mosque, a park and a library.", ar:"{فِي مَدِينَتِي} مَسْجِدٌ وَحَدِيقَةٌ وَمَكْتَبَةٌ.", tip:"No word for “there is”: [[فِي مَدِينَتِي مَسْجِدٌ]] is “in my town (is) a mosque”."},
+    {id:"gcn3", en:"There isn’t much for young people here.", ar:"{لَا يُوجَدُ} الْكَثِيرُ لِلشَّبَابِ هُنَا."},
+    {id:"gcn4", en:"I like my area because it is quiet.", ar:"أُحِبُّ مِنْطَقَتِي {لِأَنَّهَا هَادِئَةٌ}."},
+    {id:"gcn5", en:"The disadvantage is that the traffic is bad.", ar:"{الْعَيْبُ} أَنَّ الزَّحْمَةَ شَدِيدَةٌ."},
+    {id:"gcn6", en:"In winter it is cold and it rains a lot.", ar:"فِي الشِّتَاءِ {الْجَوُّ بَارِدٌ} وَتُمْطِرُ كَثِيرًا."},
+    {id:"gcn7", en:"In the future I would like to live in the countryside.", ar:"فِي الْمُسْتَقْبَلِ {أَوَدُّ أَنْ أَسْكُنَ} فِي الرِّيفِ."},
+    {id:"gcn8", en:"Tourists can visit the museum and the castle.", ar:"{يُمْكِنُ لِلسُّيَّاحِ} زِيَارَةُ الْمَتْحَفِ وَالْقَلْعَةِ."}
+  ]},
+  {id:"gc_school", sec:"Theme 3: School", en:"What school is like", frame:"فِي مَدْرَسَتِي",
+   note:"Subjects, the school day, rules and exams.",
+   items:[
+    {id:"gcs1", en:"My favourite subject is science.", ar:"مَادَّتِي الْمُفَضَّلَةُ {الْعُلُومُ}."},
+    {id:"gcs2", en:"I don’t like maths because it’s hard.", ar:"لَا أُحِبُّ الرِّيَاضِيَّاتِ {لِأَنَّهَا صَعْبَةٌ}."},
+    {id:"gcs3", en:"School starts at half past eight.", ar:"تَبْدَأُ الْمَدْرَسَةُ {فِي السَّاعَةِ الثَّامِنَةِ وَالنِّصْفِ}."},
+    {id:"gcs4", en:"We have six lessons a day.", ar:"عِنْدَنَا {سِتُّ حِصَصٍ} فِي الْيَوْمِ."},
+    {id:"gcs5", en:"We have to wear school uniform.", ar:"{يَجِبُ عَلَيْنَا} أَنْ نَلْبَسَ الزِّيَّ الْمَدْرَسِيَّ."},
+    {id:"gcs6", en:"Phones aren’t allowed in class.", ar:"الْهَوَاتِفُ {مَمْنُوعَةٌ} فِي الصَّفِّ."},
+    {id:"gcs7", en:"There is a lot of pressure before the exams.", ar:"هُنَاكَ ضَغْطٌ كَبِيرٌ {قَبْلَ الِامْتِحَانَاتِ}."},
+    {id:"gcs8", en:"I think the rules are fair.", ar:"{أَعْتَقِدُ أَنَّ} الْقَوَانِينَ عَادِلَةٌ."},
+    {id:"gcs9", en:"I got an excellent result in Arabic.", ar:"حَصَلْتُ عَلَى {نَتِيجَةٍ مُمْتَازَةٍ} فِي الْعَرَبِيَّةِ."}
+  ]},
+  {id:"gc_act", sec:"Theme 3: School", en:"Trips, clubs and exchanges", frame:"رِحْلَةٌ مَدْرَسِيَّةٌ",
+   note:"School trips, clubs, events and exchanges.",
+   items:[
+    {id:"gca1", en:"Last year we went on a school trip to London.", ar:"فِي السَّنَةِ الْمَاضِيَةِ {ذَهَبْنَا فِي رِحْلَةٍ مَدْرَسِيَّةٍ} إِلَى لَنْدَنَ."},
+    {id:"gca2", en:"I take part in the chess club.", ar:"{أُشَارِكُ} فِي نَادِي الشِّطْرَنْجِ."},
+    {id:"gca3", en:"After school I go to the football club.", ar:"{بَعْدَ الْمَدْرَسَةِ} أَذْهَبُ إِلَى نَادِي كُرَةِ الْقَدَمِ."},
+    {id:"gca4", en:"We put on a play at the end of the year.", ar:"مَثَّلْنَا مَسْرَحِيَّةً {فِي نِهَايَةِ السَّنَةِ}."},
+    {id:"gca5", en:"I won a prize in the Qur’an competition.", ar:"{فُزْتُ بِجَائِزَةٍ} فِي مُسَابَقَةِ الْقُرْآنِ."},
+    {id:"gca6", en:"I stayed with a host family in Jordan.", ar:"{سَكَنْتُ مَعَ أُسْرَةٍ مُضِيفَةٍ} فِي الْأُرْدُنِّ."},
+    {id:"gca7", en:"The exchange helped me to speak Arabic.", ar:"سَاعَدَنِي التَّبَادُلُ {عَلَى التَّكَلُّمِ بِالْعَرَبِيَّةِ}."},
+    {id:"gca8", en:"It was a great experience.", ar:"{كَانَتْ تَجْرِبَةً} رَائِعَةً."}
+  ]},
+  {id:"gc_lang", sec:"Theme 4: Future aspirations, study and work", en:"Using languages", frame:"اللُّغَةُ الْعَرَبِيَّةُ",
+   note:"Why languages matter, and how you use them outside the classroom.",
+   items:[
+    {id:"gcl1", en:"I speak English and Arabic.", ar:"{أَتَكَلَّمُ} الْإِنْجِلِيزِيَّةَ وَالْعَرَبِيَّةَ."},
+    {id:"gcl2", en:"I learn Arabic so I can understand the Qur’an.", ar:"أَتَعَلَّمُ الْعَرَبِيَّةَ {لِكَيْ أَفْهَمَ الْقُرْآنَ}.", tip:"After [[لِكَيْ]] (so that) the verb ends in a fatha: [[أَفْهَمَ]]."},
+    {id:"gcl3", en:"Languages help you find a good job.", ar:"اللُّغَاتُ {تُسَاعِدُكَ} عَلَى إِيجَادِ عَمَلٍ جَيِّدٍ."},
+    {id:"gcl4", en:"When I travel, I speak Arabic with people.", ar:"{عِنْدَمَا أُسَافِرُ} أَتَكَلَّمُ الْعَرَبِيَّةَ مَعَ النَّاسِ."},
+    {id:"gcl5", en:"Speaking is harder than reading.", ar:"التَّكَلُّمُ {أَصْعَبُ مِنَ} الْقِرَاءَةِ."},
+    {id:"gcl6", en:"I would like to speak Arabic fluently.", ar:"أَوَدُّ أَنْ أَتَكَلَّمَ الْعَرَبِيَّةَ {بِطَلَاقَةٍ}."},
+    {id:"gcl7", en:"Learning a language opens doors.", ar:"تَعَلُّمُ لُغَةٍ {يَفْتَحُ الْأَبْوَابَ}."},
+    {id:"gcl8", en:"My mother tongue is English.", ar:"لُغَتِي الْأُمُّ {هِيَ الْإِنْجِلِيزِيَّةُ}."}
+  ]},
+  {id:"gc_amb", sec:"Theme 4: Future aspirations, study and work", en:"Ambitions and future plans", frame:"فِي الْمُسْتَقْبَلِ",
+   note:"Further study, volunteering and what you want to do. Practising as a woman? Set this in Settings.",
+   items:[
+    {id:"gcb1", en:"In the future I want to go to university.", ar:"{فِي الْمُسْتَقْبَلِ} أُرِيدُ أَنْ أَذْهَبَ إِلَى الْجَامِعَةِ."},
+    {id:"gcb2", en:"I’d like to study medicine.", ar:"{أَوَدُّ أَنْ أَدْرُسَ} الطِّبَّ."},
+    {id:"gcb3", en:"My dream is to become an engineer.", ar:"حُلْمِي أَنْ {أُصْبِحَ مُهَنْدِسًا}.", f:{ar:"حُلْمِي أَنْ {أُصْبِحَ مُهَنْدِسَةً}."}, tip:"After [[أُصْبِحَ]] (become) the job ends in a fatha: [[مُهَنْدِسًا]]."},
+    {id:"gcb4", en:"I’m going to take a year to travel before university.", ar:"{سَآخُذُ سَنَةً} لِلسَّفَرِ قَبْلَ الْجَامِعَةِ."},
+    {id:"gcb5", en:"I volunteer at a charity on Saturdays.", ar:"{أَتَطَوَّعُ} فِي جَمْعِيَّةٍ خَيْرِيَّةٍ يَوْمَ السَّبْتِ."},
+    {id:"gcb6", en:"Volunteering gives me experience.", ar:"{التَّطَوُّعُ يُعْطِينِي} خِبْرَةً."},
+    {id:"gcb7", en:"I want to help people.", ar:"أُرِيدُ {أَنْ أُسَاعِدَ النَّاسَ}."},
+    {id:"gcb8", en:"If I pass my exams, I will go to college.", ar:"{إِذَا نَجَحْتُ} فِي الِامْتِحَانَاتِ، سَأَذْهَبُ إِلَى الْكُلِّيَّةِ.", tip:"After [[إِذَا]] (if) Arabic uses the past verb, even for the future."}
+  ]},
+  {id:"gc_work", sec:"Theme 4: Future aspirations, study and work", en:"Jobs and work", frame:"أَعْمَلُ",
+   note:"Part-time jobs, work experience and careers.",
+   items:[
+    {id:"gck1", en:"I have a part-time job in a shop.", ar:"عِنْدِي {وَظِيفَةٌ بِدَوَامٍ جُزْئِيٍّ} فِي مَحَلٍّ."},
+    {id:"gck2", en:"I earn eight pounds an hour.", ar:"أَكْسِبُ {ثَمَانِيَةَ جُنَيْهَاتٍ} فِي السَّاعَةِ."},
+    {id:"gck3", en:"My father works as an accountant.", ar:"يَعْمَلُ أَبِي {مُحَاسِبًا}.", tip:"The job after [[يَعْمَلُ]] (works as) ends in a fatha: [[مُحَاسِبًا]]."},
+    {id:"gck4", en:"I did a placement in a hospital.", ar:"{قُمْتُ بِتَدْرِيبٍ} فِي مُسْتَشْفًى."},
+    {id:"gck5", en:"The work was tiring but fun.", ar:"كَانَ الْعَمَلُ مُتْعِبًا {لَكِنَّهُ مُمْتِعٌ}."},
+    {id:"gck6", en:"I would like a job where I help others.", ar:"أَوَدُّ عَمَلًا {أُسَاعِدُ فِيهِ الْآخَرِينَ}."},
+    {id:"gck7", en:"I don’t want to work in an office.", ar:"{لَا أُرِيدُ} أَنْ أَعْمَلَ فِي مَكْتَبٍ."},
+    {id:"gck8", en:"Salary is important, but it isn’t everything.", ar:"الرَّاتِبُ مُهِمٌّ {لَكِنَّهُ لَيْسَ كُلَّ شَيْءٍ}."}
+  ]},
+  {id:"gc_world", sec:"Theme 5: International and global dimension", en:"Bringing the world together", frame:"الْعَالَمُ",
+   note:"Big sports events, campaigns and good causes.",
+   items:[
+    {id:"gcg1", en:"The World Cup brings people together.", ar:"كَأْسُ الْعَالَمِ {تَجْمَعُ النَّاسَ}.", tip:"[[كَأْس]] (cup) is feminine, so the verb is [[تَجْمَعُ]]."},
+    {id:"gcg2", en:"I watched the Olympic Games on television.", ar:"{شَاهَدْتُ} الْأَلْعَابَ الْأُولِمْبِيَّةَ عَلَى التِّلْفَازِ."},
+    {id:"gcg3", en:"Big events are good for the country.", ar:"الْأَحْدَاثُ الْكَبِيرَةُ {مُفِيدَةٌ لِلْبَلَدِ}."},
+    {id:"gcg4", en:"We collected money for the charity.", ar:"{جَمَعْنَا الْمَالَ} لِلْجَمْعِيَّةِ الْخَيْرِيَّةِ."},
+    {id:"gcg5", en:"I took part in a campaign against poverty.", ar:"شَارَكْتُ فِي حَمْلَةٍ {ضِدَّ الْفَقْرِ}."},
+    {id:"gcg6", en:"We donated clothes and food to refugees.", ar:"{تَبَرَّعْنَا} بِالْمَلَابِسِ وَالطَّعَامِ لِلَّاجِئِينَ."},
+    {id:"gcg7", en:"Everyone has the right to education.", ar:"{لِكُلِّ إِنْسَانٍ} الْحَقُّ فِي التَّعْلِيمِ."},
+    {id:"gcg8", en:"We must help people in need.", ar:"يَجِبُ أَنْ {نُسَاعِدَ الْمُحْتَاجِينَ}."}
+  ]},
+  {id:"gc_env", sec:"Theme 5: International and global dimension", en:"The environment", frame:"الْبِيئَةُ",
+   note:"Being green and looking after the planet.",
+   items:[
+    {id:"gce1", en:"I recycle paper and plastic.", ar:"{أُعِيدُ تَدْوِيرَ} الْوَرَقِ وَالْبِلَاسْتِيكِ.", tip:"[[أُعِيدُ تَدْوِيرَ]] is literally “I re-cycle”."},
+    {id:"gce2", en:"I switch off the lights when I leave the room.", ar:"أُطْفِئُ الْأَضْوَاءَ {عِنْدَمَا أَخْرُجُ مِنَ الْغُرْفَةِ}."},
+    {id:"gce3", en:"I go to school on foot or by bike.", ar:"أَذْهَبُ إِلَى الْمَدْرَسَةِ {مَشْيًا أَوْ بِالدَّرَّاجَةِ}."},
+    {id:"gce4", en:"Pollution is a big problem in cities.", ar:"{التَّلَوُّثُ} مُشْكِلَةٌ كَبِيرَةٌ فِي الْمُدُنِ."},
+    {id:"gce5", en:"We must save water.", ar:"يَجِبُ أَنْ {نُوَفِّرَ الْمَاءَ}."},
+    {id:"gce6", en:"Climate change worries me.", ar:"{تَغَيُّرُ الْمُنَاخِ} يُقْلِقُنِي."},
+    {id:"gce7", en:"We must use less plastic.", ar:"يَجِبُ أَنْ {نُقَلِّلَ} اسْتِعْمَالَ الْبِلَاسْتِيكِ."},
+    {id:"gce8", en:"In my opinion, everyone can help the planet.", ar:"{فِي رَأْيِي}، يَسْتَطِيعُ كُلُّ وَاحِدٍ أَنْ يُسَاعِدَ الْكَوْكَبَ."}
+  ]}
+];
+DECKS.push(...GCSE_DECKS.map(d => ({...d, group:"gcse"})));
+
 /* ---------- state + storage ---------- */
 let progress = {cards:{}, chains:{}, scenes:{}, known:{}, due:{}};
 let settings = {vowels:true, autoplay:true, listenFirst:false, voiceHelp:true, speaker:null, speed:"normal"};
@@ -1982,7 +2148,7 @@ function renderHome(){
          learned + ' solid</span><span class="sub">' + (learned ? "Up to 10 of your solid sentences, so they stay solid." : "Sentences appear here once they’re solid.") + '</span></button></li>';
     const marked = all.filter(it => isKnown(it.id)).length;
     h += '<li><button class="row review" data-act="knownpick"><span class="t">Mark what you already know</span><span class="s">' + marked + ' marked</span><span class="sub">Tick sentences you know well and lessons will skip them.</span></button></li>';
-    [["talk","Conversation phrases"],["home","At home with children"],["hadith","From the ahadith"],["everyday","Everyday phrases"],["grammar","Grammar builders"],["discussion","Discussion words"]].forEach(([g, label]) => {
+    [["talk","Conversation phrases"],["home","At home with children"],["hadith","From the ahadith"],["everyday","Everyday phrases"],["grammar","Grammar builders"],["discussion","Discussion words"],["gcse","GCSE Arabic"]].forEach(([g, label]) => {
     h += '<li><h2 class="group-h">' + label + '</h2></li>';
     if (g === "discussion" || g === "home" || g === "hadith"){
       [...new Set(DECKS.filter(d => d.group === g).map(d => d.sec))].forEach(sec => {
@@ -1995,7 +2161,9 @@ function renderHome(){
       });
       return;
     }
+    let lastSec = null;
     DECKS.filter(d => (d.group || "everyday") === g).forEach(d => {
+      if (d.sec && d.sec !== lastSec){ lastSec = d.sec; h += '<li><h3 class="sec-h">' + esc(lastSec) + '</h3></li>'; }
       const pct = deckPct(d.items);
       h += '<li><button class="row" data-act="deck" data-v="' + d.id + '"><span class="ar" lang="ar">' + frameHTML(d.frame) + '</span>' +
            '<span class="t">' + esc(d.en) + '</span><span class="s">' + deckLabel(d.items) + '</span>' +
@@ -2173,7 +2341,7 @@ function renderDone(s){
   return h;
 }
 
-const KNOW_GROUPS = [["talk","Conversation"],["home","Home"],["hadith","Ahadith"],["everyday","Everyday"],["grammar","Grammar"],["discussion","Discussion"]];
+const KNOW_GROUPS = [["talk","Conversation"],["home","Home"],["hadith","Ahadith"],["everyday","Everyday"],["grammar","Grammar"],["discussion","Discussion"],["gcse","GCSE"]];
 function groupDecks(g){ return DECKS.filter(d => (d.group || "everyday") === g); }
 function knowAllBtn(act, v, items){
   const all = items.every(it => isKnown(it.id));
@@ -2433,7 +2601,7 @@ function startStep(step){
 }
 /* The next lesson in the order the home screen lists them: one already begun and not yet solid, or else the first not yet solid. */
 function nextDeck(){
-  const order = ["talk","home","hadith","everyday","grammar","discussion"], g = d => { const i = order.indexOf(d.group); return i < 0 ? order.length : i; };
+  const order = ["talk","home","hadith","everyday","grammar","discussion","gcse"], g = d => { const i = order.indexOf(d.group); return i < 0 ? order.length : i; };
   const decks = DECKS.map((d, i) => [d, i]).sort((a, b) => g(a[0]) - g(b[0]) || a[1] - b[1]).map(x => x[0]);
   const open = d => !deckItems(d).every(it => box(it.id) >= SOLID);
   return decks.find(d => open(d) && doneCount(deckItems(d)) > 0) || decks.find(open) || null;
