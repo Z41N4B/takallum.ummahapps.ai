@@ -118,7 +118,7 @@
         {"@type": "Question", "name": "How does Takallum decide what to practise?",
          "acceptedAnswer": {"@type": "Answer", "text": "It uses spaced repetition. Each sentence you mark as got it moves up a level; a missed sentence drops back and comes round again later in the same session. Mixed review gathers your ten weakest sentences from every pattern, and Review what you've learned practises only the sentences you already know."}},
         {"@type": "Question", "name": "Can I learn Arabic from the ahadith in Takallum?",
-         "acceptedAnswer": {"@type": "Answer", "text": "Yes. The From the ahadith group has short phrases from Sahih al-Bukhari and Sahih Muslim that you can use in daily life: everyday questions and instructions, things said at home and at the table, greetings and courtesy, duas for the day, and short sayings. Each one shows its hadith number from sunnah.com, and the English is a plain meaning, not a formal translation."}},
+         "acceptedAnswer": {"@type": "Answer", "text": "Yes. The From the ahadith group has short phrases from Sahih al-Bukhari and Sahih Muslim that you can use in daily life: everyday questions and instructions, things said at home and at the table, greetings and courtesy, duas for the day, and short sayings. Each one shows its hadith number from sunnah.com, which you can tap to read the full hadith, and the English is a plain meaning, not a formal translation."}},
         {"@type": "Question", "name": "Does Takallum have sentences for home and children?",
          "acceptedAnswer": {"@type": "Answer", "text": "Yes. The At home with children group has commands for getting ready, mealtimes, tidying, behaviour, bedtime and going out, each said to a boy, to a girl and to several children. It also has praise, questions for children, things children say to each other, and what they say to Mum, Dad and their grandparents."}},
         {"@type": "Question", "name": "Can I skip sentences I already know in Takallum?",
@@ -181,7 +181,7 @@ button{font:inherit;color:inherit;cursor:pointer}
 .icon-btn svg{width:20px;height:20px}
 
 /* tabs */
-.tabs{display:grid;grid-template-columns:repeat(3,1fr);background:var(--sunk);border-radius:12px;padding:4px;gap:4px;margin-bottom:14px}
+.tabs{display:grid;grid-template-columns:repeat(4,1fr);background:var(--sunk);border-radius:12px;padding:4px;gap:4px;margin-bottom:14px}
 .tabs button{border:0;background:none;padding:9px 4px;border-radius:9px;font-weight:500;color:var(--muted);font-size:.95rem}
 .tabs button[aria-selected="true"]{background:var(--surface);color:var(--ink);box-shadow:0 1px 2px rgba(10,20,40,.12)}
 .intro{color:var(--muted);margin:0 2px 16px;font-size:.95rem}
@@ -301,6 +301,7 @@ a.ua-app:hover{border-color:var(--f-lapis)}
 .say{display:flex;gap:8px;justify-content:flex-end;margin-top:8px}
 .say button{border:1px solid var(--line);background:var(--sunk);border-radius:999px;padding:6px 14px;font-size:.88rem;display:inline-flex;align-items:center;gap:6px}
 .say svg{width:14px;height:14px}
+.hadith-link{color:inherit;text-decoration:underline;text-underline-offset:2px}
 .tip{margin:14px 0 0;padding:10px 12px;background:var(--brass-soft);border-radius:10px;font-size:.9rem}
 .actions{display:grid;gap:10px;grid-template-columns:1fr 1fr}
 .btn{border-radius:14px;padding:15px 12px;font-weight:600;font-size:1.02rem;border:2px solid transparent}
@@ -376,6 +377,7 @@ a.ua-app:hover{border-color:var(--f-lapis)}
 .about details:last-of-type{border-bottom:1px solid var(--line)}
 .about summary{color:var(--ink);font-weight:500;cursor:pointer;padding:4px 0}
 .about details p{margin:4px 0 6px}
+#about-body h2{border-top:0;padding-top:4px}
 .about .credit{text-align:center;font-size:.82rem;margin-top:18px}
 .about a{color:var(--lapis)}
 @media (prefers-reduced-motion: reduce){.prog i{transition:none}}
@@ -388,25 +390,27 @@ a.ua-app:hover{border-color:var(--f-lapis)}
 </main>
 
 <footer class="wrap about" id="about">
-  <h2>About Takallum</h2>
-  <p><strong>Takallum</strong> (<bdi class="ari" dir="rtl" lang="ar">تَكَلُّم</bdi>, “speaking”) is a free speaking-practice app for Modern Standard Arabic (fusha). Instead of reading about grammar, you say whole sentences out loud, compare them with a fully vowelled model answer and its audio, and mark yourself honestly. Sentences you miss come back sooner.</p>
-  <h3>Three ways to practise</h3>
-  <ul>
+  <div class="about" id="about-body" hidden>
+    <h2>About Takallum</h2>
+    <p><strong>Takallum</strong> (<bdi class="ari" dir="rtl" lang="ar">تَكَلُّم</bdi>, “speaking”) is a free speaking-practice app for Modern Standard Arabic (fusha). Instead of reading about grammar, you say whole sentences out loud, compare them with a fully vowelled model answer and its audio, and mark yourself honestly. Sentences you miss come back sooner.</p>
+    <h3>Three ways to practise</h3>
+    <ul>
     <li><strong>Swap-in drills.</strong> 939 sentences in 141 sections, including 27 Arabic proverbs and 13 lessons for the GCSE Arabic speaking topics: greetings and conversation phrases said to a man, a woman or a group, 60 discussion words with a button each, and everyday phrases like <bdi class="ari" dir="rtl" lang="ar">أُرِيدُ أَنْ</bdi> (I want to) and <bdi class="ari" dir="rtl" lang="ar">أَيْنَ</bdi> (where is), through discussion phrases like <bdi class="ari" dir="rtl" lang="ar">فِي رَأْيِي</bdi> (in my opinion), <bdi class="ari" dir="rtl" lang="ar">عَلَى الرَّغْمِ مِنْ</bdi> (despite) and <bdi class="ari" dir="rtl" lang="ar">لِذَلِكَ</bdi> (therefore), to grammar builders: <bdi class="ari" dir="rtl" lang="ar">لَمْ</bdi> (didn’t), <bdi class="ari" dir="rtl" lang="ar">كَانَ</bdi> and its sisters, <bdi class="ari" dir="rtl" lang="ar">إِنَّ</bdi> and its sisters, <bdi class="ari" dir="rtl" lang="ar">مُنْذُ</bdi>, <bdi class="ari" dir="rtl" lang="ar">يَجِبُ</bdi>, <bdi class="ari" dir="rtl" lang="ar">الَّذِي</bdi>, the idafa, comparatives, conditionals with <bdi class="ari" dir="rtl" lang="ar">إِذَا</bdi> and <bdi class="ari" dir="rtl" lang="ar">لَوْ</bdi>, and numbers.</li>
     <li><strong>Transform chains.</strong> 14 chains where one sentence changes step by step: a new person, tense, gender or negative each time.</li>
     <li><strong>Role-play.</strong> 13 everyday conversations, including meeting someone, at the shop, at the restaurant, on the phone, in class, at the mosque, in a taxi and at the doctor’s.</li>
-  </ul>
-  <h3>Questions</h3>
-  <details><summary>Is Takallum free?</summary><p>Yes. It is free and needs no sign-up. Your progress is saved in your browser on this device.</p></details>
-  <details><summary>Which kind of Arabic does it teach?</summary><p>Modern Standard Arabic (fusha), the formal Arabic used in books, news and education and understood across the Arab world. Every sentence is fully vowelled, and you can switch the vowel marks off in settings once you can read without them.</p></details>
-  <details><summary>Who is it for?</summary><p>Beginner to intermediate learners who can read Arabic script and want to turn the grammar they have studied into sentences they can actually say.</p></details>
-  <details><summary>Does it have audio?</summary><p>Yes. Every Arabic sentence plays at normal or slow speed using your device’s Arabic text-to-speech voice. Without an Arabic voice the drills still work, just without sound. To practise by ear, turn on <strong>Hear without seeing the words</strong>, which hides the Arabic until you tap Show words.</p></details>
-  <details><summary>How does it decide what to practise?</summary><p>It uses spaced repetition. A sentence you get right moves up a level; one you miss drops back and comes round again later in the same session. Mixed review gathers your ten weakest sentences from every pattern, and <strong>Review what you’ve learned</strong> practises only the ones you already know.</p></details>
-  <details><summary>Can I learn Arabic from the ahadith in Takallum?</summary><p>Yes. The From the ahadith group has short phrases from Sahih al-Bukhari and Sahih Muslim that you can use in daily life: everyday questions and instructions, things said at home and at the table, greetings and courtesy, duas for the day, and short sayings. Each one shows its hadith number from sunnah.com, and the English is a plain meaning, not a formal translation.</p></details>
-  <details><summary>Does Takallum have sentences for home and children?</summary><p>Yes. The At home with children group has commands for getting ready, mealtimes, tidying, behaviour, bedtime and going out, each said to a boy, to a girl and to several children. It also has praise, questions for children, things children say to each other, and what they say to Mum, Dad and their grandparents.</p></details>
-  <details><summary>Can I skip sentences I already know?</summary><p>Yes. On the Swap-in tab, open Mark what you already know and tick single sentences, whole sections or a whole group, or tap I already know this during a lesson. Lessons skip those sentences and your bars count them as solid. They still come up in Review what you’ve learned, and if you miss one there it goes back into your lessons.</p></details>
-  <details><summary>How do I make a pattern solid?</summary><p>A sentence is solid once you mark it <strong>Got it</strong> the first time you see it, in two separate sessions. <strong>Missed it</strong> sends it back to the start, and getting it right when it comes round again later in that session doesn’t count. So for all 8 solid, run the pattern twice and get all eight right first time both times. The bar moves before then: a sentence you’ve practised counts a quarter, one you’ve got right counts a half, and a solid one counts in full.</p></details>
-  <details><summary>Does it cover feminine and plural forms?</summary><p>Yes. In settings, choose whether you’re practising as a man or a woman: it changes sentences about yourself, like “I was tired”, and how people speak to you in role-play. The “you: a man, a woman, a group” pattern and transform chain practise speaking to each.</p></details>
+    </ul>
+    <h3>Questions</h3>
+    <details><summary>Is Takallum free?</summary><p>Yes. It is free and needs no sign-up. Your progress is saved in your browser on this device.</p></details>
+    <details><summary>Which kind of Arabic does it teach?</summary><p>Modern Standard Arabic (fusha), the formal Arabic used in books, news and education and understood across the Arab world. Every sentence is fully vowelled, and you can switch the vowel marks off in settings once you can read without them.</p></details>
+    <details><summary>Who is it for?</summary><p>Beginner to intermediate learners who can read Arabic script and want to turn the grammar they have studied into sentences they can actually say.</p></details>
+    <details><summary>Does it have audio?</summary><p>Yes. Every Arabic sentence plays at normal or slow speed using your device’s Arabic text-to-speech voice. Without an Arabic voice the drills still work, just without sound. To practise by ear, turn on <strong>Hear without seeing the words</strong>, which hides the Arabic until you tap Show words.</p></details>
+    <details><summary>How does it decide what to practise?</summary><p>It uses spaced repetition. A sentence you get right moves up a level; one you miss drops back and comes round again later in the same session. Mixed review gathers your ten weakest sentences from every pattern, and <strong>Review what you’ve learned</strong> practises only the ones you already know.</p></details>
+    <details><summary>Can I learn Arabic from the ahadith in Takallum?</summary><p>Yes. The From the ahadith group has short phrases from Sahih al-Bukhari and Sahih Muslim that you can use in daily life: everyday questions and instructions, things said at home and at the table, greetings and courtesy, duas for the day, and short sayings. Each one shows its hadith number from sunnah.com, which you can tap to read the full hadith, and the English is a plain meaning, not a formal translation.</p></details>
+    <details><summary>Does Takallum have sentences for home and children?</summary><p>Yes. The At home with children group has commands for getting ready, mealtimes, tidying, behaviour, bedtime and going out, each said to a boy, to a girl and to several children. It also has praise, questions for children, things children say to each other, and what they say to Mum, Dad and their grandparents.</p></details>
+    <details><summary>Can I skip sentences I already know?</summary><p>Yes. On the Swap-in tab, open Mark what you already know and tick single sentences, whole sections or a whole group, or tap I already know this during a lesson. Lessons skip those sentences and your bars count them as solid. They still come up in Review what you’ve learned, and if you miss one there it goes back into your lessons.</p></details>
+    <details><summary>How do I make a pattern solid?</summary><p>A sentence is solid once you mark it <strong>Got it</strong> the first time you see it, in two separate sessions. <strong>Missed it</strong> sends it back to the start, and getting it right when it comes round again later in that session doesn’t count. So for all 8 solid, run the pattern twice and get all eight right first time both times. The bar moves before then: a sentence you’ve practised counts a quarter, one you’ve got right counts a half, and a solid one counts in full.</p></details>
+    <details><summary>Does it cover feminine and plural forms?</summary><p>Yes. In settings, choose whether you’re practising as a man or a woman: it changes sentences about yourself, like “I was tired”, and how people speak to you in role-play. The “you: a man, a woman, a group” pattern and transform chain practise speaking to each.</p></details>
+  </div>
   <p class="credit">Takallum is part of <a href="https://ummahapps.ai/">Ummah Apps</a>.</p>
   <nav class="ua-fam" aria-labelledby="ua-fam-h">
     <h2 id="ua-fam-h">Four free Arabic apps that work together</h2>
@@ -1911,9 +1915,9 @@ let syncMode = "device";
 
 try { const s = JSON.parse(localStorage.getItem("qul-settings") || "null"); if (s) settings = Object.assign(settings, s); } catch(e){}
 
-/* Up to 3 learners on a device, the same learners as in the other Ummah Apps (ummah.js). Each keeps their own progress
+/* Up to 6 learners on a device, the same learners as in the other Ummah Apps (ummah.js). Each keeps their own progress
    and their own "practising as a man or a woman"; learner p1 keeps the original storage key so earlier progress carries over. */
-const MAXP = 3;
+const MAXP = 6;
 const lsHas = k => { try { return !!localStorage.getItem(k); } catch(e){ return false; } };
 let profiles = null;
 try { profiles = JSON.parse(localStorage.getItem("qul-profiles") || "null"); } catch(e){}
@@ -2046,7 +2050,13 @@ function plain(s){ return s.replace(/[{}]/g, ""); }
 function vow(s){ return settings.vowels ? s : s.replace(HARAKAT, ""); }
 function arHTML(s){ return esc(vow(s)).replace(/\{([^}]*)\}/g, '<span class="slot">$1</span>'); }
 function frameHTML(s){ return esc(vow(s)).replace("{…}", '<span class="gap" aria-hidden="true"></span>'); }
-function noteHTML(s){ return esc(s).replace(/\[\[(.+?)\]\]/g, '<bdi class="ari" dir="rtl">$1</bdi>'); }
+/* Hadith numbers link to the full hadith on sunnah.com. Takes text that is already escaped. */
+const SUNNAH_BOOK = {"Sahih al-Bukhari":"bukhari", "Sahih Muslim":"muslim"};
+function refLinks(html){
+  return html.replace(/(Sahih al-Bukhari|Sahih Muslim) (\d+)(?:-\d+)?/g, (m, book, n) =>
+    '<a class="hadith-link" href="https://sunnah.com/' + SUNNAH_BOOK[book] + ':' + n + '" target="_blank" rel="noopener" title="Read the full hadith on sunnah.com">' + m + '</a>');
+}
+function noteHTML(s){ return refLinks(esc(s)).replace(/\[\[(.+?)\]\]/g, '<bdi class="ari" dir="rtl">$1</bdi>'); }
 function shuffle(a){ for (let i = a.length - 1; i > 0; i--){ const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; }
 function box(id){ return progress.cards[id] || 0; }
 const SOLID = 2;
@@ -2179,8 +2189,10 @@ function renderHome(){
   h += learnersHTML();
   h += '<section id="ua-today" aria-label="Today’s practice" hidden></section>';
   h += '<div class="tabs" role="tablist">' +
-       [["swap","Swap-in"],["transform","Transform"],["roleplay","Role-play"]].map(([k,l]) =>
+       [["swap","Swap-in"],["transform","Transform"],["roleplay","Role-play"],["about","About"]].map(([k,l]) =>
          '<button role="tab" aria-selected="' + (S.tab === k) + '" data-act="tab" data-v="' + k + '">' + l + '</button>').join("") + '</div>';
+  /* The About tab shows the About text and questions, which sit in the page's HTML so search engines can read them. */
+  if (S.tab === "about") return h + '<div id="about-slot"></div>';
   if (!settings.speaker) h += '<div class="who-ask"><p>Some sentences change if a woman says them, like <bdi class="ari" dir="rtl" lang="ar">' + esc(vow("كُنْتُ مُتْعَبًا")) + '</bdi> and <bdi class="ari" dir="rtl" lang="ar">' + esc(vow("كُنْتُ مُتْعَبَةً")) + '</bdi> (I was tired). Are you practising as:</p>' +
     '<div class="seg"><button data-act="speaker" data-v="m">A man</button><button data-act="speaker" data-v="f">A woman</button></div></div>';
   h += '<p class="intro">' + INTROS[S.tab] + '</p>' + voiceGuideHTML() +
@@ -2432,7 +2444,7 @@ function settingsHTML(){
 
 /* ---------- render ---------- */
 const app = document.getElementById("app");
-const about = document.getElementById("about");
+const about = document.getElementById("about"), aboutBody = document.getElementById("about-body");
 function render(){
   const s = S.session;
   let h;
@@ -2443,7 +2455,10 @@ function render(){
   else if (s.type === "swap") h = renderSwap(s);
   else if (s.type === "chain") h = renderChain(s);
   else h = renderScene(s);
+  if (aboutBody.parentNode !== about){ about.prepend(aboutBody); aboutBody.hidden = true; }
   app.innerHTML = h + (S.sheet ? settingsHTML() : "");
+  const slot = document.getElementById("about-slot");
+  if (slot){ slot.replaceWith(aboutBody); aboutBody.hidden = false; }
   about.hidden = !!s;
   if (window.UA) UA.refreshToday(document.getElementById("ua-today"));
 }
@@ -2624,8 +2639,8 @@ document.addEventListener("keydown", e => {
 });
 
 const h0 = location.hash.slice(1);
-if (["swap","transform","roleplay"].includes(h0)) S.tab = h0;
-window.addEventListener("hashchange", () => { const h = location.hash.slice(1); if (["swap","transform","roleplay"].includes(h)){ S.tab = h; if (!S.session) render(); } });
+if (["swap","transform","roleplay","about"].includes(h0)) S.tab = h0;
+window.addEventListener("hashchange", () => { const h = location.hash.slice(1); if (["swap","transform","roleplay","about"].includes(h)){ S.tab = h; if (!S.session) render(); } });
 render();
 
 /* ---------- Today's practice across the four apps (ummah.js) ---------- */
